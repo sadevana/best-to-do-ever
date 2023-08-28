@@ -37,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6C8BE752A9D3D62008E785D /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A6CB06182A9D3453007A65F0 /* ViewController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		A6CB06082A9D3453007A65F0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +64,9 @@
 		A6CB06132A9D3453007A65F0 /* Eris */ = {
 			isa = PBXGroup;
 			children = (
+				A6C8BE752A9D3D62008E785D /* MainView */,
 				A6CB06142A9D3453007A65F0 /* AppDelegate.swift */,
 				A6CB06162A9D3453007A65F0 /* SceneDelegate.swift */,
-				A6CB06182A9D3453007A65F0 /* ViewController.swift */,
 				A6CB061A2A9D3453007A65F0 /* Main.storyboard */,
 				A6CB061D2A9D3454007A65F0 /* Assets.xcassets */,
 				A6CB061F2A9D3454007A65F0 /* LaunchScreen.storyboard */,
