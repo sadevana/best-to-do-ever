@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6C8BE772A9D46A9008E785D /* DataModel.xcdatamodeld */; };
 		A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB06142A9D3453007A65F0 /* AppDelegate.swift */; };
 		A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB06162A9D3453007A65F0 /* SceneDelegate.swift */; };
-		A6CB06192A9D3453007A65F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB06182A9D3453007A65F0 /* ViewController.swift */; };
 		A6CB061C2A9D3453007A65F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061A2A9D3453007A65F0 /* Main.storyboard */; };
 		A6CB061E2A9D3454007A65F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061D2A9D3454007A65F0 /* Assets.xcassets */; };
 		A6CB06212A9D3454007A65F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061F2A9D3454007A65F0 /* LaunchScreen.storyboard */; };
+		A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		A6C8BE782A9D46A9008E785D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A6CB06112A9D3453007A65F0 /* Eris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CB06142A9D3453007A65F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CB06162A9D3453007A65F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6CB06182A9D3453007A65F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A6CB061B2A9D3453007A65F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6CB061D2A9D3454007A65F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6CB06202A9D3454007A65F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6CB06222A9D3454007A65F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +41,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A6C8BE752A9D3D62008E785D /* MainView */ = {
+		A692D56F2AA28E90008EE6DD /* AddTask */ = {
 			isa = PBXGroup;
 			children = (
-				A6CB06182A9D3453007A65F0 /* ViewController.swift */,
+				A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */,
 			);
-			path = MainView;
+			path = AddTask;
+			sourceTree = "<group>";
+		};
+		A6C8BE752A9D3D62008E785D /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		A6C8BE762A9D3E21008E785D /* DataModel */ = {
@@ -74,8 +84,9 @@
 		A6CB06132A9D3453007A65F0 /* Eris */ = {
 			isa = PBXGroup;
 			children = (
+				A692D56F2AA28E90008EE6DD /* AddTask */,
 				A6C8BE762A9D3E21008E785D /* DataModel */,
-				A6C8BE752A9D3D62008E785D /* MainView */,
+				A6C8BE752A9D3D62008E785D /* HomeView */,
 				A6CB06142A9D3453007A65F0 /* AppDelegate.swift */,
 				A6CB06162A9D3453007A65F0 /* SceneDelegate.swift */,
 				A6CB061A2A9D3453007A65F0 /* Main.storyboard */,
@@ -157,10 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6CB06192A9D3453007A65F0 /* ViewController.swift in Sources */,
 				A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */,
 				A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */,
 				A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */,
+				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
+				A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
