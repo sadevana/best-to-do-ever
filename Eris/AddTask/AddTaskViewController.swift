@@ -9,9 +9,13 @@ import UIKit
 
 class AddTaskViewController: UIViewController {
 
+    @IBOutlet weak var descriptionView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        descriptionView!.layer.borderColor = borderColor.cgColor
+        descriptionView!.layer.borderWidth = 0.3
+        descriptionView!.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
     }
     
