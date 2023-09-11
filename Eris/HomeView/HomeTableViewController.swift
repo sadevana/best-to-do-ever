@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeTableViewController: UITableViewController {
     
     private let addButton: UIButton = {
+        //Creating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         button.backgroundColor = .red
         button.layer.masksToBounds = true
@@ -24,6 +26,16 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view.addSubview(addButton)
+        //Initial setup
+        tableView.rowHeight = 100.0
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        //var tasks = [Task]()
+        let request = NSFetchRequest<Task>(entityName: "Task")
+        request.returnsObjectsAsFaults = false
+        let tasks = try? CoreDataService().context().fetch(request)
+        print(tasks)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,7 +50,7 @@ class HomeTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTaskViewController: UIViewController {
 
+    @IBOutlet weak var addTaskButton: UIButton!
     @IBOutlet weak var timeField: UITextField!
     @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var descriptionView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +55,22 @@ class AddTaskViewController: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd MMMM YYYY"
         dateField.text = dateFormater.string(from: sender.date)
+    }
+    
+    @IBAction func AddTaskButtonTapped(_ sender: Any) {
+        //Adding new task
+        let context = CoreDataService.shared.context()
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        let taskAdded = Task(context: context)
+        taskAdded.title = taskNameField.text
+        taskAdded.task_description = descriptionView.text
+        do {
+            try context.save()
+            //Going back to home view
+            self.navigationController?.popViewController(animated: false)
+        } catch {
+            print(error)
+        }
     }
     /*
     // MARK: - Navigation
