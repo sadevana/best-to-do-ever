@@ -64,6 +64,7 @@ class AddTaskViewController: UIViewController {
         let taskAdded = Task(context: context)
         taskAdded.title = taskNameField.text
         taskAdded.task_description = descriptionView.text
+        print(taskAdded)
         do {
             try context.save()
             //Going back to home view

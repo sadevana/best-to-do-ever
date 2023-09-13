@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */; };
 		A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6C8BE772A9D46A9008E785D /* DataModel.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A6C8BE782A9D46A9008E785D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */,
+				A6145F872AB196B70030AA50 /* TaskViewCell.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */,
+				A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */,
 				A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */,
 				A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */,
 				A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */,

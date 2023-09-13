@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 class HomeTableViewController: UITableViewController {
+    var tasksToShow = [Task]()
     
     private let addButton: UIButton = {
         //Creating button
@@ -24,27 +25,24 @@ class HomeTableViewController: UITableViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(addButton)
         //Initial setup
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        //var tasks = [Task]()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Refreshing tasks
         let request = NSFetchRequest<Task>(entityName: "Task")
         request.returnsObjectsAsFaults = false
-        let tasks = try? CoreDataService().context().fetch(request)
-        print(tasks)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tasksToShow = try! CoreDataService().context().fetch(request)
+        self.tableView.reloadData()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 120, width: 60, height: 60)
+        //addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 120, width: 60, height: 60)
+        
     }
     // MARK: - Table view data source
 
@@ -52,10 +50,21 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "TaskViewCell")
+        if let tableCell = tableCell as? TaskViewCell {
+            tableCell.setup(withtask: tasksToShow[indexPath.row])
+        }
+        return tableCell!
+    }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Making scroll button stay in place
+        let offset = scrollView.contentOffset.y
+        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tasksToShow.count
     }
     @objc func buttonAction(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -64,6 +73,7 @@ class HomeTableViewController: UITableViewController {
         self.navigationController?.pushViewController(nextViewController, animated: true)
         //HomeTableViewController.self.navigationController?.pushViewController(nextViewController, animated: true)
     }
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

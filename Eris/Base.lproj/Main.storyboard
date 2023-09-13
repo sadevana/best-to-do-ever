@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="3hd-yC-mdb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskViewCell" rowHeight="90" id="3hd-yC-mdb" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hd-yC-mdb" id="487-13-1my">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hd-yC-mdb" id="487-13-1my" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -32,7 +32,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="296" y="11" width="77" height="21"/>
+                                            <rect key="frame" x="194" y="11" width="179" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -47,6 +47,13 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
+                                    <outlet property="TaskTimeLabel" destination="VNv-Pm-AeI" id="PWM-GR-2T3"/>
+                                    <outlet property="taskDescriptionLabel" destination="paU-j2-sdz" id="0Vs-gt-Ed4"/>
+                                    <outlet property="taskNameLabel" destination="ADd-Qc-ZlR" id="vJK-SV-djv"/>
+                                    <outlet property="taskTimeLabel" destination="VNv-Pm-AeI" id="ZgM-SC-1IE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
