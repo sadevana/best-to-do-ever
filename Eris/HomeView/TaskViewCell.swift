@@ -21,11 +21,11 @@ class TaskViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setup(withtask: Task) {
-        taskNameLabel.text = withtask.title
-        taskDescriptionLabel.text = withtask.task_description
+    func setup(withtask: TaskUI) {
+        taskNameLabel.text = withtask.name
+        taskDescriptionLabel.text = withtask.description
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "DD/MM/YYY HH:mm:ss"
-        taskTimeLabel.text = dateFormatter.string(from: withtask.due_date ?? Date())
+        dateFormatter.dateFormat = "dd.MM HH:mm"
+        taskTimeLabel.text = dateFormatter.string(from: withtask.datetime ?? Date())
     }
 }

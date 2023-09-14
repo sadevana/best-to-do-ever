@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class HomeTableViewController: UITableViewController {
-    var tasksToShow = [Task]()
+    var tasksToShow = [TaskUI]()
     
     private let addButton: UIButton = {
         //Creating button
@@ -33,10 +33,16 @@ class HomeTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Refreshing tasks
+        tasksToShow = []
+        //Getting data from db
         let request = NSFetchRequest<Task>(entityName: "Task")
         request.returnsObjectsAsFaults = false
-        tasksToShow = try! CoreDataService().context().fetch(request)
+        let tasksDB = try! CoreDataService().context().fetch(request)
+        for taskDBIns in tasksDB {
+            tasksToShow.append(TaskUI(taskDB: taskDBIns))
+        }
+        //Refreshing tasks
+        
         self.tableView.reloadData()
     }
     override func viewDidLayoutSubviews() {

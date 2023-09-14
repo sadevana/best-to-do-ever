@@ -25,14 +25,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
-                                            <rect key="frame" x="20" y="11" width="84" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="194" y="11" width="179" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
+                                            <rect key="frame" x="228" y="11" width="145" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -195,6 +195,7 @@
                         <outlet property="addTaskButton" destination="ZxM-dh-NPz" id="Dfw-hW-crX"/>
                         <outlet property="dateField" destination="NqW-WN-HGq" id="5q0-nx-7GS"/>
                         <outlet property="descriptionView" destination="bWq-0r-Afy" id="eaI-5s-DHB"/>
+                        <outlet property="goldField" destination="ZYX-6P-DaW" id="bYY-H4-X84"/>
                         <outlet property="taskNameField" destination="EMe-w2-lqm" id="qeS-dX-9hd"/>
                         <outlet property="timeField" destination="Mq9-BY-laK" id="3lr-C6-oe1"/>
                     </connections>
