@@ -82,13 +82,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-4S-DLU">
-                                <rect key="frame" x="16" y="346" width="36" height="20.333333333333314"/>
+                                <rect key="frame" x="16" y="346" width="63" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-bU-ETb">
-                                <rect key="frame" x="16" y="427.33333333333331" width="36" height="21"/>
+                                <rect key="frame" x="16" y="427" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NqW-WN-HGq">
-                                <rect key="frame" x="16" y="378" width="160" height="34"/>
+                                <rect key="frame" x="16" y="377.66666666666669" width="160" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="eTp-RJ-ZU7"/>
                                 </constraints>
@@ -134,7 +134,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYX-6P-DaW">
-                                <rect key="frame" x="16" y="456.33333333333331" width="97" height="34"/>
+                                <rect key="frame" x="16" y="456" width="97" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -166,6 +166,7 @@
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="EMe-w2-lqm" secondAttribute="trailing" constant="16" id="7jO-MD-pZh"/>
                             <constraint firstItem="7d8-Me-WVk" firstAttribute="top" secondItem="EMe-w2-lqm" secondAttribute="bottom" constant="8" symbolic="YES" id="BMu-zc-EIl"/>
                             <constraint firstItem="Mq9-BY-laK" firstAttribute="leading" secondItem="NqW-WN-HGq" secondAttribute="trailing" constant="45" id="BxJ-29-iJP"/>
+                            <constraint firstItem="Sm0-XK-y3B" firstAttribute="leading" secondItem="xc6-4S-DLU" secondAttribute="trailing" constant="142" id="CN1-Wh-iyL"/>
                             <constraint firstItem="eVD-bU-ETb" firstAttribute="top" secondItem="NqW-WN-HGq" secondAttribute="bottom" constant="15.333333333333314" id="D7D-QX-E2E"/>
                             <constraint firstItem="eVD-bU-ETb" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="E7Y-MG-yZl"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="Sm0-XK-y3B" secondAttribute="trailing" constant="134" id="EEw-af-5UP"/>
@@ -178,7 +179,6 @@
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="bWq-0r-Afy" secondAttribute="trailing" constant="16" id="UPz-EW-BY6"/>
                             <constraint firstItem="xc6-4S-DLU" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="aqy-TA-tzf"/>
                             <constraint firstItem="ZYX-6P-DaW" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="bxP-d8-9ft"/>
-                            <constraint firstItem="Sm0-XK-y3B" firstAttribute="leading" secondItem="xc6-4S-DLU" secondAttribute="trailing" constant="169" id="g6e-fn-fml"/>
                             <constraint firstItem="Mq9-BY-laK" firstAttribute="top" secondItem="Sm0-XK-y3B" secondAttribute="bottom" constant="11" id="hNF-JC-dK1"/>
                             <constraint firstItem="ZYX-6P-DaW" firstAttribute="top" secondItem="eVD-bU-ETb" secondAttribute="bottom" constant="8" symbolic="YES" id="jf3-Av-Dke"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="ZYX-6P-DaW" secondAttribute="trailing" constant="280" id="pZt-J1-RK1"/>

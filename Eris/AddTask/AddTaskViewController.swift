@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import AudioToolbox
 
 class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,6 +17,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var goldField: UITextField!
     @IBOutlet weak var descriptionView: UITextView!
+    
+    var goldValue: String = "0"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -24,12 +28,13 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         descriptionView!.layer.borderColor = borderColor.cgColor
         descriptionView!.layer.borderWidth = 0.3
         descriptionView!.layer.cornerRadius = 5.0
-        //Setting up date and time fields
         
+        //Setting up date and time fields
         let timeFormater = DateFormatter()
         timeFormater.dateFormat = "hh:mm:ss"
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
+        timePicker.date = Calendar.current.date(bySettingHour: 12, minute: 00, second: 0, of: Date())!
         timePicker.addTarget(self, action: #selector(timePickerValueChange), for: UIControl.Event.valueChanged)
         timePicker.frame.size = CGSize(width: 0, height: 300)
         timePicker.backgroundColor = UIColor.white
@@ -39,7 +44,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd MMMM YYYY"
         let datePicker = UIDatePicker()
-        datePicker.minimumDate = Date()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
@@ -53,6 +57,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         //for setting up keyboard actions
         taskNameField.delegate =  self
         goldField.delegate = self
+        //Defaults
+        goldField.text = "5"
+        //Validation
+        goldField.addTarget(self,
+                            action: #selector(goldValidation),
+                            for: UIControl.Event.editingChanged)
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
@@ -105,5 +115,25 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    @objc func goldValidation(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = "0"
+            goldValue = "0"
+            return
+        }
+        if textField.text?.prefix(1)  == "0" && textField.text!.count > 1 {
+            textField.text = String(textField.text!.suffix(textField.text!.count - 1))
+            goldValue = textField.text!
+            return
+        }
+        if Int64(textField.text ?? "0")! > 10000000000 {
+            textField.text = goldValue
+            return
+        }
+        else {
+            goldValue = textField.text ?? "0"
+            return
+        }
     }
 }
