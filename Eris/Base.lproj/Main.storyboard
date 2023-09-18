@@ -32,24 +32,34 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="228" y="11" width="145" height="21"/>
+                                            <rect key="frame" x="164" y="11" width="145" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-j2-sdz">
-                                            <rect key="frame" x="20" y="40" width="353" height="39"/>
+                                            <rect key="frame" x="20" y="40" width="311" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-7y-vLr">
+                                            <rect key="frame" x="338" y="28" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="   "/>
+                                            <connections>
+                                                <action selector="checkbox:" destination="3hd-yC-mdb" eventType="touchUpInside" id="qVM-3G-SQm"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
                                     <outlet property="TaskTimeLabel" destination="VNv-Pm-AeI" id="PWM-GR-2T3"/>
+                                    <outlet property="checkboxButton" destination="rGm-7y-vLr" id="wZK-z8-sI9"/>
                                     <outlet property="taskDescriptionLabel" destination="paU-j2-sdz" id="0Vs-gt-Ed4"/>
                                     <outlet property="taskNameLabel" destination="ADd-Qc-ZlR" id="vJK-SV-djv"/>
                                     <outlet property="taskTimeLabel" destination="VNv-Pm-AeI" id="ZgM-SC-1IE"/>
