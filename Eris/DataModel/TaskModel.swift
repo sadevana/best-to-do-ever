@@ -6,17 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
 struct TaskUI {
     var gold: Int64?
     var description: String?
     var name: String?
     var datetime: Date?
+    var done: Bool
+    var dbId: String?
     
     init(taskDB: Task) {
         self.gold = taskDB.gold
         self.description = taskDB.task_description
         self.name = taskDB.title
         self.datetime = taskDB.due_date
+        self.done = taskDB.is_done
+        self.dbId = taskDB.rowid
     }
 }

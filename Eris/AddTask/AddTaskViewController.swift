@@ -86,6 +86,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         let taskAdded = Task(context: context)
         taskAdded.title = taskNameField.text
         taskAdded.task_description = descriptionView.text
+        taskAdded.rowid = UUID().uuidString
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM YYYY"
         if dateField.text != "" {

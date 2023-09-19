@@ -38,6 +38,7 @@ class HomeTableViewController: UITableViewController {
         let request = NSFetchRequest<Task>(entityName: "Task")
         request.returnsObjectsAsFaults = false
         let tasksDB = try! CoreDataService().context().fetch(request)
+        print(tasksDB)
         for taskDBIns in tasksDB {
             tasksToShow.append(TaskUI(taskDB: taskDBIns))
         }
