@@ -10,6 +10,8 @@ import CoreData
 
 class HomeTableViewController: UITableViewController {
     var tasksToShow = [TaskUI]()
+    var sectionedTasks = [[TaskUI](), [TaskUI](), [TaskUI](), [TaskUI]()]
+    let sections: Array<String> = ["Today", "Later", "No date", "Expired"]
     
     private let addButton: UIButton = {
         //Creating button
@@ -38,12 +40,18 @@ class HomeTableViewController: UITableViewController {
         let request = NSFetchRequest<Task>(entityName: "Task")
         request.returnsObjectsAsFaults = false
         let tasksDB = try! CoreDataService().context().fetch(request)
-        print(tasksDB)
         for taskDBIns in tasksDB {
             tasksToShow.append(TaskUI(taskDB: taskDBIns))
         }
-        //Refreshing tasks
-        
+        //Putting tasks into sections
+        let todayList = tasksToShow.filter{$0.datetime ?? Date() + Double(86400) < Date() + Double(86400) && $0.datetime ?? Date() - 1 > Date()}
+        sectionedTasks[0] = todayList
+        let laterList = tasksToShow.filter{$0.datetime ?? Date() - 2 >= Date() + Double(86400) }
+        sectionedTasks[1] = laterList
+        let noDate = tasksToShow.filter{$0.datetime == nil}
+        sectionedTasks[2] = noDate
+        let expiredList = tasksToShow.filter{$0.datetime ?? Date() - 1 < Date()}
+        sectionedTasks[3] = expiredList
         self.tableView.reloadData()
     }
     override func viewDidLayoutSubviews() {
@@ -55,12 +63,12 @@ class HomeTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sections.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "TaskViewCell")
         if let tableCell = tableCell as? TaskViewCell {
-            tableCell.setup(withtask: tasksToShow[indexPath.row])
+            tableCell.setup(withtask: sectionedTasks[indexPath.section][indexPath.row])
         }
         return tableCell!
     }
@@ -71,7 +79,10 @@ class HomeTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasksToShow.count
+        return sectionedTasks[section].count
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
     @objc func buttonAction(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

@@ -36,6 +36,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         timePicker.datePickerMode = .time
         timePicker.date = Calendar.current.date(bySettingHour: 12, minute: 00, second: 0, of: Date())!
         timePicker.addTarget(self, action: #selector(timePickerValueChange), for: UIControl.Event.valueChanged)
+        timePicker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timePicker.frame.size = CGSize(width: 0, height: 300)
         timePicker.backgroundColor = UIColor.white
         timePicker.preferredDatePickerStyle = .wheels
@@ -67,12 +68,13 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()
-        timeFormater.dateFormat = "hh:mm"
+        timeFormater.dateFormat = "HH:mm"
+        timeFormater.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timeField.text = timeFormater.string(from: sender.date)
     }
     @objc func datePickerValueChange(sender: UIDatePicker) {
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "dd MMMM YYYY"
+        dateFormater.dateFormat = "dd.MM.yyyy"
         dateField.text = dateFormater.string(from: sender.date)
     }
     
@@ -88,10 +90,14 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         taskAdded.task_description = descriptionView.text
         taskAdded.rowid = UUID().uuidString
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM YYYY"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        if timeField.text == "" {
+            dateFormatter.timeZone = .gmt
+        }
         if dateField.text != "" {
+            print(dateField.text)
             var date = dateFormatter.date(from: dateField.text!)
-            
+            print(date)
             let timeString = timeField.text
             let hours: Int?
             let minutes: Int?
@@ -103,7 +109,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             }
             taskAdded.due_date = date
         }
-        print(taskAdded)
+        //print(taskAdded)
         do {
             try context.save()
             //Going back to home view
