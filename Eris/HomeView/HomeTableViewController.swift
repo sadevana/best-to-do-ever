@@ -44,6 +44,9 @@ class HomeTableViewController: UITableViewController {
             tasksToShow.append(TaskUI(taskDB: taskDBIns))
         }
         //Putting tasks into sections
+        tasksToShow.sort {
+            $0.datetime ?? Date() < $1.datetime ?? Date()
+        }
         let todayList = tasksToShow.filter{$0.datetime ?? Date() + Double(86400) < Date() + Double(86400) && $0.datetime ?? Date() - 1 > Date()}
         sectionedTasks[0] = todayList
         let laterList = tasksToShow.filter{$0.datetime ?? Date() - 2 >= Date() + Double(86400) }
