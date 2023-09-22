@@ -33,8 +33,12 @@ class AlertView: UIView {
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     func showAlert(title: String) {
+        self.mainView.alpha = 1.0
         alertLabel.text = title
         UIApplication.shared.keyWindow?.addSubview(mainView)
+        UIView.animate(withDuration: 1.0) {
+            self.mainView.alpha = 0.0
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             self.mainView.removeFromSuperview()
         }
