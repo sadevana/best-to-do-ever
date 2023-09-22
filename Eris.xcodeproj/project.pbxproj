@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
+		A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */; };
+		A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A073A32ABDFF7A00F3B266 /* AlertView.swift */; };
 		A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */; };
 		A6B98EFA2ABDA44A0035CE8D /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B98EF92ABDA44A0035CE8D /* EditTaskViewModel.swift */; };
 		A6BB0FD72ABD51B6002065D2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB0FD62ABD51B6002065D2 /* HomeViewModel.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		A6A073A32ABDFF7A00F3B266 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A6B98EF92ABDA44A0035CE8D /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		A6BB0FD62ABD51B6002065D2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -66,6 +70,23 @@
 				A6BB0FD82ABD56B1002065D2 /* AddTaskViewModel.swift */,
 			);
 			path = AddTask;
+			sourceTree = "<group>";
+		};
+		A6A073A12ABDFEFE00F3B266 /* CustomXIB */ = {
+			isa = PBXGroup;
+			children = (
+				A6A073A22ABDFF0700F3B266 /* Alert */,
+			);
+			path = CustomXIB;
+			sourceTree = "<group>";
+		};
+		A6A073A22ABDFF0700F3B266 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */,
+				A6A073A32ABDFF7A00F3B266 /* AlertView.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		A6B5A6132AAF8C1B0099409A /* Services */ = {
@@ -133,6 +154,7 @@
 		A6CB06132A9D3453007A65F0 /* Eris */ = {
 			isa = PBXGroup;
 			children = (
+				A6A073A12ABDFEFE00F3B266 /* CustomXIB */,
 				A6BB0FD52ABD517D002065D2 /* Screens */,
 				A6DF8F532AB2DC1F0016B701 /* Extensions */,
 				A6B5A6132AAF8C1B0099409A /* Services */,
@@ -220,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6CB06212A9D3454007A65F0 /* LaunchScreen.storyboard in Resources */,
+				A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */,
 				A6CB061E2A9D3454007A65F0 /* Assets.xcassets in Resources */,
 				A6CB061C2A9D3453007A65F0 /* Main.storyboard in Resources */,
 			);
@@ -241,6 +264,7 @@
 				A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */,
 				A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */,
 				A6BB0FDC2ABD5E9F002065D2 /* EditTaskViewController.swift in Sources */,
+				A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */,
 				A6BB0FD92ABD56B1002065D2 /* AddTaskViewModel.swift in Sources */,
 				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
 				A6F11AFD2AB207790016EB08 /* TaskModel.swift in Sources */,

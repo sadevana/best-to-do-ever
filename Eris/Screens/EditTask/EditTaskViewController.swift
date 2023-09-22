@@ -91,13 +91,16 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func updateTapped(_ sender: Any) {
         if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "") {
-            self.navigationController?.popViewController(animated: false)
+        
+            self.navigationController?.popToRootViewController(animated: true)
+            AlertView.instance.showAlert(title: "Task successfuly updated")
         }
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
         if editTaskModel.deleteTask(task: taskUI!){
-            self.navigationController?.popViewController(animated: false)
+            self.navigationController?.popViewController(animated: true)
+            AlertView.instance.showAlert(title: "Task deleted successfuly")
         }
     }
     @objc func goldValidation(_ textField: UITextField) {
