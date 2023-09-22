@@ -20,6 +20,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     var goldValue: String = "0"
     
+    let addTaskViewModel = AddTaskViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -83,41 +85,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     func AddTask() {
         //Adding new task
-        let context = CoreDataService.shared.context()
-        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        let taskAdded = Task(context: context)
-        taskAdded.title = taskNameField.text
-        taskAdded.task_description = descriptionView.text
-        taskAdded.rowid = UUID().uuidString
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        if timeField.text == "" {
-            dateFormatter.timeZone = .gmt
-        }
-        if dateField.text != "" {
-            print(dateField.text)
-            var date = dateFormatter.date(from: dateField.text!)
-            print(date)
-            let timeString = timeField.text
-            let hours: Int?
-            let minutes: Int?
-            if timeString != "" {
-                hours = Int(String(timeString!.prefix(2)))
-                minutes = Int(String(timeString!.suffix(2)))
-                let toAdd = hours! * 3600 + minutes! * 60
-                date = date! + Double(toAdd)
-            }
-            taskAdded.due_date = date
-        }
-        //print(taskAdded)
-        do {
-            try context.save()
-            //Going back to home view
+        if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text) {
             self.navigationController?.popViewController(animated: false)
-        } catch {
-            print(error)
         }
     }
+
     //Setting up keyboard actions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
