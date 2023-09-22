@@ -29,7 +29,7 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(addButton)
+        self.view.addSubview(addButton)
         //Initial setup
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
@@ -44,11 +44,8 @@ class HomeTableViewController: UITableViewController {
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
     }
-    
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return sections.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,9 +64,31 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return sectionedTasks[section].count
     }
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
+    //Section style
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 10, width:
+        tableView.bounds.size.width, height: tableView.bounds.size.height))
+        headerView.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
+        sectionLabel.text = sections[section]
+        sectionLabel.font = .boldSystemFont(ofSize: 18.0)
+        sectionLabel.sizeToFit()
+        headerView.layer.zPosition = 1.0
+        headerView.addSubview(sectionLabel)
+        headerView.isUserInteractionEnabled = false
+        return headerView
     }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EditTaskViewController") as! EditTaskViewController
+        nextViewController.taskUI = sectionedTasks[indexPath.section][indexPath.row]
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
     @objc func buttonAction(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")

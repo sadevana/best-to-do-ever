@@ -75,7 +75,7 @@ class TaskViewCell: UITableViewCell {
             try context.save()
         }
         catch {
-            printContent("error happend")
+            print("error happend")
         }
     }
 }
