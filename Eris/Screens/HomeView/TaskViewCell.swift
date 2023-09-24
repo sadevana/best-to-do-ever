@@ -13,6 +13,7 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
     @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var goldLabel: UILabel!
     var checked = false
     var id: String?
     
@@ -30,6 +31,7 @@ class TaskViewCell: UITableViewCell {
     func setup(withtask: TaskUI) {
         taskNameLabel.text = withtask.name
         taskDescriptionLabel.text = withtask.description
+        goldLabel.text = "Gold reward: " + String(withtask.gold ?? 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM HH:mm"
         id = withtask.dbId
@@ -56,7 +58,7 @@ class TaskViewCell: UITableViewCell {
         //visual update
         let image2 = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 28, weight: .medium))
         checkboxButton.setImage(image2, for: .normal)
-        checkboxButton.tintColor = .green
+        checkboxButton.tintColor = #colorLiteral(red: 0, green: 0.6246852875, blue: 0.2209637165, alpha: 1)
     }
     func showUndone() {
         //visual update

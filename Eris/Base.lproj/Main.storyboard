@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskViewCell" rowHeight="90" id="3hd-yC-mdb" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskViewCell" rowHeight="100" id="3hd-yC-mdb" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hd-yC-mdb" id="487-13-1my" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
@@ -38,13 +38,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-j2-sdz">
-                                            <rect key="frame" x="20" y="40" width="311" height="39"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-7y-vLr">
                                             <rect key="frame" x="338" y="11" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,12 +47,27 @@
                                                 <action selector="checkbox:" destination="3hd-yC-mdb" eventType="touchUpInside" id="qVM-3G-SQm"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-ql-k1W">
+                                            <rect key="frame" x="20" y="69" width="210" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-j2-sdz">
+                                            <rect key="frame" x="20" y="40" width="311" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
                                     <outlet property="TaskTimeLabel" destination="VNv-Pm-AeI" id="PWM-GR-2T3"/>
                                     <outlet property="checkboxButton" destination="rGm-7y-vLr" id="wZK-z8-sI9"/>
+                                    <outlet property="goldLabel" destination="iPL-ql-k1W" id="duA-EL-vTA"/>
                                     <outlet property="taskDescriptionLabel" destination="paU-j2-sdz" id="0Vs-gt-Ed4"/>
                                     <outlet property="taskNameLabel" destination="ADd-Qc-ZlR" id="vJK-SV-djv"/>
                                     <outlet property="taskTimeLabel" destination="VNv-Pm-AeI" id="ZgM-SC-1IE"/>
@@ -78,7 +86,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaJ-nS-n4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="-27"/>
+            <point key="canvasLocation" x="1814.5038167938931" y="-27.464788732394368"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="oVn-Kg-tdM">
@@ -106,14 +114,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxM-dh-NPz">
-                                <rect key="frame" x="151" y="744" width="91" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add task"/>
-                                <connections>
-                                    <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMe-w2-lqm">
                                 <rect key="frame" x="16" y="132" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -168,11 +168,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxM-dh-NPz">
+                                <rect key="frame" x="100" y="744" width="193" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="bVA-2D-i55"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add task"/>
+                                <connections>
+                                    <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0oq-Cj-0R1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZxM-dh-NPz" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="151" id="02A-gO-8ap"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="Mq9-BY-laK" secondAttribute="trailing" constant="78" id="0GF-NL-1lR"/>
                             <constraint firstItem="xc6-4S-DLU" firstAttribute="top" secondItem="bWq-0r-Afy" secondAttribute="bottom" constant="8" symbolic="YES" id="44D-gs-SAH"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="bottom" secondItem="ZxM-dh-NPz" secondAttribute="bottom" constant="39" id="6xU-IU-Zk7"/>
@@ -195,9 +205,9 @@
                             <constraint firstItem="Mq9-BY-laK" firstAttribute="top" secondItem="Sm0-XK-y3B" secondAttribute="bottom" constant="11" id="hNF-JC-dK1"/>
                             <constraint firstItem="ZYX-6P-DaW" firstAttribute="top" secondItem="eVD-bU-ETb" secondAttribute="bottom" constant="8" symbolic="YES" id="jf3-Av-Dke"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="ZYX-6P-DaW" secondAttribute="trailing" constant="280" id="pZt-J1-RK1"/>
-                            <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="ZxM-dh-NPz" secondAttribute="trailing" constant="151" id="suF-uY-pGd"/>
                             <constraint firstItem="Sm0-XK-y3B" firstAttribute="top" secondItem="bWq-0r-Afy" secondAttribute="bottom" constant="8" symbolic="YES" id="tv8-pS-69y"/>
                             <constraint firstItem="toI-IC-OMk" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="vcJ-6e-est"/>
+                            <constraint firstItem="ZxM-dh-NPz" firstAttribute="centerX" secondItem="7nV-l2-cGa" secondAttribute="centerX" id="y92-BW-I3h"/>
                             <constraint firstItem="Mq9-BY-laK" firstAttribute="leading" secondItem="NqW-WN-HGq" secondAttribute="trailing" constant="45" id="zDj-p4-ssJ"/>
                             <constraint firstItem="EMe-w2-lqm" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="zff-RR-XJs"/>
                             <constraint firstItem="EMe-w2-lqm" firstAttribute="top" secondItem="toI-IC-OMk" secondAttribute="bottom" constant="8" symbolic="YES" id="zhc-Wg-dw6"/>
@@ -250,7 +260,7 @@
                                     <constraint firstAttribute="height" constant="35" id="vSG-DX-aCq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Upadte task"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update task"/>
                                 <connections>
                                     <action selector="updateTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="R1M-fm-KfO"/>
                                 </connections>

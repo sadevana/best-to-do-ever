@@ -85,7 +85,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     func AddTask() {
         //Adding new task
-        if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text) {
+        if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text) {
             self.navigationController?.popViewController(animated: false)
         }
     }
