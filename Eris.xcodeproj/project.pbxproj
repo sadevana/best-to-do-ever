@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
+		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */; };
 		A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A073A32ABDFF7A00F3B266 /* AlertView.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
+		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		A6A073A32ABDFF7A00F3B266 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A65D61892AC1942200E1EB54 /* HomeViewPlain */ = {
+			isa = PBXGroup;
+			children = (
+				A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */,
+			);
+			path = HomeViewPlain;
+			sourceTree = "<group>";
+		};
 		A692D56F2AA28E90008EE6DD /* AddTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		A6BB0FD52ABD517D002065D2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A65D61892AC1942200E1EB54 /* HomeViewPlain */,
 				A6BB0FDA2ABD5E83002065D2 /* EditTask */,
 				A692D56F2AA28E90008EE6DD /* AddTask */,
 				A6C8BE752A9D3D62008E785D /* HomeView */,
@@ -267,6 +278,7 @@
 				A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */,
 				A6BB0FD92ABD56B1002065D2 /* AddTaskViewModel.swift in Sources */,
 				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
+				A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */,
 				A6F11AFD2AB207790016EB08 /* TaskModel.swift in Sources */,
 				A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */,
 			);

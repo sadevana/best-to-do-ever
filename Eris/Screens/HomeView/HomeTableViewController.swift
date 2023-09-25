@@ -24,11 +24,13 @@ class HomeTableViewController: UITableViewController {
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 20, width: 60, height: 60)
         self.view.addSubview(addButton)
         //Initial setup
         tableView.rowHeight = 100.0
@@ -43,6 +45,14 @@ class HomeTableViewController: UITableViewController {
         //Putting tasks into sections
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
+        //navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
