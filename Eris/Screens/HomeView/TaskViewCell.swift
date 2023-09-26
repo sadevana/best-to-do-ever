@@ -75,12 +75,26 @@ class TaskViewCell: UITableViewCell {
         tasksDB!.is_done = !checked
         do {
             try context.save()
-            
-            //Alerts about task completion
-            if tasksDB!.is_done == true {
-                AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold")
-            } else {
-                AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")
+            //Adding and taking gold
+            let requestUD = NSFetchRequest<UserData>(entityName: "UserData")
+            request.returnsObjectsAsFaults = false
+            let userInfo = try! context.fetch(requestUD)
+            if (userInfo.first != nil) {
+                //Alerts about task completion & update total gold
+                if tasksDB!.is_done == true {
+                    AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold")
+                    userInfo.first?.total_gold += tasksDB?.gold ?? 0
+                    do {
+                        try context.save()
+                        print(self.contentView)
+                    }
+                } else {
+                    AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")
+                    userInfo.first?.total_gold -= tasksDB?.gold ?? 0
+                    do {
+                        try context.save()
+                    }
+                }
             }
         }
         catch {

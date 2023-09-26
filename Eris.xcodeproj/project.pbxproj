@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
+		A64E50A12AC35A49003D410E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E50A02AC35A49003D410E /* LoginView.xib */; };
+		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
 		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
+		A64E50A02AC35A49003D410E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A64E509F2AC35A29003D410E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A64E50A02AC35A49003D410E /* LoginView.xib */,
+				A64E50A22AC360CC003D410E /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A65D61892AC1942200E1EB54 /* HomeViewPlain */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,7 @@
 		A6A073A12ABDFEFE00F3B266 /* CustomXIB */ = {
 			isa = PBXGroup;
 			children = (
+				A64E509F2AC35A29003D410E /* Login */,
 				A6A073A22ABDFF0700F3B266 /* Alert */,
 			);
 			path = CustomXIB;
@@ -255,6 +269,7 @@
 				A6CB06212A9D3454007A65F0 /* LaunchScreen.storyboard in Resources */,
 				A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */,
 				A6CB061E2A9D3454007A65F0 /* Assets.xcassets in Resources */,
+				A64E50A12AC35A49003D410E /* LoginView.xib in Resources */,
 				A6CB061C2A9D3453007A65F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +295,7 @@
 				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
 				A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */,
 				A6F11AFD2AB207790016EB08 /* TaskModel.swift in Sources */,
+				A64E50A32AC360CC003D410E /* LoginView.swift in Sources */,
 				A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

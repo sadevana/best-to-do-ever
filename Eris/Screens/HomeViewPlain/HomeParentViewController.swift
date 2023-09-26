@@ -41,6 +41,10 @@ class HomeParentViewController: UIViewController {
                 print(error)
             }
         }
+        //Show username setup if there's none
+        if(userInfo.first?.user_name == "" || userInfo.first?.user_name == nil) {
+            LoginView.instance.showAlert()
+        }
     }
 
     /*
