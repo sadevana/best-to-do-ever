@@ -30,12 +30,16 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 20, width: 60, height: 60)
         self.view.addSubview(addButton)
         //Initial setup
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let offset = self.tableView.contentOffset.y
+        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 80, width: 60, height: 60)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,7 +72,7 @@ class HomeTableViewController: UITableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Making scroll button stay in place
         let offset = scrollView.contentOffset.y
-        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
+        addButton.frame = CGRect(x: self.view.frame.size.width - 60 - 20, y: self.view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

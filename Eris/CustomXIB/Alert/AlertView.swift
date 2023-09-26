@@ -36,8 +36,10 @@ class AlertView: UIView {
         self.mainView.alpha = 1.0
         alertLabel.text = title
         UIApplication.shared.keyWindow?.addSubview(mainView)
-        UIView.animate(withDuration: 3.0) {
-            self.mainView.alpha = 0.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            UIView.animate(withDuration: 2.0) {
+                self.mainView.alpha = 0.0
+            }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.mainView.removeFromSuperview()

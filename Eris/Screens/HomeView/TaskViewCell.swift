@@ -75,6 +75,13 @@ class TaskViewCell: UITableViewCell {
         tasksDB!.is_done = !checked
         do {
             try context.save()
+            
+            //Alerts about task completion
+            if tasksDB!.is_done == true {
+                AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold")
+            } else {
+                AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")
+            }
         }
         catch {
             print("error happend")
