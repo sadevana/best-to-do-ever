@@ -25,7 +25,6 @@ class EditTaskViewModel {
             return true
         }
         catch {
-            print("error happend")
             return false
         }
     }
@@ -65,7 +64,6 @@ class EditTaskViewModel {
             return true
         }
         catch {
-            print("error happend")
             return false
         }
     }

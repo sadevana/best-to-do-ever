@@ -26,6 +26,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
         //Getting values from db
         taskNameField.text = taskUI?.name
         descriptionView.text = taskUI?.description
+        goldTextField.text = String(taskUI?.gold ?? 0)
         //Setting up datetime
         if taskUI?.datetime != nil {
             let date = taskUI?.datetime
@@ -36,6 +37,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "dd.MM.yyyy"
             dateTextField.text = dateFormater.string(from: date!)
+            
         }
         
         
@@ -56,16 +58,19 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
         timePicker.backgroundColor = UIColor.white
         timePicker.preferredDatePickerStyle = .wheels
         timeTextField.inputView = timePicker
+        timeTextField.clearButtonMode = .whileEditing
         //Date field
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd MMMM YYYY"
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.editingDidBegin)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.backgroundColor = UIColor.white
         datePicker.preferredDatePickerStyle = .wheels
         dateTextField.inputView = datePicker
+        dateTextField.clearButtonMode = .whileEditing
         //Other fields
         taskNameField.returnKeyType = .continue
         goldTextField.keyboardType = .numberPad

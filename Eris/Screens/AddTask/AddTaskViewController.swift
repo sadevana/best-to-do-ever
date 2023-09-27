@@ -42,6 +42,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         timePicker.frame.size = CGSize(width: 0, height: 300)
         timePicker.backgroundColor = UIColor.white
         timePicker.preferredDatePickerStyle = .wheels
+        timeField.clearButtonMode = .whileEditing
         timeField.inputView = timePicker
         //Date field
         let dateFormater = DateFormatter()
@@ -52,6 +53,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.backgroundColor = UIColor.white
         datePicker.preferredDatePickerStyle = .wheels
+        dateField.clearButtonMode = .whileEditing
         dateField.inputView = datePicker
         //Other fields
         taskNameField.returnKeyType = .continue

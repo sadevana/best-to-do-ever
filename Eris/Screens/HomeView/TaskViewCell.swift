@@ -86,7 +86,6 @@ class TaskViewCell: UITableViewCell {
                     userInfo.first?.total_gold += tasksDB?.gold ?? 0
                     do {
                         try context.save()
-                        print(self.contentView)
                     }
                 } else {
                     AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")

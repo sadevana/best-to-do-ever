@@ -35,6 +35,7 @@ class HomeTableViewController: UITableViewController {
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        print(self.view.parentContainerViewController()?.parent)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
