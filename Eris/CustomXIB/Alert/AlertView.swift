@@ -29,11 +29,12 @@ class AlertView: UIView {
     }
     private func commonInit() {
         self.containerView.layer.cornerRadius = 20.0
-        mainView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 130, y: UIScreen.main.bounds.height - 150, width: 260, height: 60)
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     func showAlert(title: String) {
         self.mainView.alpha = 1.0
+        self.containerView.alpha = 1.0
         alertLabel.text = title
         UIApplication.shared.keyWindow?.addSubview(mainView)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

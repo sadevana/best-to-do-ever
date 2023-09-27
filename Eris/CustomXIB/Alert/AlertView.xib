@@ -13,52 +13,36 @@
                 <outlet property="alertLabel" destination="SwJ-cw-gAm" id="2wG-4X-XgG"/>
                 <outlet property="containerView" destination="3GQ-Rj-5zB" id="IqF-p5-WQD"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="jRp-0t-j0V"/>
-                <outlet property="parentView" destination="k4s-5V-boK" id="zgn-P7-rVO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+            <rect key="frame" x="0.0" y="0.0" width="260" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4s-5V-boK">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rj-5zB">
+                    <rect key="frame" x="0.0" y="0.0" width="260" height="56"/>
                     <subviews>
-                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-Rj-5zB">
-                            <rect key="frame" x="76.666666666666686" y="688" width="240" height="50"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwJ-cw-gAm">
-                                    <rect key="frame" x="8" y="16" width="224" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemGray4Color"/>
-                            <constraints>
-                                <constraint firstItem="SwJ-cw-gAm" firstAttribute="centerY" secondItem="3GQ-Rj-5zB" secondAttribute="centerY" id="3oX-J6-mlv"/>
-                                <constraint firstAttribute="width" constant="240" id="9i1-tY-ONr"/>
-                                <constraint firstItem="SwJ-cw-gAm" firstAttribute="leading" secondItem="3GQ-Rj-5zB" secondAttribute="leading" constant="8" id="c4t-GV-vDj"/>
-                                <constraint firstAttribute="trailing" secondItem="SwJ-cw-gAm" secondAttribute="trailing" constant="8" id="fvj-Th-evd"/>
-                                <constraint firstAttribute="height" constant="50" id="yq7-ZZ-krB"/>
-                            </constraints>
-                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwJ-cw-gAm">
+                            <rect key="frame" x="18" y="18" width="224" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="3GQ-Rj-5zB" firstAttribute="centerX" secondItem="k4s-5V-boK" secondAttribute="centerX" id="84s-60-9QO"/>
-                        <constraint firstAttribute="bottom" secondItem="3GQ-Rj-5zB" secondAttribute="bottom" constant="80" id="E6j-V3-HbY"/>
-                    </constraints>
+                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="k4s-5V-boK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="B5G-0h-QGl"/>
-                <constraint firstItem="k4s-5V-boK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Pez-e1-sff"/>
-                <constraint firstAttribute="bottom" secondItem="k4s-5V-boK" secondAttribute="bottom" id="XO5-Tr-sSa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k4s-5V-boK" secondAttribute="trailing" id="hpP-Xo-lrE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3GQ-Rj-5zB" secondAttribute="bottom" id="4bF-xd-FXm"/>
+                <constraint firstItem="3GQ-Rj-5zB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Jms-sC-iDU"/>
+                <constraint firstItem="3GQ-Rj-5zB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="OzX-3u-567"/>
+                <constraint firstItem="3GQ-Rj-5zB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WGR-2K-2T5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="130.53435114503816" y="-24.647887323943664"/>
+            <point key="canvasLocation" x="54.961832061068698" y="-92.253521126760575"/>
         </view>
     </objects>
     <resources>
