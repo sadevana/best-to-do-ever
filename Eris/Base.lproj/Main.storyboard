@@ -240,28 +240,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcJ-9N-U9e">
-                                <rect key="frame" x="16" y="113" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoj-NN-lhh">
                                 <rect key="frame" x="0.0" y="173" width="393" height="679"/>
                                 <connections>
                                     <segue destination="oTY-Bl-f6b" kind="embed" id="QzA-ll-9d2"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zq-MH-bzk">
+                                <rect key="frame" x="3" y="113" width="75" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="pZy-mY-9md"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="setupUserNameClicked:" destination="3NR-uw-QuV" eventType="touchUpInside" id="30V-dZ-QOL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hBI-j5-xHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WcJ-9N-U9e" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="16" id="5jq-xf-R5B"/>
-                            <constraint firstItem="E1s-gZ-60M" firstAttribute="top" secondItem="WcJ-9N-U9e" secondAttribute="bottom" constant="10" id="HKp-Pz-rqo"/>
-                            <constraint firstItem="WcJ-9N-U9e" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="KLW-ak-TBk"/>
+                            <constraint firstItem="0Zq-MH-bzk" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="3" id="7E1-g4-t5c"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="trailing" secondItem="hBI-j5-xHh" secondAttribute="trailing" id="OaB-x5-gXB"/>
+                            <constraint firstItem="0Zq-MH-bzk" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="R80-w2-liB"/>
                             <constraint firstAttribute="bottom" secondItem="uoj-NN-lhh" secondAttribute="bottom" id="UeB-lt-r8j"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="16" id="lRh-PK-yDJ"/>
+                            <constraint firstItem="E1s-gZ-60M" firstAttribute="top" secondItem="0Zq-MH-bzk" secondAttribute="bottom" constant="10" id="oLy-Cs-OJa"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" id="pSS-VT-A4I"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="70" id="rAW-PT-Xtf"/>
                         </constraints>
@@ -269,7 +275,7 @@
                     <navigationItem key="navigationItem" title="My quests" style="editor" id="a4j-fa-jWR"/>
                     <connections>
                         <outlet property="goldLabel" destination="E1s-gZ-60M" id="jRZ-67-Iby"/>
-                        <outlet property="userNameLabel" destination="WcJ-9N-U9e" id="mo8-lS-NXS"/>
+                        <outlet property="userNameButton" destination="0Zq-MH-bzk" id="zer-Uz-SeA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn2-eR-4uv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

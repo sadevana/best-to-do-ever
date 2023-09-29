@@ -10,51 +10,66 @@ import CoreData
 
 class HomeParentViewController: UIViewController {
 
+    @IBOutlet weak var userNameButton: UIButton!
     @IBOutlet weak var goldLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
+        userNameButton.contentHorizontalAlignment = .left
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore {
+            LoginView.instance.showAlert()
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
         //Getting user data
+        updateTopBarInfo()
+    }
+    
+    func updateTopBarInfo() {
         let request = NSFetchRequest<UserData>(entityName: "UserData")
         request.returnsObjectsAsFaults = false
         let context = CoreDataService().context()
         let userInfo = try! context.fetch(request)
+        
         if (userInfo.first != nil) {
             goldLabel.text = "Current total gold: " + String(userInfo.first!.total_gold)
-            userNameLabel.text = userInfo.first!.user_name ?? "No username set"
+            if userInfo.first!.user_name == "" || userInfo.first!.user_name == nil {
+                userNameButton.setTitle("Click here to set a nickname", for: .normal)
+            } else {
+                userNameButton.setTitle(userInfo.first!.user_name, for: .normal)
+            }
         } else {
             //setting it up if it doesn't exist yet
             let userData = UserData(context: context)
             userData.total_gold = 0
             goldLabel.text = "Current total gold: 0"
-            userNameLabel.text = "No username set"
+            userNameButton.setTitle("Click here to set a nickname", for: .normal)
             do {
                 try context.save()
             } catch {
                 print(error)
             }
         }
-        //Show username setup if there's none
-        if(userInfo.first?.user_name == "" || userInfo.first?.user_name == nil) {
-            LoginView.instance.showAlert()
+    }
+    @IBAction func setupUserNameClicked(_ sender: Any) {
+        //If user clicks on button while no username is set, open nickname setup
+        let request = NSFetchRequest<UserData>(entityName: "UserData")
+        request.returnsObjectsAsFaults = false
+        let context = CoreDataService().context()
+        let userInfo = try! context.fetch(request)
+        if (userInfo.first != nil) {
+            if userInfo.first!.user_name == "" || userInfo.first!.user_name == nil {
+                LoginView.instance.showAlert()
+            }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

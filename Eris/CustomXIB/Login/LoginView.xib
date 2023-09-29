@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="Eris" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="6cG-vZ-fcp" id="rIP-zB-4Bb"/>
+                <outlet property="emptyWarningLabel" destination="R49-K4-OMI" id="GUc-l8-eRR"/>
                 <outlet property="loginTextField" destination="HNl-hl-974" id="Eqy-EW-iol"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="FXS-RE-mx1"/>
                 <outlet property="windowView" destination="c3K-iL-zjt" id="wNR-XH-xOx"/>
@@ -20,6 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOW-Lh-SSz">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3K-iL-zjt">
                     <rect key="frame" x="16" y="269" width="361" height="315"/>
                     <subviews>
@@ -40,7 +46,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uu-WU-fI4">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What shoud we call you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uu-WU-fI4">
                             <rect key="frame" x="65.666666666666686" y="140" width="230" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="230" id="dr9-om-Db4"/>
@@ -60,6 +66,23 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up to 100 symbols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McD-fu-iy4">
                             <rect key="frame" x="131.66666666666666" y="216" width="98" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cG-vZ-fcp">
+                            <rect key="frame" x="309" y="8" width="44" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="YhC-UY-PAo"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R49-K4-OMI">
+                            <rect key="frame" x="76" y="288" width="211" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -84,7 +107,11 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MOW-Lh-SSz" secondAttribute="trailing" id="2bR-oF-5G6"/>
                 <constraint firstItem="c3K-iL-zjt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Elh-1C-1zi"/>
+                <constraint firstItem="MOW-Lh-SSz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G91-Hg-vEk"/>
+                <constraint firstItem="MOW-Lh-SSz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GOc-YS-0wS"/>
+                <constraint firstAttribute="bottom" secondItem="MOW-Lh-SSz" secondAttribute="bottom" id="Np5-ck-CkW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="c3K-iL-zjt" secondAttribute="trailing" constant="16" id="PgV-V1-prz"/>
                 <constraint firstItem="c3K-iL-zjt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="210" id="rFl-kg-kQ9"/>
             </constraints>
