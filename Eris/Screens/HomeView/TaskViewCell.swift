@@ -82,7 +82,7 @@ class TaskViewCell: UITableViewCell {
         //visual update
         let image2 = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 28, weight: .medium))
         checkboxButton.setImage(image2, for: .normal)
-        checkboxButton.tintColor = #colorLiteral(red: 0, green: 0.6246852875, blue: 0.2209637165, alpha: 1)
+        checkboxButton.tintColor = #colorLiteral(red: 0, green: 0.6235294118, blue: 0.2196078431, alpha: 1)
     }
     func showUndone() {
         //visual update

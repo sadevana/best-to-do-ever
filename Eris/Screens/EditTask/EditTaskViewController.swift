@@ -17,6 +17,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var taskNameWarningLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var completeButton: UIButton!
     
     var taskUI: TaskUI?
     var nameText = ""
@@ -42,10 +43,12 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "dd.MM.yyyy"
             dateTextField.text = dateFormater.string(from: date!)
-            
         }
         
-        
+        //Dynamic button title
+        if taskUI?.done ?? false {
+            completeButton.setTitle("Mark as incomplete", for: .normal)
+        }
         //Border for text area
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         descriptionView!.layer.borderColor = borderColor.cgColor
@@ -162,5 +165,15 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             descriptionText = textView.text
             descriptionWarningLabel.text = ""
         }
+    }
+    @IBAction func completeButtonTapped(_ sender: Any) {
+        //Change title and add or substract gold
+        if editTaskModel.toggleCompletion(task: taskUI!) {
+            completeButton.setTitle("Mark as complete", for: .normal)
+        } else {
+            completeButton.setTitle("Mark as incomplete", for: .normal)
+        }
+        let wasDone = !(taskUI?.done ?? false)
+        taskUI?.done = wasDone
     }
 }

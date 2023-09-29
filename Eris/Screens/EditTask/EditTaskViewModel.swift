@@ -67,5 +67,41 @@ class EditTaskViewModel {
             return false
         }
     }
-    
+    func toggleCompletion(task: TaskUI) -> Bool {
+        let request : NSFetchRequest<Task> = Task.fetchRequest()
+        //request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "rowid = %@", task.dbId!)
+        let context = CoreDataService().context()
+        let tasksDB = try! context.fetch(request).first
+        tasksDB!.is_done = !tasksDB!.is_done
+        do {
+            try context.save()
+            
+            //Adding and taking gold
+            let requestUD = NSFetchRequest<UserData>(entityName: "UserData")
+            request.returnsObjectsAsFaults = false
+            let userInfo = try! context.fetch(requestUD)
+            if (userInfo.first != nil) {
+                //Alerts about task completion & update total gold
+                if tasksDB!.is_done == true {
+                    AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold")
+                    userInfo.first?.total_gold += tasksDB?.gold ?? 0
+                    do {
+                        try context.save()
+                    }
+                } else {
+                    AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")
+                    userInfo.first?.total_gold -= tasksDB?.gold ?? 0
+                    do {
+                        try context.save()
+                    }
+                }
+            }
+            return task.done
+        }
+        catch {
+            print("error happend")
+            return !task.done
+        }
+    }
 }

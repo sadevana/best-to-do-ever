@@ -424,6 +424,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJa-be-M5r">
+                                <rect key="frame" x="100" y="589" width="193" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="cYG-BS-lh0"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Mark as complete">
+                                    <color key="baseBackgroundColor" red="0.0" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="completeButtonTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="sYf-zr-eWl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kxN-5o-eGL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -436,6 +450,7 @@
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="r9N-xJ-D0q" secondAttribute="trailing" constant="134" id="6JF-j8-Dn1"/>
                             <constraint firstItem="D3h-uZ-kNH" firstAttribute="top" secondItem="Wtf-3j-A5d" secondAttribute="bottom" constant="15.333333333333314" id="6hL-Pk-jHM"/>
                             <constraint firstItem="FxV-CU-ZPi" firstAttribute="top" secondItem="4iu-Mw-lCc" secondAttribute="bottom" constant="8" symbolic="YES" id="6sK-Kj-YX7"/>
+                            <constraint firstItem="qJa-be-M5r" firstAttribute="centerX" secondItem="60S-g3-xpf" secondAttribute="centerX" id="78k-hq-R6y"/>
                             <constraint firstItem="3E7-qO-hgZ" firstAttribute="leading" secondItem="Wtf-3j-A5d" secondAttribute="trailing" constant="45" id="8ce-Rw-Lth"/>
                             <constraint firstItem="SQA-cO-0wN" firstAttribute="top" secondItem="D3h-uZ-kNH" secondAttribute="bottom" constant="8" symbolic="YES" id="8pN-2u-0yy"/>
                             <constraint firstItem="biR-mq-2DA" firstAttribute="top" secondItem="BbK-93-EmD" secondAttribute="bottom" constant="20" id="8zq-bg-vrD"/>
@@ -451,6 +466,7 @@
                             <constraint firstItem="Oyb-di-1Ba" firstAttribute="top" secondItem="ZdJ-wt-iU2" secondAttribute="bottom" constant="35" id="JKU-kF-sXj"/>
                             <constraint firstItem="7Ep-62-1ey" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="K9n-K7-JI0"/>
                             <constraint firstItem="BbK-93-EmD" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="LXx-t4-pDS"/>
+                            <constraint firstItem="ZdJ-wt-iU2" firstAttribute="top" secondItem="qJa-be-M5r" secondAttribute="bottom" constant="35" id="MEh-vm-YYM"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="BbK-93-EmD" secondAttribute="trailing" constant="16" id="VxG-6x-q8d"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="Oyb-di-1Ba" secondAttribute="trailing" constant="100" id="VyH-bY-Iyz"/>
                             <constraint firstItem="MdP-Eu-px6" firstAttribute="top" secondItem="FxV-CU-ZPi" secondAttribute="bottom" constant="20" id="WIV-V2-lEY"/>
@@ -469,6 +485,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wLh-aV-NtG"/>
                     <connections>
+                        <outlet property="completeButton" destination="qJa-be-M5r" id="XvK-Vr-Jux"/>
                         <outlet property="dateTextField" destination="Wtf-3j-A5d" id="aht-uD-Ghg"/>
                         <outlet property="deleteButton" destination="Oyb-di-1Ba" id="2Ga-dc-9Uc"/>
                         <outlet property="descriptionView" destination="BbK-93-EmD" id="3iq-cJ-IDc"/>
