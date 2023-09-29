@@ -36,7 +36,7 @@ class HomeTableViewController: UITableViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.text = "No tasks! Let's not spoil\n the mood and keep away from that plus button"
+        label.text = "No tasks! Let's not spoil\n the mood and keep the app clean"
         label.sizeToFit()
     
         view.addSubview(label)
