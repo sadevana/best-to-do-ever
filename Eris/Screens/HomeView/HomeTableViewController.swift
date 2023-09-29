@@ -10,8 +10,7 @@ import CoreData
 
 class HomeTableViewController: UITableViewController {
     var tasksToShow = [TaskUI]()
-    var sectionedTasks = [[TaskUI](), [TaskUI](), [TaskUI](), [TaskUI]()]
-    let sections: Array<String> = ["Today", "Later", "No date", "Expired"]
+    var sectionedTasks = [TaskSections]()
     let homeViewModel = HomeViewModel()
     
     private let addButton: UIButton = {
@@ -35,12 +34,21 @@ class HomeTableViewController: UITableViewController {
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        print(self.view.parentContainerViewController()?.parent)
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let offset = self.tableView.contentOffset.y
         addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 80, width: 60, height: 60)
+        //Going to todays task by default
+        if(sectionedTasks.count > 2) {
+            if(sectionedTasks[0].sectionName == "Overdue" && sectionedTasks[1].sectionName == "Today") {
+                let indexPath = IndexPath(row: 0, section: 1)
+                self.tableView.setContentOffset(CGPoint.zero, animated: true)
+                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +59,15 @@ class HomeTableViewController: UITableViewController {
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
         //navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+    }
+    func updateDataInCells() {
+        self.tasksToShow = []
+        //Getting data from db
+        self.tasksToShow = homeViewModel.getTasksDB()
+        self.sectionedTasks = []
+        //Putting tasks into sections
+        self.sectionedTasks = homeViewModel.sortTasks(tasks: self.tasksToShow)
+        self.tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -61,12 +77,12 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return sectionedTasks.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "TaskViewCell")
         if let tableCell = tableCell as? TaskViewCell {
-            tableCell.setup(withtask: sectionedTasks[indexPath.section][indexPath.row])
+            tableCell.setup(withtask: sectionedTasks[indexPath.section].tasks[indexPath.row], parentController: self)
         }
         return tableCell!
     }
@@ -77,7 +93,7 @@ class HomeTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sectionedTasks[section].count
+        return sectionedTasks[section].tasks.count
     }
     //Section style
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -85,7 +101,7 @@ class HomeTableViewController: UITableViewController {
         let sectionLabel = UILabel(frame: CGRect(x: 8, y: 10, width:
         tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerView.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
-        sectionLabel.text = sections[section]
+        sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()
         headerView.layer.zPosition = 1.0
@@ -100,7 +116,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EditTaskViewController") as! EditTaskViewController
-        nextViewController.taskUI = sectionedTasks[indexPath.section][indexPath.row]
+        nextViewController.taskUI = sectionedTasks[indexPath.section].tasks[indexPath.row]
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

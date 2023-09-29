@@ -25,3 +25,11 @@ struct TaskUI {
         self.dbId = taskDB.rowid
     }
 }
+struct TaskSections {
+    var tasks: [TaskUI]
+    var sectionName: String
+    init(tasks: [TaskUI], sectionName: String) {
+        self.tasks = tasks
+        self.sectionName = sectionName
+    }
+}

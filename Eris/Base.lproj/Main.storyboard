@@ -11,7 +11,7 @@
         <!--My quests-->
         <scene sceneID="dgk-p8-Qr0">
             <objects>
-                <tableViewController id="oTY-Bl-f6b" customClass="HomeTableViewController" customModule="Eris" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HomeTableViewController" id="oTY-Bl-f6b" customClass="HomeTableViewController" customModule="Eris" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="JdJ-7v-zsV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="679"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,19 +229,19 @@
         <!--My quests-->
         <scene sceneID="axF-bd-Vdn">
             <objects>
-                <viewController id="3NR-uw-QuV" customClass="HomeParentViewController" customModule="Eris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeParentViewController" id="3NR-uw-QuV" customClass="HomeParentViewController" customModule="Eris" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="myf-tH-eXj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-gZ-60M">
-                                <rect key="frame" x="16" y="154" width="36" height="21"/>
+                                <rect key="frame" x="16" y="144" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcJ-9N-U9e">
-                                <rect key="frame" x="16" y="123" width="79" height="21"/>
+                                <rect key="frame" x="16" y="113" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -258,7 +258,7 @@
                         <constraints>
                             <constraint firstItem="WcJ-9N-U9e" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="16" id="5jq-xf-R5B"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="top" secondItem="WcJ-9N-U9e" secondAttribute="bottom" constant="10" id="HKp-Pz-rqo"/>
-                            <constraint firstItem="WcJ-9N-U9e" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="20" id="KLW-ak-TBk"/>
+                            <constraint firstItem="WcJ-9N-U9e" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="KLW-ak-TBk"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="trailing" secondItem="hBI-j5-xHh" secondAttribute="trailing" id="OaB-x5-gXB"/>
                             <constraint firstAttribute="bottom" secondItem="uoj-NN-lhh" secondAttribute="bottom" id="UeB-lt-r8j"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="16" id="lRh-PK-yDJ"/>

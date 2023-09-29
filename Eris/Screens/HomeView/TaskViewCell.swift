@@ -16,6 +16,7 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var goldLabel: UILabel!
     var checked = false
     var id: String?
+    var parentController: HomeTableViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,8 @@ class TaskViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setup(withtask: TaskUI) {
+    func setup(withtask: TaskUI, parentController : HomeTableViewController) {
+        self.parentController = parentController
         taskNameLabel.text = withtask.name
         taskDescriptionLabel.text = withtask.description
         goldLabel.text = "Gold reward: " + String(withtask.gold ?? 0)
@@ -75,6 +77,9 @@ class TaskViewCell: UITableViewCell {
         tasksDB!.is_done = !checked
         do {
             try context.save()
+            //Update data in parent controller
+            print(parentController)
+            parentController?.updateDataInCells()
             //Adding and taking gold
             let requestUD = NSFetchRequest<UserData>(entityName: "UserData")
             request.returnsObjectsAsFaults = false
@@ -95,6 +100,7 @@ class TaskViewCell: UITableViewCell {
                     }
                 }
             }
+            
         }
         catch {
             print("error happend")

@@ -25,6 +25,7 @@
 		A6CB061C2A9D3453007A65F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061A2A9D3453007A65F0 /* Main.storyboard */; };
 		A6CB061E2A9D3454007A65F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061D2A9D3454007A65F0 /* Assets.xcassets */; };
 		A6CB06212A9D3454007A65F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CB061F2A9D3454007A65F0 /* LaunchScreen.storyboard */; };
+		A6D5B4D62AC6D12A007741F1 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5B4D52AC6D129007741F1 /* DateExt.swift */; };
 		A6DF8F552AB2DC360016B701 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF8F542AB2DC360016B701 /* UIViewControllerExt.swift */; };
 		A6DF8F5E2AB2E0910016B701 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A6DF8F5D2AB2E0910016B701 /* IQKeyboardManagerSwift */; };
 		A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */; };
@@ -52,6 +53,7 @@
 		A6CB061D2A9D3454007A65F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6CB06202A9D3454007A65F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6CB06222A9D3454007A65F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6D5B4D52AC6D129007741F1 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		A6DF8F542AB2DC360016B701 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		A6E3356C2A9FB8D2001A0D10 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		A6F11AFC2AB207790016EB08 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A6DF8F542AB2DC360016B701 /* UIViewControllerExt.swift */,
+				A6D5B4D52AC6D129007741F1 /* DateExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */,
 				A6BB0FDC2ABD5E9F002065D2 /* EditTaskViewController.swift in Sources */,
 				A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */,
+				A6D5B4D62AC6D12A007741F1 /* DateExt.swift in Sources */,
 				A6BB0FD92ABD56B1002065D2 /* AddTaskViewModel.swift in Sources */,
 				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
 				A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */,
