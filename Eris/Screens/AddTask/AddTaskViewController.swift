@@ -9,16 +9,20 @@ import UIKit
 import CoreData
 import AudioToolbox
 
-class AddTaskViewController: UIViewController, UITextFieldDelegate {
+class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var addTaskButton: UIButton!
     @IBOutlet weak var timeField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var goldField: UITextField!
+    @IBOutlet weak var taskNameWarningLabel: UILabel!
+    @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
     
     var goldValue: String = "0"
+    var nameText = ""
+    var descriptionText = ""
     
     let addTaskViewModel = AddTaskViewModel()
     
@@ -68,6 +72,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         goldField.addTarget(self,
                             action: #selector(goldValidation),
                             for: UIControl.Event.editingChanged)
+        taskNameField.addTarget(self,
+                            action: #selector(nameValidation),
+                            for: UIControl.Event.editingChanged)
+        descriptionView.delegate = self
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
@@ -87,9 +95,14 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     func AddTask() {
         //Adding new task
-        if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text) {
-            self.navigationController?.popViewController(animated: false)
-            AlertView.instance.showAlert(title: "✅ Successfully added task")
+        if taskNameField.text ?? "" != "" {
+            if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text) {
+                self.navigationController?.popViewController(animated: false)
+                AlertView.instance.showAlert(title: "✅ Successfully added task")
+            }
+        } else {
+            AlertView.instance.showAlert(title: "❌ Please enter task title")
+            taskNameField.becomeFirstResponder()
         }
     }
 
@@ -116,6 +129,27 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         else {
             goldValue = textField.text ?? "0"
             return
+        }
+    }
+    @objc func nameValidation(_ textField: UITextField) {
+        //Name maximum lenght validation
+        if textField.text?.count ?? 0 > 500 {
+            textField.text = nameText
+            taskNameWarningLabel.text = "❌ Too long! Please enter less than 500 symbols"
+            return
+        } else {
+            nameText = textField.text ?? ""
+            taskNameWarningLabel.text = ""
+            return
+        }
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 8000 {
+            textView.text = descriptionText
+            descriptionWarningLabel.text = "❌Too long! Please enter less than 8000 symbols"
+        } else {
+            descriptionText = textView.text
+            descriptionWarningLabel.text = ""
         }
     }
 }

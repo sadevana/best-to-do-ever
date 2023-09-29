@@ -16,7 +16,7 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var goldLabel: UILabel!
     var checked = false
     var id: String?
-    var parentController: HomeTableViewController?
+    weak var parentController: HomeTableViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,10 +34,32 @@ class TaskViewCell: UITableViewCell {
         taskNameLabel.text = withtask.name
         taskDescriptionLabel.text = withtask.description
         goldLabel.text = "Gold reward: " + String(withtask.gold ?? 0)
+        //Setting up different date formats for different dates
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM HH:mm"
+        let thirtyDays = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
+        if withtask.datetime != nil {
+            if withtask.datetime! >= thirtyDays {
+                let date = Date()
+                let calendar = Calendar.current
+                let componentsNow = calendar.dateComponents([.year], from: date)
+                let thisYear = componentsNow.year
+                let componentsThen = calendar.dateComponents([.year], from: withtask.datetime!)
+                let taskYear = componentsThen.year
+                if taskYear != thisYear {
+                    dateFormatter.dateFormat = "dd.MM.YYYY"
+                } else {
+                    dateFormatter.dateFormat = "dd.MM"
+                }
+            } else {
+                dateFormatter.dateFormat = "EEE dd.MM HH:mm"
+            }
+        }
         id = withtask.dbId
-        taskTimeLabel.text = dateFormatter.string(from: withtask.datetime ?? Date())
+        //Clear for when there's no date
+        taskTimeLabel.text = ""
+        if withtask.datetime != nil {
+            taskTimeLabel.text = dateFormatter.string(from: withtask.datetime!)
+        }
         //Setting up checkbox
         checkboxButton.layer.cornerRadius = 18.0
         checked = withtask.done
@@ -77,9 +99,7 @@ class TaskViewCell: UITableViewCell {
         tasksDB!.is_done = !checked
         do {
             try context.save()
-            //Update data in parent controller
-            print(parentController)
-            parentController?.updateDataInCells()
+            
             //Adding and taking gold
             let requestUD = NSFetchRequest<UserData>(entityName: "UserData")
             request.returnsObjectsAsFaults = false
@@ -100,7 +120,8 @@ class TaskViewCell: UITableViewCell {
                     }
                 }
             }
-            
+            //Update data in parent controller
+            parentController?.updateDataInCells()
         }
         catch {
             print("error happend")

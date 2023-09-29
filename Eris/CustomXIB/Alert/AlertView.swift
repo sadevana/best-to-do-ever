@@ -33,6 +33,7 @@ class AlertView: UIView {
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     func showAlert(title: String) {
+        //Show alert and later set it to be more transparent
         self.mainView.alpha = 1.0
         self.containerView.alpha = 1.0
         alertLabel.text = title
@@ -43,7 +44,10 @@ class AlertView: UIView {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.mainView.removeFromSuperview()
+            //In russian it's called 'kostyl'
+            if self.mainView.alpha == 0 {
+                self.mainView.removeFromSuperview()
+            }
         }
     }
 }

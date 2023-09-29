@@ -26,6 +26,22 @@ class HomeTableViewController: UITableViewController {
         
         return button
     }()
+    private let noTasksView: UIImageView = {
+        //View to show on screen when no tasks are present
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        let image = UIImage(named: "ai_dance_character")
+        view.image = image
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 350, height: 21))
+        label.center = CGPoint(x: 120, y: -40)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.lineBreakMode = .byWordWrapping
+        label.text = "No tasks! Let's not spoil\n the mood and keep away from that plus button"
+        label.sizeToFit()
+    
+        view.addSubview(label)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +50,6 @@ class HomeTableViewController: UITableViewController {
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -48,6 +62,13 @@ class HomeTableViewController: UITableViewController {
                 self.tableView.setContentOffset(CGPoint.zero, animated: true)
                 self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
             }
+        }
+        if sectionedTasks.count > 0 {
+            noTasksView.removeFromSuperview()
+        } else {
+            //adding picture if there's no tasks
+            noTasksView.frame = CGRect(x: view.frame.size.width/2 - 90, y: view.frame.size.height/2 - 90, width: 180, height: 180)
+            self.view.addSubview(noTasksView)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +89,9 @@ class HomeTableViewController: UITableViewController {
         //Putting tasks into sections
         self.sectionedTasks = homeViewModel.sortTasks(tasks: self.tasksToShow)
         self.tableView.reloadData()
+        //Update data in parent controller
+        weak var parentVC = self.parent as? HomeParentViewController
+        parentVC?.updateTopBarInfo()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

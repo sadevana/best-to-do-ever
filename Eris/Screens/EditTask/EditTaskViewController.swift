@@ -7,15 +7,20 @@
 
 import UIKit
 
-class EditTaskViewController: UIViewController, UITextFieldDelegate {
+class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var goldTextField: UITextField!
     @IBOutlet weak var descriptionView: UITextView!
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var descriptionWarningLabel: UILabel!
+    @IBOutlet weak var taskNameWarningLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    
     var taskUI: TaskUI?
+    var nameText = ""
+    var descriptionText = ""
     
     let editTaskModel = EditTaskViewModel()
     
@@ -82,6 +87,10 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
         goldTextField.addTarget(self,
                             action: #selector(goldValidation),
                             for: UIControl.Event.editingChanged)
+        taskNameField.addTarget(self,
+                            action: #selector(nameValidation),
+                            for: UIControl.Event.editingChanged)
+        descriptionView.delegate = self
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()
@@ -95,10 +104,15 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
         dateTextField.text = dateFormater.string(from: sender.date)
     }
     @IBAction func updateTapped(_ sender: Any) {
-        if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "") {
-        
-            self.navigationController?.popToRootViewController(animated: true)
-            AlertView.instance.showAlert(title: "✅ Task successfuly updated")
+        if taskNameField.text ?? "" != "" {
+            if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "") {
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                AlertView.instance.showAlert(title: "✅ Task successfuly updated")
+            }
+        } else {
+            AlertView.instance.showAlert(title: "❌ Please enter task title")
+            taskNameField.becomeFirstResponder()
         }
     }
     
@@ -126,6 +140,27 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate {
         else {
             goldValue = textField.text ?? "0"
             return
+        }
+    }
+    @objc func nameValidation(_ textField: UITextField) {
+        //Name maximum lenght validation
+        if textField.text?.count ?? 0 > 500 {
+            textField.text = nameText
+            taskNameWarningLabel.text = "❌ Too long! Please enter less than 500 symbols"
+            return
+        } else {
+            nameText = textField.text ?? ""
+            taskNameWarningLabel.text = ""
+            return
+        }
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 8000 {
+            textView.text = descriptionText
+            descriptionWarningLabel.text = "❌Too long! Please enter less than 8000 symbols"
+        } else {
+            descriptionText = textView.text
+            descriptionWarningLabel.text = ""
         }
     }
 }
