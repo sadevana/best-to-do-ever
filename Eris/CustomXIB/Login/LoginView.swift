@@ -46,6 +46,8 @@ class LoginView: UIView {
         loginTextField.addTarget(self,
                             action: #selector(nameValidation),
                             for: UIControl.Event.editingChanged)
+        //focus on input
+        loginTextField.becomeFirstResponder()
     }
     func showAlert() {
         UIApplication.shared.keyWindow?.addSubview(mainView)
