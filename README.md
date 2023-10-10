@@ -13,7 +13,7 @@ best-to-do-ever isn't just another to-do list app. We've taken productivity and 
 ## 📱 Installation
 Clone the repository.
 Open in Xcode.
-Run the simulator or install on your iOS device.
+Run the simulator or install it on your iOS device.
 
 ` git clone https://github.com/sadevana/best-to-do-ever`
 
@@ -27,5 +27,5 @@ Run the simulator or install on your iOS device.
 We love to hear feature requests and feedback from everyone. Whether it's reporting a bug, improving documentation, or proposing a new feature, we appreciate all the help!
 
 ## 💌 Contact & Support
-Do you have questions or feedback? Reach out to us at [Telegram: Devblog](https://t.me/best_to_do_ever_devblog)https://t.me/best_to_do_ever_devblog or open an issue on GitHub.
+Do you have questions or feedback? Reach out to us at [Telegram: Devblog](https://t.me/best_to_do_ever_devblog) or open an issue on GitHub.
 
