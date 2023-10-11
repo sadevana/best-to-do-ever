@@ -40,7 +40,7 @@ class HomeViewModel {
             sectionedTasks.append(TaskSections(tasks: expiredList, sectionName: "Overdue"))
         }
         //Today
-        let todayList = tasksSorted.filter{$0.datetime ?? endDayTime < endDayTime && $0.datetime ?? Date() - 1 > dayStartTime && $0.done != true}
+        let todayList = tasksSorted.filter{$0.datetime ?? endDayTime < endDayTime && $0.datetime ?? Date() - 1 >= dayStartTime && $0.done != true}
         if todayList.count > 0 {
             sectionedTasks.append(TaskSections(tasks: todayList, sectionName: "Today"))
         }

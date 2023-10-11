@@ -255,7 +255,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-gZ-60M">
-                                <rect key="frame" x="16" y="144" width="36" height="21"/>
+                                <rect key="frame" x="81" y="144" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zq-MH-bzk">
-                                <rect key="frame" x="3" y="113" width="75" height="21"/>
+                                <rect key="frame" x="70" y="113" width="75" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pZy-mY-9md"/>
                                 </constraints>
@@ -278,18 +278,28 @@
                                     <action selector="setupUserNameClicked:" destination="3NR-uw-QuV" eventType="touchUpInside" id="30V-dZ-QOL"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5fS-s1-avj">
+                                <rect key="frame" x="4" y="111" width="58" height="56"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="CGm-aa-5FP"/>
+                                    <constraint firstAttribute="height" constant="57.329999999999998" id="XbR-Gs-ZTD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hBI-j5-xHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Zq-MH-bzk" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="3" id="7E1-g4-t5c"/>
+                            <constraint firstItem="0Zq-MH-bzk" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="70" id="7E1-g4-t5c"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="trailing" secondItem="hBI-j5-xHh" secondAttribute="trailing" id="OaB-x5-gXB"/>
                             <constraint firstItem="0Zq-MH-bzk" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="R80-w2-liB"/>
                             <constraint firstAttribute="bottom" secondItem="uoj-NN-lhh" secondAttribute="bottom" id="UeB-lt-r8j"/>
-                            <constraint firstItem="E1s-gZ-60M" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="16" id="lRh-PK-yDJ"/>
+                            <constraint firstItem="E1s-gZ-60M" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="81" id="lRh-PK-yDJ"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="top" secondItem="0Zq-MH-bzk" secondAttribute="bottom" constant="10" id="oLy-Cs-OJa"/>
+                            <constraint firstItem="5fS-s1-avj" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="7" id="oOE-56-tM6"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" id="pSS-VT-A4I"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="70" id="rAW-PT-Xtf"/>
+                            <constraint firstItem="5fS-s1-avj" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="4" id="yeg-6e-MSX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My quests" style="editor" id="a4j-fa-jWR"/>
@@ -521,8 +531,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

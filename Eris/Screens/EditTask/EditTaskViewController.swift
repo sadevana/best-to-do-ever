@@ -36,15 +36,17 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         //Setting up datetime
         if taskUI?.datetime != nil {
             let date = taskUI?.datetime
-            let timeFormater = DateFormatter()
-            timeFormater.dateFormat = "HH:mm"
-            timeFormater.locale = NSLocale(localeIdentifier: "en_GB") as Locale
-            timeTextField.text = timeFormater.string(from: date!)
+            //Checking if time was set with date
+            if taskUI?.hasTime == true {
+                let timeFormater = DateFormatter()
+                timeFormater.dateFormat = "HH:mm"
+                timeFormater.locale = NSLocale(localeIdentifier: "en_GB") as Locale
+                timeTextField.text = timeFormater.string(from: date!)
+            }
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "dd.MM.yyyy"
             dateTextField.text = dateFormater.string(from: date!)
         }
-        
         //Dynamic button title
         if taskUI?.done ?? false {
             completeButton.setTitle("Mark as incomplete", for: .normal)
@@ -73,7 +75,6 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.valueChanged)
-        datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.editingDidBegin)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.backgroundColor = UIColor.white
         datePicker.preferredDatePickerStyle = .wheels
@@ -94,6 +95,8 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
                             action: #selector(nameValidation),
                             for: UIControl.Event.editingChanged)
         descriptionView.delegate = self
+        timeTextField.delegate = self
+        dateTextField.delegate = self
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()
@@ -157,6 +160,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             return
         }
     }
+    
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.count > 8000 {
             textView.text = descriptionText
@@ -175,5 +179,36 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
         let wasDone = !(taskUI?.done ?? false)
         taskUI?.done = wasDone
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == timeTextField {
+            //Checking if valid time is inputed
+            do {
+                let timeFormat = try Regex("[0-9]{2}:[0-9]{2}")
+                let timeMatch  = try timeFormat.wholeMatch(in: string ) != nil
+                if timeMatch {
+                    return true
+                } else {
+                    return false
+                }
+            } catch {
+                print("Regex error")
+            }
+        }
+        if textField == dateTextField {
+            //Checking if valid date is inputed
+            do {
+                let timeFormat = try Regex("[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}")
+                let timeMatch  = try timeFormat.wholeMatch(in: string ) != nil
+                if timeMatch {
+                    return true
+                } else {
+                    return false
+                }
+            } catch {
+                print("Regex error")
+            }
+        }
+        return true
     }
 }

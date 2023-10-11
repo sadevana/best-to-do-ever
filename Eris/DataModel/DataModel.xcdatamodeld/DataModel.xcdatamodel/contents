@@ -7,6 +7,7 @@
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
         <attribute name="due_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="gold" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="has_time" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="is_done" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="rowid" optional="YES" attributeType="String"/>
         <attribute name="task_description" optional="YES" attributeType="String"/>

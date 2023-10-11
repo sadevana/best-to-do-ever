@@ -22,7 +22,10 @@ class AddTaskViewModel {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         if timeText == "" {
-            dateFormatter.timeZone = .gmt
+            //dateFormatter.timeZone = .gmt
+            taskAdded.has_time = false
+        } else {
+            taskAdded.has_time = true
         }
         //Changing date to fit format
         if dateText != "" {

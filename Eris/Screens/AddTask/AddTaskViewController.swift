@@ -20,7 +20,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
     
-    var goldValue: String = "0"
+    //Default value for gold
+    var goldValue: String = "5"
     var nameText = ""
     var descriptionText = ""
     
@@ -76,6 +77,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                             action: #selector(nameValidation),
                             for: UIControl.Event.editingChanged)
         descriptionView.delegate = self
+        dateField.delegate = self
+        timeField.delegate = self
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
@@ -117,12 +120,17 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             goldValue = "0"
             return
         }
+        guard let intText = Int64(textField.text ?? "0") else {
+            textField.text = goldValue
+            return
+        }
+        
         if textField.text?.prefix(1)  == "0" && textField.text!.count > 1 {
             textField.text = String(textField.text!.suffix(textField.text!.count - 1))
             goldValue = textField.text!
             return
         }
-        if Int64(textField.text ?? "0")! > 10000000000 {
+        if Int64(textField.text!)! > 10000000000 {
             textField.text = goldValue
             return
         }
@@ -151,5 +159,36 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             descriptionText = textView.text
             descriptionWarningLabel.text = ""
         }
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == timeField {
+            //Checking if valid time is inputed
+            do {
+                let timeFormat = try Regex("[0-9]{2}:[0-9]{2}")
+                let timeMatch  = try timeFormat.wholeMatch(in: string ) != nil
+                if timeMatch {
+                    return true
+                } else {
+                    return false
+                }
+            } catch {
+                print("Regex error")
+            }
+        }
+        if textField == dateField {
+            //Checking if valid date is inputed
+            do {
+                let timeFormat = try Regex("[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}")
+                let timeMatch  = try timeFormat.wholeMatch(in: string ) != nil
+                if timeMatch {
+                    return true
+                } else {
+                    return false
+                }
+            } catch {
+                print("Regex error")
+            }
+        }
+        return true
     }
 }

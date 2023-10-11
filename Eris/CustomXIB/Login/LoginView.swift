@@ -51,6 +51,7 @@ class LoginView: UIView {
     }
     func showAlert() {
         UIApplication.shared.keyWindow?.addSubview(mainView)
+        print(self.mainView.parentContainerViewController())
     }
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.mainView.removeFromSuperview()
@@ -66,12 +67,14 @@ class LoginView: UIView {
             let userInfo = try! context.fetch(request)
             userInfo.first?.user_name = loginTextField.text
             self.mainView.removeFromSuperview()
+            print(self.mainView.parentContainerViewController())
             do {
                 try context.save()
             } catch {
                 print(error)
             }
         }
+        
     }
     @objc func nameValidation(_ textField: UITextField) {
         if textField.text?.count ?? 0 > 100 {

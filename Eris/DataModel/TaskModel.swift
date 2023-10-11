@@ -15,6 +15,7 @@ struct TaskUI {
     var datetime: Date?
     var done: Bool
     var dbId: String?
+    var hasTime: Bool
     
     init(taskDB: Task) {
         self.gold = taskDB.gold
@@ -23,6 +24,7 @@ struct TaskUI {
         self.datetime = taskDB.due_date
         self.done = taskDB.is_done
         self.dbId = taskDB.rowid
+        self.hasTime = taskDB.has_time
     }
 }
 struct TaskSections {

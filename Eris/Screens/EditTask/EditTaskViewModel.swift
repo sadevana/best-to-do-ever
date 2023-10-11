@@ -43,6 +43,9 @@ class EditTaskViewModel {
             dateFormatter.dateFormat = "dd.MM.yyyy"
             if time == "" {
                 dateFormatter.timeZone = .gmt
+                tasksDB!.has_time = false
+            } else {
+                tasksDB!.has_time = true
             }
             //Changing date to fit format
             if date != "" {

@@ -38,7 +38,12 @@ class TaskViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         let thirtyDays = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
         if withtask.datetime != nil {
+            let date = Date()
+            let calendar = Calendar.current
+            let dayStartTime = calendar.startOfDay(for: date)
+            let endDayTime = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
             if withtask.datetime! >= thirtyDays {
+                //Later task  can display current year
                 let date = Date()
                 let calendar = Calendar.current
                 let componentsNow = calendar.dateComponents([.year], from: date)
@@ -46,12 +51,30 @@ class TaskViewCell: UITableViewCell {
                 let componentsThen = calendar.dateComponents([.year], from: withtask.datetime!)
                 let taskYear = componentsThen.year
                 if taskYear != thisYear {
-                    dateFormatter.dateFormat = "dd.MM.YYYY"
+                    if withtask.hasTime == true {
+                        dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
+                    } else {
+                        dateFormatter.dateFormat = "dd.MM.YYYY"
+                    }
                 } else {
-                    dateFormatter.dateFormat = "dd.MM"
+                    if withtask.hasTime == true {
+                        dateFormatter.dateFormat = "dd.MM HH:mm"
+                    } else {
+                        dateFormatter.dateFormat = "dd.MM"
+                    }
                 }
-            } else {
-                dateFormatter.dateFormat = "EEE dd.MM HH:mm"
+            }else if withtask.datetime! < endDayTime && withtask.datetime! >= dayStartTime {
+                //Todays task can only show time
+                if withtask.hasTime == true {
+                    dateFormatter.dateFormat = "HH:mm"
+                }
+            }else {
+                //Checking if task has time
+                if withtask.hasTime == true {
+                    dateFormatter.dateFormat = "EEE dd.MM HH:mm"
+                } else {
+                    dateFormatter.dateFormat = "EEE dd.MM"
+                }
             }
         }
         id = withtask.dbId
