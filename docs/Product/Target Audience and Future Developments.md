@@ -1,5 +1,26 @@
 # Potential target audiences
 // https://chat.openai.com/c/fad42c29-10c3-4c3d-9b82-6263d910553a <- for @aakransnova only
+
+- [Potential target audiences](#potential-target-audiences)
+    + [Students:](#--students---)
+    + [Young Professionals:](#--young-professionals---)
+    + [Freelancers:](#--freelancers---)
+    + [Teams and Small Businesses:](#--teams-and-small-businesses---)
+    + [Parents:](#--parents---)
+    + [Health and Fitness Buffs:](#--health-and-fitness-buffs---)
+    + [Personal Development Enthusiasts:](#--personal-development-enthusiasts---)
+    + [Gamers:](#--gamers---)
+    + [Procrastinators:](#--procrastinators---)
+    + [Educators:](#--educators---)
+    + [Retirees:](#--retirees---)
+    + [Children:](#--children---)
+    + [Co-working Streamers:](#--co-working-streamers---)
+      - [ChatGPT thoughts](#chatgpt-thoughts)
+    + [Experts/Lifestyle Influencers:](#experts-lifestyle-influencers-)
+    + [People with sub-clinical mental illness(es)](#people-with-sub-clinical-mental-illness-es-)
+- [Who are NOT our target audience](#who-are-not-our-target-audience)
+
+
 ### **Students**: 
    - *Why*: Large user base, frequent task and assignment tracking needs, and often keen on game elements. There's also potential for organic growth through word of mouth within educational institutions.
 
