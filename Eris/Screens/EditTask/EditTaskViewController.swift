@@ -62,6 +62,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
         timePicker.date = Calendar.current.date(bySettingHour: 12, minute: 00, second: 0, of: Date())!
+        timeTextField.addTarget(self, action: #selector(timePickerSetDefault), for: UIControl.Event.editingDidBegin)
         timePicker.addTarget(self, action: #selector(timePickerValueChange), for: UIControl.Event.valueChanged)
         timePicker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timePicker.frame.size = CGSize(width: 0, height: 300)
@@ -75,6 +76,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChange), for: UIControl.Event.valueChanged)
+        dateTextField.addTarget(self, action: #selector(datePickerSetDefault), for: UIControl.Event.editingDidBegin)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.backgroundColor = UIColor.white
         datePicker.preferredDatePickerStyle = .wheels
@@ -87,6 +89,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         //for setting up keyboard actions
         taskNameField.delegate =  self
         goldTextField.delegate = self
+        
         //Validation
         goldTextField.addTarget(self,
                             action: #selector(goldValidation),
@@ -104,10 +107,22 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         timeFormater.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timeTextField.text = timeFormater.string(from: sender.date)
     }
+    @objc func timePickerSetDefault(sender: UITextField) {
+        if sender.text == "" {
+            timeTextField.text = "12:00"
+        }
+    }
     @objc func datePickerValueChange(sender: UIDatePicker) {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         dateTextField.text = dateFormater.string(from: sender.date)
+    }
+    @objc func datePickerSetDefault(sender: UITextField) {
+        if sender.text == "" {
+            let dateFormater = DateFormatter()
+            dateFormater.dateFormat = "dd.MM.yyyy"
+            dateTextField.text = dateFormater.string(from: Date())
+        }
     }
     @IBAction func updateTapped(_ sender: Any) {
         if taskNameField.text ?? "" != "" {

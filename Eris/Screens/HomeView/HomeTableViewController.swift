@@ -28,15 +28,15 @@ class HomeTableViewController: UITableViewController {
     }()
     private let noTasksView: UIImageView = {
         //View to show on screen when no tasks are present
-        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        let image = UIImage(named: "ai_dance_character")
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 160))
+        let image = UIImage(named: "mascot_start")
         view.image = image
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 350, height: 21))
         label.center = CGPoint(x: 120, y: -40)
         label.numberOfLines = 2
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.text = "No tasks! Let's not spoil\n the mood and keep the app clean"
+        //label.text = "You have no quests! Let's create some\n using that plus button!"
         label.sizeToFit()
     
         view.addSubview(label)
@@ -68,7 +68,7 @@ class HomeTableViewController: UITableViewController {
             noTasksView.removeFromSuperview()
         } else {
             //adding picture if there's no tasks
-            noTasksView.frame = CGRect(x: view.frame.size.width/2 - 90, y: view.frame.size.height/2 - 90, width: 180, height: 180)
+            noTasksView.frame = CGRect(x: view.frame.size.width/2 - 140, y: view.frame.size.height/2 - 420, width: 280, height: 730)
             self.view.addSubview(noTasksView)
         }
     }

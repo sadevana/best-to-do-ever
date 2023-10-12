@@ -93,8 +93,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toI-IC-OMk">
-                                <rect key="frame" x="16" y="103" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toI-IC-OMk">
+                                <rect key="frame" x="16" y="103" width="78.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                                     <constraint firstAttribute="width" constant="193" id="bVA-2D-i55"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add task"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Accept quest"/>
                                 <connections>
                                     <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
                                 </connections>
@@ -320,8 +320,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iu-Mw-lCc">
-                                <rect key="frame" x="16" y="103" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iu-Mw-lCc">
+                                <rect key="frame" x="16" y="103" width="78.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -339,13 +339,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdJ-wt-iU2">
-                                <rect key="frame" x="100" y="659" width="193" height="35"/>
+                                <rect key="frame" x="100" y="678" width="193" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="193" id="l7X-Oa-mhe"/>
                                     <constraint firstAttribute="height" constant="35" id="vSG-DX-aCq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update task"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update quest"/>
                                 <connections>
                                     <action selector="updateTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="R1M-fm-KfO"/>
                                 </connections>
@@ -415,7 +415,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Delete task">
+                                <buttonConfiguration key="configuration" style="filled" title="Delete quest">
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -435,7 +435,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJa-be-M5r">
-                                <rect key="frame" x="100" y="589" width="193" height="35"/>
+                                <rect key="frame" x="100" y="627" width="193" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="193" id="cYG-BS-lh0"/>
                                 </constraints>
@@ -473,10 +473,10 @@
                             <constraint firstItem="SQA-cO-0wN" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="H36-35-gLB"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="RhQ-il-5fG" secondAttribute="trailing" constant="16" id="Htt-hf-3MH"/>
                             <constraint firstItem="Wtf-3j-A5d" firstAttribute="top" secondItem="biR-mq-2DA" secondAttribute="bottom" constant="11.666666666666686" id="IlZ-Le-Bu0"/>
-                            <constraint firstItem="Oyb-di-1Ba" firstAttribute="top" secondItem="ZdJ-wt-iU2" secondAttribute="bottom" constant="35" id="JKU-kF-sXj"/>
+                            <constraint firstItem="Oyb-di-1Ba" firstAttribute="top" secondItem="ZdJ-wt-iU2" secondAttribute="bottom" constant="16" id="JKU-kF-sXj"/>
                             <constraint firstItem="7Ep-62-1ey" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="K9n-K7-JI0"/>
                             <constraint firstItem="BbK-93-EmD" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="LXx-t4-pDS"/>
-                            <constraint firstItem="ZdJ-wt-iU2" firstAttribute="top" secondItem="qJa-be-M5r" secondAttribute="bottom" constant="35" id="MEh-vm-YYM"/>
+                            <constraint firstItem="ZdJ-wt-iU2" firstAttribute="top" secondItem="qJa-be-M5r" secondAttribute="bottom" constant="16" id="MEh-vm-YYM"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="BbK-93-EmD" secondAttribute="trailing" constant="16" id="VxG-6x-q8d"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="Oyb-di-1Ba" secondAttribute="trailing" constant="100" id="VyH-bY-Iyz"/>
                             <constraint firstItem="MdP-Eu-px6" firstAttribute="top" secondItem="FxV-CU-ZPi" secondAttribute="bottom" constant="20" id="WIV-V2-lEY"/>

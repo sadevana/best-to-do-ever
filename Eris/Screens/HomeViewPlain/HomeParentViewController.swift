@@ -20,7 +20,7 @@ class HomeParentViewController: UIViewController {
         userNameButton.contentHorizontalAlignment = .left
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore {
-            LoginView.instance.showAlert()
+            LoginView.instance.showAlert(viewToUpdate: self)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
     }
@@ -67,9 +67,10 @@ class HomeParentViewController: UIViewController {
         let userInfo = try! context.fetch(request)
         if (userInfo.first != nil) {
             if userInfo.first!.user_name == "" || userInfo.first!.user_name == nil {
-                LoginView.instance.showAlert()
+                LoginView.instance.showAlert(viewToUpdate: self)
             }
         }
+        
     }
     
 }

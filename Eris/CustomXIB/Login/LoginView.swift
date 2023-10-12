@@ -16,6 +16,7 @@ class LoginView: UIView {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var emptyWarningLabel: UILabel!
     @IBOutlet weak var loginTextField: UITextField!
+    weak var parentScreen: HomeParentViewController?
     var nickText = ""
     /*
     // Only override draw() if you perform custom drawing.
@@ -49,9 +50,9 @@ class LoginView: UIView {
         //focus on input
         loginTextField.becomeFirstResponder()
     }
-    func showAlert() {
+    func showAlert(viewToUpdate: HomeParentViewController) {
         UIApplication.shared.keyWindow?.addSubview(mainView)
-        print(self.mainView.parentContainerViewController())
+        parentScreen = viewToUpdate
     }
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.mainView.removeFromSuperview()
@@ -70,6 +71,7 @@ class LoginView: UIView {
             print(self.mainView.parentContainerViewController())
             do {
                 try context.save()
+                parentScreen?.updateTopBarInfo()
             } catch {
                 print(error)
             }
