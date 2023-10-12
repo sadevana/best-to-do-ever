@@ -15,6 +15,7 @@ class AlertView: UIView {
     @IBOutlet weak var alertLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
+    var startTime = DispatchTime.now() - 5000000000
     static let instance = AlertView()
     
     
@@ -35,20 +36,33 @@ class AlertView: UIView {
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     func showAlert(title: String) {
-        //Show alert and later set it to be more transparent
-        self.mainView.alpha = 1.0
-        self.containerView.alpha = 1.0
-        alertLabel.setTextWithTypeAnimation(typedText: title, characterDelay: 7)
-        UIApplication.shared.keyWindow?.addSubview(mainView)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            UIView.animate(withDuration: 2.0) {
-                self.mainView.alpha = 0.0
+        //Only showing new alert if previous one is over otherwise check if it's needed later on
+        let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
+        if dif > 5000000000 {
+            //Show alert and later set it to be more transparent
+            self.mainView.alpha = 1.0
+            self.containerView.alpha = 1.0
+            startTime = DispatchTime.now()
+            alertLabel.setTyping(text: title, characterDelay: 7)
+            UIApplication.shared.keyWindow?.addSubview(mainView)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
+                if dif > 3000000000{
+                    UIView.animate(withDuration: 2.0) {
+                        self.mainView.alpha = 0.0
+                    }
+                }
             }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            //In russian it's called 'kostyl'
-            if self.mainView.alpha == 0 {
-                self.mainView.removeFromSuperview()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
+                //In russian it's called 'kostyl'
+                if self.mainView.alpha == 0 && dif > 5000000000 {
+                    self.mainView.removeFromSuperview()
+                }
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.showAlert(title: title)
             }
         }
     }

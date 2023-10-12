@@ -11,22 +11,20 @@ import UIKit
 
 extension UILabel {
     //Done to type out text slowly
-    func setTextWithTypeAnimation(typedText: String, characterDelay: TimeInterval = 5.0) {
-        text = ""
-        var writingTask: DispatchWorkItem?
-        writingTask = DispatchWorkItem { [weak weakSelf = self] in
-            for character in typedText {
-                DispatchQueue.main.async {
-                    weakSelf?.text!.append(character)
-                }
-                Thread.sleep(forTimeInterval: characterDelay/100)
-            }
-        }
+    func setTyping(text: String, characterDelay: TimeInterval = 5.0) {
+      self.text = ""
         
-        if let task = writingTask {
-            let queue = DispatchQueue(label: "typespeed", qos: DispatchQoS.userInteractive)
-            queue.asyncAfter(deadline: .now() + 0.05, execute: task)
+      let writingTask = DispatchWorkItem { [weak self] in
+        text.forEach { char in
+          DispatchQueue.main.async {
+            self?.text?.append(char)
+          }
+          Thread.sleep(forTimeInterval: characterDelay/100)
         }
+      }
+        
+      let queue: DispatchQueue = .init(label: "typespeed", qos: .userInteractive)
+      queue.asyncAfter(deadline: .now() + 0.05, execute: writingTask)
     }
     
 }

@@ -68,7 +68,9 @@ class HomeTableViewController: UITableViewController {
             noTasksView.removeFromSuperview()
         } else {
             //adding picture if there's no tasks
-            noTasksView.frame = CGRect(x: view.frame.size.width/2 - 140, y: view.frame.size.height/2 - 420, width: 280, height: 730)
+            noTasksView.frame = CGRect(x: view.frame.size.width/2 - view.frame.size.width/2.6, y: -20, width: view.frame.size.width/1.3, height: view.frame.size.height)
+            print(view.frame.size.width)
+            print(view.frame.size.height)
             self.view.addSubview(noTasksView)
         }
     }
