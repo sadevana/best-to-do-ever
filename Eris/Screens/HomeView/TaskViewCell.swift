@@ -23,13 +23,26 @@ class TaskViewCell: UITableViewCell {
         // Initialization code
 
     }
-
+    override var frame: CGRect {
+        //Setting up cells spacing
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame = newFrame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 0, right: 8))
+            super.frame = frame
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     func setup(withtask: TaskUI, parentController : HomeTableViewController) {
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        self.layer.borderWidth = 1
         self.parentController = parentController
         taskNameLabel.text = withtask.name
         taskDescriptionLabel.text = withtask.description

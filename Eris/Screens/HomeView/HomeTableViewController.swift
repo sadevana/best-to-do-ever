@@ -16,8 +16,10 @@ class HomeTableViewController: UITableViewController {
     private let addButton: UIButton = {
         //Creating a floating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        button.backgroundColor = #colorLiteral(red: 0.7490196078, green: 0.6352941176, blue: 0.8588235294, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.5098039216, blue: 0.3921568627, alpha: 1)
         button.layer.masksToBounds = true
+        button.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 30
         let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
         button.setImage(image, for: .normal)
@@ -48,10 +50,10 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         self.view.addSubview(addButton)
         //Initial setup
-        tableView.rowHeight = 100.0
+        tableView.rowHeight = 110.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
+        self.tableView.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0.9058823529, blue: 0.8235294118, alpha: 0.8470588235)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -131,11 +133,13 @@ class HomeTableViewController: UITableViewController {
         let headerView = UIView()
         let sectionLabel = UILabel(frame: CGRect(x: 8, y: 10, width:
         tableView.bounds.size.width, height: tableView.bounds.size.height))
-        headerView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.8509803922, blue: 1, alpha: 1)
+        headerView.backgroundColor = #colorLiteral(red: 0.6901960784, green: 0.8509803922, blue: 0.6941176471, alpha: 1)
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()
         headerView.layer.zPosition = 1.0
+        headerView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        headerView.layer.borderWidth = 1
         headerView.addSubview(sectionLabel)
         headerView.isUserInteractionEnabled = false
         return headerView
@@ -156,4 +160,5 @@ class HomeTableViewController: UITableViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
+    
 }
