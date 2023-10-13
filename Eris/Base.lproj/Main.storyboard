@@ -20,55 +20,68 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskViewCell" rowHeight="100" id="3hd-yC-mdb" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hd-yC-mdb" id="487-13-1my" customClass="TaskViewCell" customModule="Eris" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hd-yC-mdb" id="487-13-1my">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
-                                            <rect key="frame" x="20" y="11" width="142" height="21"/>
+                                            <rect key="frame" x="67" y="11" width="97" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="164" y="11" width="145" height="21"/>
+                                            <rect key="frame" x="172" y="11" width="137" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-ql-k1W">
-                                            <rect key="frame" x="20" y="69" width="210" height="20"/>
+                                            <rect key="frame" x="67" y="69" width="163" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-j2-sdz">
-                                            <rect key="frame" x="20" y="40" width="311" height="20"/>
+                                            <rect key="frame" x="67" y="40" width="264" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-7y-vLr">
-                                            <rect key="frame" x="323" y="11" width="35" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-7y-vLr">
+                                            <rect key="frame" x="358" y="11" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="o63-Df-mwZ"/>
+                                                <constraint firstAttribute="width" constant="35" id="z71-YX-uPP"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="   "/>
                                             <connections>
                                                 <action selector="checkbox:" destination="3hd-yC-mdb" eventType="touchUpInside" id="qVM-3G-SQm"/>
                                             </connections>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="book_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-zw-eMH">
+                                            <rect key="frame" x="11" y="26" width="48" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.47450980390000003" green="0.67450980390000004" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="rGm-7y-vLr" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="5QR-pZ-sht"/>
+                                        <constraint firstAttribute="trailing" secondItem="rGm-7y-vLr" secondAttribute="trailing" id="E9X-fm-pW3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
                                     <outlet property="TaskTimeLabel" destination="VNv-Pm-AeI" id="PWM-GR-2T3"/>
                                     <outlet property="checkboxButton" destination="rGm-7y-vLr" id="wZK-z8-sI9"/>
                                     <outlet property="goldLabel" destination="iPL-ql-k1W" id="duA-EL-vTA"/>
+                                    <outlet property="iconImage" destination="yH3-zw-eMH" id="Lah-fi-JNb"/>
                                     <outlet property="taskDescriptionLabel" destination="paU-j2-sdz" id="0Vs-gt-Ed4"/>
                                     <outlet property="taskNameLabel" destination="ADd-Qc-ZlR" id="vJK-SV-djv"/>
                                     <outlet property="taskTimeLabel" destination="VNv-Pm-AeI" id="ZgM-SC-1IE"/>
@@ -195,6 +208,29 @@
                                     <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IT9-hq-OaB">
+                                <rect key="frame" x="16.000000000000004" y="528" width="32.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-v5-Emm">
+                                <rect key="frame" x="16" y="560" width="160" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="jqE-x2-gBx"/>
+                                    <constraint firstAttribute="height" constant="50" id="mbP-hr-PkF"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="" image="book_icon">
+                                        <size key="contentOffset" width="0.0" height="1"/>
+                                    </segment>
+                                    <segment title="" image="bow_icon"/>
+                                    <segment title="" image="sword_icon"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" systemColor="systemBackgroundColor"/>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0oq-Cj-0R1"/>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,15 +252,19 @@
                             <constraint firstItem="bWq-0r-Afy" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="U39-Ve-8tm"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="bWq-0r-Afy" secondAttribute="trailing" constant="16" id="UPz-EW-BY6"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="g1J-kF-K1K" secondAttribute="trailing" constant="16" id="UrU-JF-L6M"/>
+                            <constraint firstItem="IT9-hq-OaB" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="YRG-eE-Hu5"/>
                             <constraint firstItem="xc6-4S-DLU" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="aqy-TA-tzf"/>
                             <constraint firstItem="ZYX-6P-DaW" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="bxP-d8-9ft"/>
                             <constraint firstItem="ITj-ab-Ojc" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="c0W-t1-V9h"/>
                             <constraint firstItem="ITj-ab-Ojc" firstAttribute="top" secondItem="EMe-w2-lqm" secondAttribute="bottom" constant="4" id="dgE-dB-xhK"/>
                             <constraint firstItem="7d8-Me-WVk" firstAttribute="top" secondItem="EMe-w2-lqm" secondAttribute="bottom" constant="20" id="fOZ-v2-Rnk"/>
+                            <constraint firstItem="JbU-v5-Emm" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="fpS-dM-x6j"/>
+                            <constraint firstItem="IT9-hq-OaB" firstAttribute="top" secondItem="ZYX-6P-DaW" secondAttribute="bottom" constant="20" id="gIb-VB-72b"/>
                             <constraint firstItem="Mq9-BY-laK" firstAttribute="top" secondItem="Sm0-XK-y3B" secondAttribute="bottom" constant="11" id="hNF-JC-dK1"/>
                             <constraint firstItem="ZYX-6P-DaW" firstAttribute="top" secondItem="eVD-bU-ETb" secondAttribute="bottom" constant="8" symbolic="YES" id="jf3-Av-Dke"/>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="ITj-ab-Ojc" secondAttribute="trailing" constant="16" id="kpM-PE-bEU"/>
                             <constraint firstItem="bWq-0r-Afy" firstAttribute="top" secondItem="7d8-Me-WVk" secondAttribute="bottom" constant="9" id="lu1-qb-WIa"/>
+                            <constraint firstItem="JbU-v5-Emm" firstAttribute="top" secondItem="IT9-hq-OaB" secondAttribute="bottom" constant="11" id="pCn-8i-sLN"/>
                             <constraint firstItem="xc6-4S-DLU" firstAttribute="top" secondItem="bWq-0r-Afy" secondAttribute="bottom" constant="20" id="u13-Ih-jmD"/>
                             <constraint firstItem="toI-IC-OMk" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="vcJ-6e-est"/>
                             <constraint firstItem="ZxM-dh-NPz" firstAttribute="centerX" secondItem="7nV-l2-cGa" secondAttribute="centerX" id="y92-BW-I3h"/>
@@ -241,6 +281,7 @@
                         <outlet property="descriptionView" destination="bWq-0r-Afy" id="eaI-5s-DHB"/>
                         <outlet property="descriptionWarningLabel" destination="g1J-kF-K1K" id="NjD-Ci-aKt"/>
                         <outlet property="goldField" destination="ZYX-6P-DaW" id="bYY-H4-X84"/>
+                        <outlet property="iconPicker" destination="JbU-v5-Emm" id="T1T-KF-cDJ"/>
                         <outlet property="taskNameField" destination="EMe-w2-lqm" id="qeS-dX-9hd"/>
                         <outlet property="taskNameWarningLabel" destination="ITj-ab-Ojc" id="ojU-fQ-t8z"/>
                         <outlet property="timeField" destination="Mq9-BY-laK" id="3lr-C6-oe1"/>
@@ -537,7 +578,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book_icon" width="122.87999725341797" height="90.019996643066406"/>
+        <image name="bow_icon" width="122.81999969482422" height="122.87999725341797"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="sword_icon" width="122.87999725341797" height="121.66000366210938"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

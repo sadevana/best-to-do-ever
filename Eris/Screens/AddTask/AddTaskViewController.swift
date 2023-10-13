@@ -18,6 +18,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var goldField: UITextField!
     @IBOutlet weak var taskNameWarningLabel: UILabel!
     @IBOutlet weak var descriptionWarningLabel: UILabel!
+    @IBOutlet weak var iconPicker: UISegmentedControl!
     @IBOutlet weak var descriptionView: UITextView!
     
     //Default value for gold
@@ -35,7 +36,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         descriptionView!.layer.borderColor = borderColor.cgColor
         descriptionView!.layer.borderWidth = 0.3
         descriptionView!.layer.cornerRadius = 5.0
-        
+        //Icon Picker style
+        iconPicker.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        iconPicker.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        iconPicker.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
+        iconPicker.setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
         //Setting up date and time fields
         let timeFormater = DateFormatter()
         timeFormater.dateFormat = "hh:mm:ss"
@@ -112,7 +117,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     func AddTask() {
         //Adding new task
         if taskNameField.text ?? "" != "" {
-            if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text) {
+            if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text, imageName: iconPicker.selectedSegmentIndex) {
                 self.navigationController?.popViewController(animated: false)
                 AlertView.instance.showAlert(title: "✅ Successfully added task")
             }

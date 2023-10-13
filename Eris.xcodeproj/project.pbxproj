@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
+		A61AC67A2AD97F7D00D7D664 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */; };
 		A64E50A12AC35A49003D410E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E50A02AC35A49003D410E /* LoginView.xib */; };
 		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
 		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
+		A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		A64E50A02AC35A49003D410E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A6DF8F542AB2DC360016B701 /* UIViewControllerExt.swift */,
 				A6D5B4D52AC6D129007741F1 /* DateExt.swift */,
 				A66C53A72AD87E93006D5943 /* UILabelExt.swift */,
+				A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */,
 				A6B98EFA2ABDA44A0035CE8D /* EditTaskViewModel.swift in Sources */,
 				A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */,
+				A61AC67A2AD97F7D00D7D664 /* UIColorExt.swift in Sources */,
 				A6CB06172A9D3453007A65F0 /* SceneDelegate.swift in Sources */,
 				A6BB0FDC2ABD5E9F002065D2 /* EditTaskViewController.swift in Sources */,
 				A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */,

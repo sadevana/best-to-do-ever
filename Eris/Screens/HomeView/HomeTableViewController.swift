@@ -79,6 +79,7 @@ class HomeTableViewController: UITableViewController {
         //Moving buttton to the bottom
         let offset = self.tableView.contentOffset.y
         addButton.frame = CGRect(x: self.view.frame.size.width - 60 - 20, y: self.view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
+        self.tableView.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

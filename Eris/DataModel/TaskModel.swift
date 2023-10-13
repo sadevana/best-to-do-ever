@@ -16,6 +16,7 @@ struct TaskUI {
     var done: Bool
     var dbId: String?
     var hasTime: Bool
+    var imageNum: Int64
     
     init(taskDB: Task) {
         self.gold = taskDB.gold
@@ -25,6 +26,7 @@ struct TaskUI {
         self.done = taskDB.is_done
         self.dbId = taskDB.rowid
         self.hasTime = taskDB.has_time
+        self.imageNum = taskDB.image_number
     }
 }
 struct TaskSections {

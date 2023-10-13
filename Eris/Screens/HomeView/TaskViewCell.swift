@@ -13,6 +13,7 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
     @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var goldLabel: UILabel!
     var checked = false
     var id: String?
@@ -104,6 +105,18 @@ class TaskViewCell: UITableViewCell {
         } else {
             showDone()
         }
+        //Choosing image for quest
+        switch withtask.imageNum {
+        case 0:
+            iconImage.image = UIImage(named: "book_icon")
+        case 1:
+            iconImage.image = UIImage(named: "bow_icon")
+        case 2:
+            iconImage.image = UIImage(named: "sword_icon")
+        default:
+            iconImage.image = UIImage(named: "book_icon")
+        }
+        //iconImage.tintColor = .random
     }
     @IBAction func checkbox(_ sender: UIButton) {
         if checked == false {

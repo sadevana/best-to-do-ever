@@ -10,7 +10,7 @@ import CoreData
 import AudioToolbox
 
 class AddTaskViewModel {
-    func addTask(taskName: String, taskDescription: String, timeText: String?, dateText: String?, goldAmount: String?) -> Bool {
+    func addTask(taskName: String, taskDescription: String, timeText: String?, dateText: String?, goldAmount: String?, imageName: Int?) -> Bool {
         //Basic task creation
         let context = CoreDataService.shared.context()
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -19,6 +19,7 @@ class AddTaskViewModel {
         taskAdded.task_description = taskDescription
         taskAdded.rowid = UUID().uuidString
         taskAdded.gold = Int64(goldAmount ?? "0") ?? 0
+        taskAdded.image_number = Int64(imageName ?? 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         if timeText == "" {
