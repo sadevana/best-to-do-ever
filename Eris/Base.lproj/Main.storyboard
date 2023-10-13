@@ -62,6 +62,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
@@ -168,17 +169,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxM-dh-NPz">
-                                <rect key="frame" x="100" y="744" width="193" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="193" id="bVA-2D-i55"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Accept quest"/>
-                                <connections>
-                                    <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITj-ab-Ojc">
                                 <rect key="frame" x="16" y="170" width="361" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -191,9 +181,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxM-dh-NPz">
+                                <rect key="frame" x="100" y="743" width="193" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="bVA-2D-i55"/>
+                                </constraints>
+                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Accept quest">
+                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0oq-Cj-0R1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="Mq9-BY-laK" secondAttribute="trailing" constant="78" id="0GF-NL-1lR"/>
                             <constraint firstItem="g1J-kF-K1K" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="6AM-8x-ZRC"/>
@@ -344,8 +348,11 @@
                                     <constraint firstAttribute="width" constant="193" id="l7X-Oa-mhe"/>
                                     <constraint firstAttribute="height" constant="35" id="vSG-DX-aCq"/>
                                 </constraints>
+                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update quest"/>
+                                <buttonConfiguration key="configuration" style="filled" title="🖊 Update quest">
+                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="updateTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="R1M-fm-KfO"/>
                                 </connections>
@@ -413,10 +420,10 @@
                                     <constraint firstAttribute="width" constant="193" id="2i6-pY-SLz"/>
                                     <constraint firstAttribute="height" constant="35" id="zFT-eP-rc2"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Delete quest">
-                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                <buttonConfiguration key="configuration" style="filled" title="❌ Delete quest ">
+                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="ogS-Bm-Xjg"/>
@@ -437,12 +444,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJa-be-M5r">
                                 <rect key="frame" x="100" y="627" width="193" height="35"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="193" id="ajE-Mj-u2p"/>
                                     <constraint firstAttribute="width" constant="193" id="cYG-BS-lh0"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Mark as complete">
-                                    <color key="baseBackgroundColor" red="0.0" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="filled" title="✅ Mark as complete">
+                                    <color key="baseBackgroundColor" red="0.74901960784313726" green="0.63529411764705879" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="completeButtonTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="sYf-zr-eWl"/>
@@ -450,11 +458,10 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kxN-5o-eGL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.94509803921568625" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FxV-CU-ZPi" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="1Eu-2z-C1U"/>
                             <constraint firstItem="D3h-uZ-kNH" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="1La-nR-rfm"/>
-                            <constraint firstItem="ZdJ-wt-iU2" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="100" id="2WP-Vt-wHk"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="3E7-qO-hgZ" secondAttribute="trailing" constant="78" id="2ef-Be-rSD"/>
                             <constraint firstItem="r9N-xJ-D0q" firstAttribute="leading" secondItem="biR-mq-2DA" secondAttribute="trailing" constant="142" id="650-6E-8sM"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="r9N-xJ-D0q" secondAttribute="trailing" constant="134" id="6JF-j8-Dn1"/>
@@ -464,8 +471,8 @@
                             <constraint firstItem="3E7-qO-hgZ" firstAttribute="leading" secondItem="Wtf-3j-A5d" secondAttribute="trailing" constant="45" id="8ce-Rw-Lth"/>
                             <constraint firstItem="SQA-cO-0wN" firstAttribute="top" secondItem="D3h-uZ-kNH" secondAttribute="bottom" constant="8" symbolic="YES" id="8pN-2u-0yy"/>
                             <constraint firstItem="biR-mq-2DA" firstAttribute="top" secondItem="BbK-93-EmD" secondAttribute="bottom" constant="20" id="8zq-bg-vrD"/>
+                            <constraint firstItem="ZdJ-wt-iU2" firstAttribute="centerX" secondItem="60S-g3-xpf" secondAttribute="centerX" id="9mF-8D-6qe"/>
                             <constraint firstItem="Wtf-3j-A5d" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="AZP-Gq-noa"/>
-                            <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="ZdJ-wt-iU2" secondAttribute="trailing" constant="100" id="Bnl-oF-bb8"/>
                             <constraint firstItem="3E7-qO-hgZ" firstAttribute="leading" secondItem="Wtf-3j-A5d" secondAttribute="trailing" constant="45" id="Dsh-wU-ayb"/>
                             <constraint firstItem="RhQ-il-5fG" firstAttribute="top" secondItem="FxV-CU-ZPi" secondAttribute="bottom" constant="4" id="E9P-6m-6vC"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="7Ep-62-1ey" secondAttribute="trailing" constant="16" id="EOJ-VR-VaO"/>
@@ -478,11 +485,10 @@
                             <constraint firstItem="BbK-93-EmD" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="LXx-t4-pDS"/>
                             <constraint firstItem="ZdJ-wt-iU2" firstAttribute="top" secondItem="qJa-be-M5r" secondAttribute="bottom" constant="16" id="MEh-vm-YYM"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="BbK-93-EmD" secondAttribute="trailing" constant="16" id="VxG-6x-q8d"/>
-                            <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="Oyb-di-1Ba" secondAttribute="trailing" constant="100" id="VyH-bY-Iyz"/>
                             <constraint firstItem="MdP-Eu-px6" firstAttribute="top" secondItem="FxV-CU-ZPi" secondAttribute="bottom" constant="20" id="WIV-V2-lEY"/>
-                            <constraint firstItem="Oyb-di-1Ba" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="100" id="XDG-Yn-PvO"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="bottom" secondItem="Oyb-di-1Ba" secondAttribute="bottom" constant="54" id="cGy-YD-mXg"/>
                             <constraint firstItem="7Ep-62-1ey" firstAttribute="top" secondItem="BbK-93-EmD" secondAttribute="bottom" constant="4" id="euZ-xg-KMy"/>
+                            <constraint firstItem="Oyb-di-1Ba" firstAttribute="centerX" secondItem="60S-g3-xpf" secondAttribute="centerX" id="h6H-fc-lGI"/>
                             <constraint firstItem="MdP-Eu-px6" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="i8W-q9-MpC"/>
                             <constraint firstItem="4iu-Mw-lCc" firstAttribute="top" secondItem="kxN-5o-eGL" secondAttribute="top" constant="44" id="j0q-xa-hXR"/>
                             <constraint firstItem="kxN-5o-eGL" firstAttribute="trailing" secondItem="FxV-CU-ZPi" secondAttribute="trailing" constant="16" id="kKz-FX-gST"/>
@@ -540,9 +546,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -16,14 +16,14 @@ class HomeTableViewController: UITableViewController {
     private let addButton: UIButton = {
         //Creating a floating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        button.backgroundColor = .red
+        button.backgroundColor = #colorLiteral(red: 0.7490196078, green: 0.6352941176, blue: 0.8588235294, alpha: 1)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 30
         let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
         button.setImage(image, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.zPosition = 2.0
         return button
     }()
     private let noTasksView: UIImageView = {
@@ -51,11 +51,12 @@ class HomeTableViewController: UITableViewController {
         tableView.rowHeight = 100.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let offset = self.tableView.contentOffset.y
-        addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 80, width: 60, height: 60)
+        
+        //addButton.frame = CGRect(x: view.frame.size.width - 60 - 20, y: view.frame.size.height - 80, width: 60, height: 60)
         //Going to todays task by default
         if(sectionedTasks.count > 2) {
             if(sectionedTasks[0].sectionName == "Overdue" && sectionedTasks[1].sectionName == "Today") {
@@ -73,6 +74,9 @@ class HomeTableViewController: UITableViewController {
             print(view.frame.size.height)
             self.view.addSubview(noTasksView)
         }
+        //Moving buttton to the bottom
+        let offset = self.tableView.contentOffset.y
+        addButton.frame = CGRect(x: self.view.frame.size.width - 60 - 20, y: self.view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,7 +131,7 @@ class HomeTableViewController: UITableViewController {
         let headerView = UIView()
         let sectionLabel = UILabel(frame: CGRect(x: 8, y: 10, width:
         tableView.bounds.size.width, height: tableView.bounds.size.height))
-        headerView.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
+        headerView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.8509803922, blue: 1, alpha: 1)
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()

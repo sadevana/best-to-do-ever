@@ -49,7 +49,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
         //Dynamic button title
         if taskUI?.done ?? false {
-            completeButton.setTitle("Mark as incomplete", for: .normal)
+            completeButton.setTitle("🛑 Mark as incomplete", for: .normal)
         }
         //Border for text area
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
@@ -86,9 +86,8 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskNameField.returnKeyType = .continue
         goldTextField.keyboardType = .numberPad
         goldTextField.returnKeyType = .done
-        //for setting up keyboard actions
-        taskNameField.delegate =  self
-        goldTextField.delegate = self
+        
+        
         
         //Validation
         goldTextField.addTarget(self,
@@ -97,9 +96,12 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskNameField.addTarget(self,
                             action: #selector(nameValidation),
                             for: UIControl.Event.editingChanged)
+        //for setting up keyboard actions
         descriptionView.delegate = self
         timeTextField.delegate = self
         dateTextField.delegate = self
+        taskNameField.delegate =  self
+        goldTextField.delegate = self
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()
@@ -188,9 +190,9 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func completeButtonTapped(_ sender: Any) {
         //Change title and add or substract gold
         if editTaskModel.toggleCompletion(task: taskUI!) {
-            completeButton.setTitle("Mark as complete", for: .normal)
+            completeButton.setTitle("✅ Mark as complete", for: .normal)
         } else {
-            completeButton.setTitle("Mark as incomplete", for: .normal)
+            completeButton.setTitle("🛑 Mark as incomplete", for: .normal)
         }
         let wasDone = !(taskUI?.done ?? false)
         taskUI?.done = wasDone

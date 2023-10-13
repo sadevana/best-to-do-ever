@@ -29,7 +29,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        //self.hideKeyboardWhenTappedAround()
         //Border for text area
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         descriptionView!.layer.borderColor = borderColor.cgColor
