@@ -102,6 +102,11 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         dateTextField.delegate = self
         taskNameField.delegate =  self
         goldTextField.delegate = self
+        //Setting up colors
+        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        deleteButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        completeButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        updateButton.tintColor = chosenCompanion.shared.companion.darkToneColor
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()

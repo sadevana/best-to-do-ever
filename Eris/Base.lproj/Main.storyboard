@@ -24,16 +24,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
-                                            <rect key="frame" x="67" y="11" width="97" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="172" y="11" width="137" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
+                                            <rect key="frame" x="233" y="11" width="110" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="I1I-29-Crd"/>
+                                                <constraint firstAttribute="width" constant="110" id="fUK-ar-tCR"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -64,16 +60,36 @@
                                                 <action selector="checkbox:" destination="3hd-yC-mdb" eventType="touchUpInside" id="qVM-3G-SQm"/>
                                             </connections>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="book_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-zw-eMH">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-zw-eMH">
                                             <rect key="frame" x="11" y="26" width="48" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.47450980390000003" green="0.67450980390000004" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="05S-94-oUl"/>
+                                                <constraint firstAttribute="height" constant="49" id="Dpd-To-eea"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
+                                            <rect key="frame" x="67" y="11" width="164" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Dh3-m9-RUb"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="hrZ-BU-uA1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="rGm-7y-vLr" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="5QR-pZ-sht"/>
+                                        <constraint firstItem="VNv-Pm-AeI" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="BcE-El-DjH"/>
+                                        <constraint firstItem="ADd-Qc-ZlR" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="DQO-9l-Q7d"/>
                                         <constraint firstAttribute="trailing" secondItem="rGm-7y-vLr" secondAttribute="trailing" id="E9X-fm-pW3"/>
+                                        <constraint firstItem="VNv-Pm-AeI" firstAttribute="leading" secondItem="ADd-Qc-ZlR" secondAttribute="trailing" constant="2" id="FTC-8m-Uwg"/>
+                                        <constraint firstItem="yH3-zw-eMH" firstAttribute="leading" secondItem="487-13-1my" secondAttribute="leading" constant="11" id="Vwz-G5-JBI"/>
+                                        <constraint firstItem="ADd-Qc-ZlR" firstAttribute="leading" secondItem="yH3-zw-eMH" secondAttribute="trailing" constant="8" id="fHw-b7-bmB"/>
+                                        <constraint firstItem="yH3-zw-eMH" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="26" id="oNH-vO-DNp"/>
+                                        <constraint firstItem="rGm-7y-vLr" firstAttribute="leading" secondItem="VNv-Pm-AeI" secondAttribute="trailing" constant="15" id="tLx-Sk-BOe"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -199,11 +215,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="193" id="bVA-2D-i55"/>
                                 </constraints>
-                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Accept quest">
-                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="Accept quest"/>
                                 <connections>
                                     <action selector="AddTaskButtonTapped:" destination="f4Q-Ak-TwC" eventType="touchUpInside" id="V7q-Q8-cmu"/>
                                 </connections>
@@ -233,7 +246,7 @@
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0oq-Cj-0R1"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0oq-Cj-0R1" firstAttribute="trailing" secondItem="Mq9-BY-laK" secondAttribute="trailing" constant="78" id="0GF-NL-1lR"/>
                             <constraint firstItem="g1J-kF-K1K" firstAttribute="leading" secondItem="0oq-Cj-0R1" secondAttribute="leading" constant="16" id="6AM-8x-ZRC"/>
@@ -290,6 +303,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LK-Wz-xGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2626.7175572519081" y="12.67605633802817"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="mAi-rl-xmQ">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Lq5-Ze-zBz" customClass="SettingsViewController" customModule="Eris" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69Z-9S-cBc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwE-Af-MH2">
+                                <rect key="frame" x="36" y="101" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TOM-fd-HOq">
+                                <rect key="frame" x="148" y="101" width="229" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="luna_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-h9-jjL">
+                                <rect key="frame" x="16" y="159" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7B-PB-2cw">
+                                <rect key="frame" x="28" y="251" width="62" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Luna"/>
+                                <connections>
+                                    <action selector="lunaChosen:" destination="Lq5-Ze-zBz" eventType="touchUpInside" id="NPZ-Kh-tLW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clara_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="lQv-ma-oyc">
+                                <rect key="frame" x="124" y="159" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgH-QD-UWQ">
+                                <rect key="frame" x="139" y="251" width="64" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Clara"/>
+                                <connections>
+                                    <action selector="claraChosen:" destination="Lq5-Ze-zBz" eventType="touchUpInside" id="kdI-jk-pBJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vSM-G2-geH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="claraButton" destination="PgH-QD-UWQ" id="kN2-wj-G9z"/>
+                        <outlet property="lunaButton" destination="h7B-PB-2cw" id="6Az-iu-q2L"/>
+                        <outlet property="userNameText" destination="TOM-fd-HOq" id="9bk-5o-Aqj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGy-jE-i93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2629.770992366412" y="688.73239436619724"/>
         </scene>
         <!--My quests-->
         <scene sceneID="axF-bd-Vdn">
@@ -389,11 +463,8 @@
                                     <constraint firstAttribute="width" constant="193" id="l7X-Oa-mhe"/>
                                     <constraint firstAttribute="height" constant="35" id="vSG-DX-aCq"/>
                                 </constraints>
-                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="🖊 Update quest">
-                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="🖊 Update quest"/>
                                 <connections>
                                     <action selector="updateTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="R1M-fm-KfO"/>
                                 </connections>
@@ -461,11 +532,8 @@
                                     <constraint firstAttribute="width" constant="193" id="2i6-pY-SLz"/>
                                     <constraint firstAttribute="height" constant="35" id="zFT-eP-rc2"/>
                                 </constraints>
-                                <color key="tintColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="❌ Delete quest ">
-                                    <color key="baseBackgroundColor" red="0.74901960779999999" green="0.63529411759999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="❌ Delete quest "/>
                                 <connections>
                                     <action selector="deleteTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="ogS-Bm-Xjg"/>
                                 </connections>
@@ -488,18 +556,15 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="193" id="ajE-Mj-u2p"/>
                                     <constraint firstAttribute="width" constant="193" id="cYG-BS-lh0"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="✅ Mark as complete">
-                                    <color key="baseBackgroundColor" red="0.74901960784313726" green="0.63529411764705879" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="✅ Mark as complete"/>
                                 <connections>
                                     <action selector="completeButtonTapped:" destination="vCP-uN-WXV" eventType="touchUpInside" id="sYf-zr-eWl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kxN-5o-eGL"/>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.94509803921568625" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FxV-CU-ZPi" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="1Eu-2z-C1U"/>
                             <constraint firstItem="D3h-uZ-kNH" firstAttribute="leading" secondItem="kxN-5o-eGL" secondAttribute="leading" constant="16" id="1La-nR-rfm"/>
@@ -580,6 +645,8 @@
     <resources>
         <image name="book_icon" width="122.87999725341797" height="90.019996643066406"/>
         <image name="bow_icon" width="122.81999969482422" height="122.87999725341797"/>
+        <image name="clara_portrait" width="482" height="482"/>
+        <image name="luna_portrait" width="451" height="451"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="sword_icon" width="122.87999725341797" height="121.66000366210938"/>
         <systemColor name="labelColor">

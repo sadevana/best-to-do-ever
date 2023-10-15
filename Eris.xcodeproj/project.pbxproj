@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6145F872AB196B70030AA50 /* TaskViewCell.swift */; };
+		A61555042ADB5747009F240E /* CompanionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61555032ADB5747009F240E /* CompanionDataModel.swift */; };
+		A61555072ADB75BD009F240E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61555062ADB75BD009F240E /* SettingsViewController.swift */; };
 		A61AC67A2AD97F7D00D7D664 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */; };
 		A64E50A12AC35A49003D410E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E50A02AC35A49003D410E /* LoginView.xib */; };
 		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		A6145F872AB196B70030AA50 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
+		A61555032ADB5747009F240E /* CompanionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDataModel.swift; sourceTree = "<group>"; };
+		A61555062ADB75BD009F240E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		A64E50A02AC35A49003D410E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A61555052ADB75A5009F240E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A61555062ADB75BD009F240E /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A64E509F2AC35A29003D410E /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +142,7 @@
 		A6BB0FD52ABD517D002065D2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A61555052ADB75A5009F240E /* Settings */,
 				A65D61892AC1942200E1EB54 /* HomeViewPlain */,
 				A6BB0FDA2ABD5E83002065D2 /* EditTask */,
 				A692D56F2AA28E90008EE6DD /* AddTask */,
@@ -162,6 +175,7 @@
 			children = (
 				A6C8BE772A9D46A9008E785D /* DataModel.xcdatamodeld */,
 				A6F11AFC2AB207790016EB08 /* TaskModel.swift */,
+				A61555032ADB5747009F240E /* CompanionDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -292,6 +306,7 @@
 			files = (
 				A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */,
 				A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */,
+				A61555072ADB75BD009F240E /* SettingsViewController.swift in Sources */,
 				A6DF8F552AB2DC360016B701 /* UIViewControllerExt.swift in Sources */,
 				A6BB0FD72ABD51B6002065D2 /* HomeViewModel.swift in Sources */,
 				A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */,
@@ -308,6 +323,7 @@
 				A6F11AFD2AB207790016EB08 /* TaskModel.swift in Sources */,
 				A64E50A32AC360CC003D410E /* LoginView.swift in Sources */,
 				A66C53A82AD87E93006D5943 /* UILabelExt.swift in Sources */,
+				A61555042ADB5747009F240E /* CompanionDataModel.swift in Sources */,
 				A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

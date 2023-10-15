@@ -34,6 +34,7 @@ class HomeParentViewController: UIViewController {
     }
     
     func updateTopBarInfo() {
+        //TBD move to model
         let request = NSFetchRequest<UserData>(entityName: "UserData")
         request.returnsObjectsAsFaults = false
         let context = CoreDataService().context()

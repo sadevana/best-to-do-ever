@@ -86,6 +86,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         descriptionView.delegate = self
         dateField.delegate = self
         timeField.delegate = self
+        //Setting up colors
+        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        addTaskButton.tintColor = chosenCompanion.shared.companion.darkToneColor
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {

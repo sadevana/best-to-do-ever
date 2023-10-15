@@ -13,32 +13,17 @@ class HomeTableViewController: UITableViewController {
     var sectionedTasks = [TaskSections]()
     let homeViewModel = HomeViewModel()
     
-    private let addButton: UIButton = {
-        //Creating a floating button
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        button.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.5098039216, blue: 0.3921568627, alpha: 1)
-        button.layer.masksToBounds = true
-        button.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 30
-        let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
-        button.setImage(image, for: .normal)
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        button.layer.zPosition = 2.0
-        return button
-    }()
     private let noTasksView: UIImageView = {
         //View to show on screen when no tasks are present
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 160))
         let image = UIImage(named: "mascot_start")
-        view.image = image
+        //view.image = image
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 350, height: 21))
         label.center = CGPoint(x: 120, y: -40)
         label.numberOfLines = 2
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        //label.text = "You have no quests! Let's create some\n using that plus button!"
+        label.text = "You have no quests! Let's create some\n using that plus button!"
         label.sizeToFit()
     
         view.addSubview(label)
@@ -48,12 +33,14 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.addSubview(addButton)
+        //self.view.addSubview(mascotImage)
         //Initial setup
         tableView.rowHeight = 110.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0.9058823529, blue: 0.8235294118, alpha: 0.8470588235)
+        self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        //self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 0.8666666667, alpha: 1)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -76,9 +63,8 @@ class HomeTableViewController: UITableViewController {
             print(view.frame.size.height)
             self.view.addSubview(noTasksView)
         }
-        //Moving buttton to the bottom
-        let offset = self.tableView.contentOffset.y
-        addButton.frame = CGRect(x: self.view.frame.size.width - 60 - 20, y: self.view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
+        //Loading common alert view
+        AlertView.instance.initAlertView(navcontroller: self.navigationController!)
         self.tableView.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +76,7 @@ class HomeTableViewController: UITableViewController {
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
         //navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
     }
     func updateDataInCells() {
         self.tasksToShow = []
@@ -123,7 +110,7 @@ class HomeTableViewController: UITableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Making scroll button stay in place
         let offset = scrollView.contentOffset.y
-        addButton.frame = CGRect(x: self.view.frame.size.width - 60 - 20, y: self.view.frame.size.height - 60 - 20 + offset, width: 60, height: 60)
+        //mascotImage.frame = CGRect(x: self.view.frame.size.width - 180 - 20, y: self.view.frame.size.height - 230 - 20 + offset, width: 200, height: 400)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -132,22 +119,26 @@ class HomeTableViewController: UITableViewController {
     //Section style
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 10, width:
+        
+        let sectionLabel = UILabel(frame: CGRect(x: 10, y: 7, width:
         tableView.bounds.size.width, height: tableView.bounds.size.height))
-        headerView.backgroundColor = #colorLiteral(red: 0.6901960784, green: 0.8509803922, blue: 0.6941176471, alpha: 1)
+        sectionLabel.textColor = .white
+        headerView.backgroundColor = chosenCompanion.shared.companion.darkToneColor
+        //headerView.backgroundColor = #colorLiteral(red: 0.003921568627, green: 0.4156862745, blue: 0.4392156863, alpha: 1)
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()
         headerView.layer.zPosition = 1.0
-        headerView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        headerView.layer.borderWidth = 1
+        //headerView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        //headerView.layer.borderWidth = 1
+        headerView.layer.cornerRadius = 16
         headerView.addSubview(sectionLabel)
         headerView.isUserInteractionEnabled = false
         return headerView
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 35
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
