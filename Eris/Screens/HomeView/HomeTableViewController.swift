@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController {
     var sectionedTasks = [TaskSections]()
     let homeViewModel = HomeViewModel()
     
-    private let noTasksView: UIImageView = {
+    private lazy var noTasksView: UIImageView = {
         //View to show on screen when no tasks are present
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 160))
         let image = UIImage(named: "mascot_start")
@@ -29,10 +29,10 @@ class HomeTableViewController: UITableViewController {
         view.addSubview(label)
         return view
     }()
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        //self.searchBar.shouldResignOnTouchOutsideMode = .enabled
         //self.view.addSubview(mascotImage)
         //Initial setup
         tableView.rowHeight = 110.0
@@ -118,23 +118,23 @@ class HomeTableViewController: UITableViewController {
     }
     //Section style
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerParent = UIView()
         let headerView = UIView()
-        
+        headerView.frame = CGRect(x: 5, y: 0, width:
+                                            tableView.bounds.size.width - 10, height: 35)
         let sectionLabel = UILabel(frame: CGRect(x: 10, y: 7, width:
-        tableView.bounds.size.width, height: tableView.bounds.size.height))
+        tableView.bounds.size.width/2, height: tableView.bounds.size.height))
         sectionLabel.textColor = .white
         headerView.backgroundColor = chosenCompanion.shared.companion.darkToneColor
-        //headerView.backgroundColor = #colorLiteral(red: 0.003921568627, green: 0.4156862745, blue: 0.4392156863, alpha: 1)
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()
         headerView.layer.zPosition = 1.0
-        //headerView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        //headerView.layer.borderWidth = 1
         headerView.layer.cornerRadius = 16
         headerView.addSubview(sectionLabel)
         headerView.isUserInteractionEnabled = false
-        return headerView
+        headerParent.addSubview(headerView)
+        return headerParent
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -153,4 +153,16 @@ class HomeTableViewController: UITableViewController {
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
+    func filterData(searchText: String) {
+        if searchText != "" {
+            var filteredData = tasksToShow.filter({$0.name?.uppercased().contains(searchText.uppercased()) ?? false})
+            self.sectionedTasks = homeViewModel.sortTasks(tasks: filteredData)
+            self.tableView.reloadData()
+        } else {
+            self.sectionedTasks = homeViewModel.sortTasks(tasks: self.tasksToShow)
+            self.tableView.reloadData()
+        }
+        
+    }
 }
+

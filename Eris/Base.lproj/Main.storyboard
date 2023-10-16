@@ -79,7 +79,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="rGm-7y-vLr" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="5QR-pZ-sht"/>
                                         <constraint firstItem="VNv-Pm-AeI" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="BcE-El-DjH"/>
@@ -405,6 +405,19 @@
                                     <constraint firstAttribute="height" constant="57.329999999999998" id="XbR-Gs-ZTD"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0R-eF-xsi">
+                                <rect key="frame" x="327" y="113" width="50" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3kn-kn-fDD"/>
+                                    <constraint firstAttribute="height" constant="52" id="HAc-gA-nkE"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="3NR-uw-QuV" eventType="touchUpInside" id="SDJ-mG-8e5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hBI-j5-xHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -413,17 +426,20 @@
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="trailing" secondItem="hBI-j5-xHh" secondAttribute="trailing" id="OaB-x5-gXB"/>
                             <constraint firstItem="0Zq-MH-bzk" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="R80-w2-liB"/>
                             <constraint firstAttribute="bottom" secondItem="uoj-NN-lhh" secondAttribute="bottom" id="UeB-lt-r8j"/>
+                            <constraint firstItem="hBI-j5-xHh" firstAttribute="trailing" secondItem="t0R-eF-xsi" secondAttribute="trailing" constant="16" id="j8b-xH-aTB"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="81" id="lRh-PK-yDJ"/>
                             <constraint firstItem="E1s-gZ-60M" firstAttribute="top" secondItem="0Zq-MH-bzk" secondAttribute="bottom" constant="10" id="oLy-Cs-OJa"/>
                             <constraint firstItem="5fS-s1-avj" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="7" id="oOE-56-tM6"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" id="pSS-VT-A4I"/>
                             <constraint firstItem="uoj-NN-lhh" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="70" id="rAW-PT-Xtf"/>
                             <constraint firstItem="5fS-s1-avj" firstAttribute="leading" secondItem="hBI-j5-xHh" secondAttribute="leading" constant="4" id="yeg-6e-MSX"/>
+                            <constraint firstItem="t0R-eF-xsi" firstAttribute="top" secondItem="hBI-j5-xHh" secondAttribute="top" constant="10" id="ymA-Tk-a0T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My quests" style="editor" id="a4j-fa-jWR"/>
                     <connections>
                         <outlet property="goldLabel" destination="E1s-gZ-60M" id="jRZ-67-Iby"/>
+                        <outlet property="searchButton" destination="t0R-eF-xsi" id="JSn-ZL-ckM"/>
                         <outlet property="userNameButton" destination="0Zq-MH-bzk" id="zer-Uz-SeA"/>
                     </connections>
                 </viewController>
@@ -647,6 +663,7 @@
         <image name="bow_icon" width="122.81999969482422" height="122.87999725341797"/>
         <image name="clara_portrait" width="482" height="482"/>
         <image name="luna_portrait" width="451" height="451"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="sword_icon" width="122.87999725341797" height="121.66000366210938"/>
         <systemColor name="labelColor">

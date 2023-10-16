@@ -11,7 +11,17 @@ import CoreData
 class HomeParentViewController: UIViewController {
 
     @IBOutlet weak var userNameButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var goldLabel: UILabel!
+    
+    lazy var clearButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let image = UIImage(systemName: "xmark")
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(clearSearch), for: .touchUpInside)
+        button.tintColor = .black
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +33,7 @@ class HomeParentViewController: UIViewController {
             LoginView.instance.showAlert(viewToUpdate: self)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -73,5 +84,47 @@ class HomeParentViewController: UIViewController {
         }
         
     }
-    
+    lazy var searchBar:UISearchBar = UISearchBar()
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        if let childVC = self.children.first as? HomeTableViewController {
+            //childVC.activateSearch()
+            searchBar.searchBarStyle = UISearchBar.Style.default
+            searchBar.placeholder = " Search..."
+            searchBar.frame = CGRect(x: 0, y: 115, width: view.frame.size.width, height: 45)
+            self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: 45))!
+            searchBar.isTranslucent = false
+            searchBar.backgroundImage = UIImage()
+            searchBar.delegate = self
+            searchBar.searchTextField.delegate = self
+            searchBar.searchTextField.shouldResignOnTouchOutsideMode = .enabled
+            
+            self.view.addSubview(searchBar)
+            searchBar.searchTextField.clearButtonMode = .never
+            searchBar.searchTextField.rightViewMode = .always
+            searchBar.searchTextField.rightView = clearButton
+            searchBar.becomeFirstResponder()
+        }
+    }
+    @objc func clearSearch(sender: UIButton!) {
+        searchBar.searchTextField.text = ""
+        searchBar.resignFirstResponder()
+        searchBar.removeFromSuperview()
+        if let childVC = self.children.first as? HomeTableViewController {
+            childVC.filterData(searchText: "")
+        }
+        self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: -45))!
+    }
+}
+extension HomeParentViewController: UISearchBarDelegate, UITextFieldDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let childVC = self.children.first as? HomeTableViewController {
+            childVC.filterData(searchText: searchText)
+        }
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchBar.resignFirstResponder()
+        searchBar.removeFromSuperview()
+        self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: -45))!
+        return true
+    }
 }
