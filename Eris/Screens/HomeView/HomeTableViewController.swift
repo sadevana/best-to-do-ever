@@ -35,11 +35,12 @@ class HomeTableViewController: UITableViewController {
         //self.searchBar.shouldResignOnTouchOutsideMode = .enabled
         //self.view.addSubview(mascotImage)
         //Initial setup
-        tableView.rowHeight = 110.0
+        tableView.rowHeight = 80.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
         //self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 0.8666666667, alpha: 1)
+        self.tableView.separatorColor = .clear
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -120,12 +121,12 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerParent = UIView()
         let headerView = UIView()
-        headerView.frame = CGRect(x: 5, y: 0, width:
+        headerView.frame = CGRect(x: 15, y: 0, width:
                                             tableView.bounds.size.width - 10, height: 35)
         let sectionLabel = UILabel(frame: CGRect(x: 10, y: 7, width:
         tableView.bounds.size.width/2, height: tableView.bounds.size.height))
-        sectionLabel.textColor = .white
-        headerView.backgroundColor = chosenCompanion.shared.companion.darkToneColor
+        sectionLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+        //headerView.backgroundColor = chosenCompanion.shared.companion.darkToneColor
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()

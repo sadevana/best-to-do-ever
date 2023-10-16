@@ -12,6 +12,7 @@ class HomeParentViewController: UIViewController {
 
     @IBOutlet weak var userNameButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var goldLabel: UILabel!
     
     lazy var clearButton: UIButton = {
@@ -19,7 +20,7 @@ class HomeParentViewController: UIViewController {
         let image = UIImage(systemName: "xmark")
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(clearSearch), for: .touchUpInside)
-        button.tintColor = .black
+        button.tintColor = .red
         return button
     }()
     
@@ -34,6 +35,7 @@ class HomeParentViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,6 +44,16 @@ class HomeParentViewController: UIViewController {
         
         //Getting user data
         updateTopBarInfo()
+        
+        //Updating colors
+        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        userIcon.tintColor = chosenCompanion.shared.companion.darkToneColor
+        let labels = self.view.subviews.compactMap({$0 as? UILabel?})
+        for label in labels {
+            label?.textColor = chosenCompanion.shared.companion.darkToneColor
+        }
+        searchButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        userNameButton.tintColor = chosenCompanion.shared.companion.darkToneColor
     }
     
     func updateTopBarInfo() {

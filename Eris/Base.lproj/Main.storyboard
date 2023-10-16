@@ -34,20 +34,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-ql-k1W">
-                                            <rect key="frame" x="67" y="69" width="163" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-j2-sdz">
-                                            <rect key="frame" x="67" y="40" width="264" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-7y-vLr">
                                             <rect key="frame" x="358" y="11" width="35" height="35"/>
                                             <constraints>
@@ -61,15 +47,15 @@
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-zw-eMH">
-                                            <rect key="frame" x="11" y="26" width="48" height="49"/>
+                                            <rect key="frame" x="11" y="13" width="41" height="41"/>
                                             <color key="tintColor" red="0.47450980390000003" green="0.67450980390000004" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="48" id="05S-94-oUl"/>
-                                                <constraint firstAttribute="height" constant="49" id="Dpd-To-eea"/>
+                                                <constraint firstAttribute="width" constant="41" id="05S-94-oUl"/>
+                                                <constraint firstAttribute="height" constant="41" id="Dpd-To-eea"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
-                                            <rect key="frame" x="67" y="11" width="164" height="21"/>
+                                            <rect key="frame" x="60" y="13" width="171" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Dh3-m9-RUb"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="hrZ-BU-uA1"/>
@@ -78,27 +64,32 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-ql-k1W">
+                                            <rect key="frame" x="60" y="36" width="163" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="rGm-7y-vLr" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="5QR-pZ-sht"/>
                                         <constraint firstItem="VNv-Pm-AeI" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="BcE-El-DjH"/>
-                                        <constraint firstItem="ADd-Qc-ZlR" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="DQO-9l-Q7d"/>
+                                        <constraint firstItem="ADd-Qc-ZlR" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="13" id="DQO-9l-Q7d"/>
                                         <constraint firstAttribute="trailing" secondItem="rGm-7y-vLr" secondAttribute="trailing" id="E9X-fm-pW3"/>
                                         <constraint firstItem="VNv-Pm-AeI" firstAttribute="leading" secondItem="ADd-Qc-ZlR" secondAttribute="trailing" constant="2" id="FTC-8m-Uwg"/>
                                         <constraint firstItem="yH3-zw-eMH" firstAttribute="leading" secondItem="487-13-1my" secondAttribute="leading" constant="11" id="Vwz-G5-JBI"/>
                                         <constraint firstItem="ADd-Qc-ZlR" firstAttribute="leading" secondItem="yH3-zw-eMH" secondAttribute="trailing" constant="8" id="fHw-b7-bmB"/>
-                                        <constraint firstItem="yH3-zw-eMH" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="26" id="oNH-vO-DNp"/>
+                                        <constraint firstItem="yH3-zw-eMH" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="13" id="oNH-vO-DNp"/>
                                         <constraint firstItem="rGm-7y-vLr" firstAttribute="leading" secondItem="VNv-Pm-AeI" secondAttribute="trailing" constant="15" id="tLx-Sk-BOe"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="TaskDescriptionLabel" destination="paU-j2-sdz" id="3vg-B6-zgX"/>
                                     <outlet property="TaskTimeLabel" destination="VNv-Pm-AeI" id="PWM-GR-2T3"/>
                                     <outlet property="checkboxButton" destination="rGm-7y-vLr" id="wZK-z8-sI9"/>
                                     <outlet property="goldLabel" destination="iPL-ql-k1W" id="duA-EL-vTA"/>
                                     <outlet property="iconImage" destination="yH3-zw-eMH" id="Lah-fi-JNb"/>
-                                    <outlet property="taskDescriptionLabel" destination="paU-j2-sdz" id="0Vs-gt-Ed4"/>
                                     <outlet property="taskNameLabel" destination="ADd-Qc-ZlR" id="vJK-SV-djv"/>
                                     <outlet property="taskTimeLabel" destination="VNv-Pm-AeI" id="ZgM-SC-1IE"/>
                                 </connections>
@@ -440,6 +431,7 @@
                     <connections>
                         <outlet property="goldLabel" destination="E1s-gZ-60M" id="jRZ-67-Iby"/>
                         <outlet property="searchButton" destination="t0R-eF-xsi" id="JSn-ZL-ckM"/>
+                        <outlet property="userIcon" destination="5fS-s1-avj" id="fbx-YU-yYb"/>
                         <outlet property="userNameButton" destination="0Zq-MH-bzk" id="zer-Uz-SeA"/>
                     </connections>
                 </viewController>

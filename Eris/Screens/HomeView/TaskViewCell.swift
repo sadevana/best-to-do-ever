@@ -31,7 +31,7 @@ class TaskViewCell: UITableViewCell {
         }
         set (newFrame) {
             var frame = newFrame
-            frame = newFrame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 0, right: 8))
+            frame = newFrame.inset(by: UIEdgeInsets(top: 10, left: 18, bottom: 0, right: 18))
             super.frame = frame
         }
     }
@@ -46,7 +46,7 @@ class TaskViewCell: UITableViewCell {
         //self.layer.borderWidth = 1
         self.parentController = parentController
         taskNameLabel.text = withtask.name
-        taskDescriptionLabel.text = withtask.description
+        //taskDescriptionLabel.text = withtask.description
         goldLabel.text = "Gold reward: " + String(withtask.gold ?? 0)
         //Setting up different date formats for different dates
         let dateFormatter = DateFormatter()
@@ -90,6 +90,11 @@ class TaskViewCell: UITableViewCell {
                     dateFormatter.dateFormat = "EEE dd.MM"
                 }
             }
+            //Setting up colors
+            goldLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            taskNameLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            taskTimeLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            //taskDescriptionLabel.textColor = chosenCompanion.shared.companion.darkToneColor
         }
         id = withtask.dbId
         //Clear for when there's no date
