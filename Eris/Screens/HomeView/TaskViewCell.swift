@@ -175,7 +175,9 @@ class TaskViewCell: UITableViewCell {
                 }
             }
             //Update data in parent controller
-            parentController?.updateDataInCells()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.parentController?.updateDataInCells()
+            }
         }
         catch {
             print("error happend")
