@@ -28,6 +28,10 @@ struct CompanionModel {
         self.portrait = portrait
         self.name = name
     }
+    
+    func getPrice() -> Int {
+        return 0
+    }
 }
 enum enumCompanions: String {
     case Clara = "Clara"

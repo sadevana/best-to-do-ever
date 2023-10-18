@@ -15,6 +15,8 @@
 		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
 		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
 		A66C53A82AD87E93006D5943 /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C53A72AD87E93006D5943 /* UILabelExt.swift */; };
+		A6898AB32ADFE49400FB4AB1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */; };
+		A6898AB72ADFE77000FB4AB1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6A0134F2ADEFFC8008D4D3F /* CharchterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0134E2ADEFFC8008D4D3F /* CharchterButton.swift */; };
 		A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */; };
@@ -46,6 +48,9 @@
 		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
 		A66C53A72AD87E93006D5943 /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
+		A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A6898AB52ADFE50600FB4AB1 /* StoreConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreConfig.storekit; sourceTree = "<group>"; };
+		A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		A6A0134E2ADEFFC8008D4D3F /* CharchterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharchterButton.swift; sourceTree = "<group>"; };
 		A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DF8F5E2AB2E0910016B701 /* IQKeyboardManagerSwift in Frameworks */,
+				A6898AB32ADFE49400FB4AB1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +110,23 @@
 				A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */,
 			);
 			path = HomeViewPlain;
+			sourceTree = "<group>";
+		};
+		A6898AB12ADFE49400FB4AB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6898AB42ADFE4BE00FB4AB1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A6898AB52ADFE50600FB4AB1 /* StoreConfig.storekit */,
+				A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		A692D56F2AA28E90008EE6DD /* AddTask */ = {
@@ -187,6 +210,7 @@
 			children = (
 				A6CB06132A9D3453007A65F0 /* Eris */,
 				A6CB06122A9D3453007A65F0 /* Products */,
+				A6898AB12ADFE49400FB4AB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +225,7 @@
 		A6CB06132A9D3453007A65F0 /* Eris */ = {
 			isa = PBXGroup;
 			children = (
+				A6898AB42ADFE4BE00FB4AB1 /* Store */,
 				A6A073A12ABDFEFE00F3B266 /* CustomXIB */,
 				A6BB0FD52ABD517D002065D2 /* Screens */,
 				A6DF8F532AB2DC1F0016B701 /* Extensions */,
@@ -308,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C8BE792A9D46A9008E785D /* DataModel.xcdatamodeld in Sources */,
+				A6898AB72ADFE77000FB4AB1 /* StoreManager.swift in Sources */,
 				A6145F882AB196B70030AA50 /* TaskViewCell.swift in Sources */,
 				A61555072ADB75BD009F240E /* SettingsViewController.swift in Sources */,
 				A6DF8F552AB2DC360016B701 /* UIViewControllerExt.swift in Sources */,
@@ -475,7 +501,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XAX84T33B6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -503,7 +529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XAX84T33B6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
