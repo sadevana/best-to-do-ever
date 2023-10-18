@@ -18,7 +18,7 @@
 		A6898AB32ADFE49400FB4AB1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */; };
 		A6898AB72ADFE77000FB4AB1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
-		A6A0134F2ADEFFC8008D4D3F /* CharchterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0134E2ADEFFC8008D4D3F /* CharchterButton.swift */; };
+		A6A0134F2ADEFFC8008D4D3F /* CompanionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0134E2ADEFFC8008D4D3F /* CompanionButton.swift */; };
 		A6A073A02ABDFD1F00F3B266 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */; };
 		A6A073A42ABDFF7A00F3B266 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A073A32ABDFF7A00F3B266 /* AlertView.swift */; };
 		A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */; };
@@ -52,7 +52,7 @@
 		A6898AB52ADFE50600FB4AB1 /* StoreConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreConfig.storekit; sourceTree = "<group>"; };
 		A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
-		A6A0134E2ADEFFC8008D4D3F /* CharchterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharchterButton.swift; sourceTree = "<group>"; };
+		A6A0134E2ADEFFC8008D4D3F /* CompanionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionButton.swift; sourceTree = "<group>"; };
 		A6A0739F2ABDFD1F00F3B266 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		A6A073A32ABDFF7A00F3B266 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A6B5A6142AAF8C2B0099409A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				A6D5B4D52AC6D129007741F1 /* DateExt.swift */,
 				A66C53A72AD87E93006D5943 /* UILabelExt.swift */,
 				A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */,
-				A6A0134E2ADEFFC8008D4D3F /* CharchterButton.swift */,
+				A6A0134E2ADEFFC8008D4D3F /* CompanionButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 				A6DF8F552AB2DC360016B701 /* UIViewControllerExt.swift in Sources */,
 				A6BB0FD72ABD51B6002065D2 /* HomeViewModel.swift in Sources */,
 				A6CB06152A9D3453007A65F0 /* AppDelegate.swift in Sources */,
-				A6A0134F2ADEFFC8008D4D3F /* CharchterButton.swift in Sources */,
+				A6A0134F2ADEFFC8008D4D3F /* CompanionButton.swift in Sources */,
 				A6B98EFA2ABDA44A0035CE8D /* EditTaskViewModel.swift in Sources */,
 				A6B5A6152AAF8C2B0099409A /* CoreDataService.swift in Sources */,
 				A61AC67A2AD97F7D00D7D664 /* UIColorExt.swift in Sources */,

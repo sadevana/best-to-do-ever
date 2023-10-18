@@ -87,7 +87,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         dateField.delegate = self
         timeField.delegate = self
         //Setting up colors
-        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
+        //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
         addTaskButton.tintColor = chosenCompanion.shared.companion.darkToneColor
     }
     

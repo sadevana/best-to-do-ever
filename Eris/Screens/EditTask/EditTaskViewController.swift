@@ -103,7 +103,8 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskNameField.delegate =  self
         goldTextField.delegate = self
         //Setting up colors
-        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
+        //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
         deleteButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         completeButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         updateButton.tintColor = chosenCompanion.shared.companion.darkToneColor

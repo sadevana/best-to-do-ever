@@ -34,7 +34,9 @@ class HomeParentViewController: UIViewController {
             LoginView.instance.showAlert(viewToUpdate: self)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        
+        //let imageView = UIImageView(image: chosenCompanion.shared.companion.bgImage)
+        //imageView.contentMode = .scaleAspectFill
+        //self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +48,7 @@ class HomeParentViewController: UIViewController {
         updateTopBarInfo()
         
         //Updating colors
-        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
         userIcon.tintColor = chosenCompanion.shared.companion.darkToneColor
         let labels = self.view.subviews.compactMap({$0 as? UILabel?})
         for label in labels {
@@ -54,6 +56,7 @@ class HomeParentViewController: UIViewController {
         }
         searchButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         userNameButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
     }
     
     func updateTopBarInfo() {

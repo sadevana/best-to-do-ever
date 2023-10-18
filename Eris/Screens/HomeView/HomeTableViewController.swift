@@ -38,7 +38,7 @@ class HomeTableViewController: UITableViewController {
         tableView.rowHeight = 80.0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        self.tableView.backgroundColor = .black
         //self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 0.8666666667, alpha: 1)
         self.tableView.separatorColor = .clear
         
@@ -67,6 +67,12 @@ class HomeTableViewController: UITableViewController {
         //Loading common alert view
         AlertView.instance.initAlertView(navcontroller: self.navigationController!)
         self.tableView.reloadData()
+        let imageView = UIImageView(image: UIImage(named: "background"))
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.zPosition = -1.0
+        self.tableView.backgroundColor = .clear
+        UIApplication.shared.keyWindow?.addSubview(imageView)
+        //self.tableView.backgroundView = imageView
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,7 +83,7 @@ class HomeTableViewController: UITableViewController {
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
         //navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
+        //self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
     }
     func updateDataInCells() {
         self.tasksToShow = []
@@ -106,6 +112,11 @@ class HomeTableViewController: UITableViewController {
         if let tableCell = tableCell as? TaskViewCell {
             tableCell.setup(withtask: sectionedTasks[indexPath.section].tasks[indexPath.row], parentController: self)
         }
+        tableCell?.layer.shadowColor = UIColor.black.cgColor
+        tableCell?.layer.shadowOpacity = 0.5
+        tableCell?.layer.shadowOffset = CGSize(width: 20, height: 20)
+        tableCell?.layer.masksToBounds = false
+        tableCell?.layer.shadowRadius = 2
         return tableCell!
     }
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
