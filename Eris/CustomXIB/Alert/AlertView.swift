@@ -19,11 +19,13 @@ class AlertView: UIView {
         let view = UIImageView()
         let image = chosenCompanion.shared.companion.defaultImage
         view.image = image
+        //view.backgroundColor = #colorLiteral(red: 0.9708492772, green: 0.3215686275, blue: 0.8705882353, alpha: 0.4768470613)
         return view
     }()
     private var coverScreen: UIView = {
         return UIView()
     }()
+    private var clickableView = UIView()
     private var navController: UINavigationController?
     private let addQuestActionButton: UIButton = {
         //Creating a floating button
@@ -71,6 +73,8 @@ class AlertView: UIView {
         self.containerView.layer.cornerRadius = 20.0
         mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 280, width: 300, height: 60)
         mascotImage.frame = CGRect(x: UIScreen.main.bounds.width - 180 - 20, y: UIScreen.main.bounds.height - 230 - 20, width: 250, height: 500)
+        clickableView.frame = CGRect(x: UIScreen.main.bounds.width - 145, y: UIScreen.main.bounds.height - 220, width: 130, height: 500)
+        //clickableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5013451987)
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -88,12 +92,15 @@ class AlertView: UIView {
         if !inited {
             UIApplication.shared.keyWindow?.addSubview(mainView)
             UIApplication.shared.keyWindow?.addSubview(mascotImage)
+            UIApplication.shared.keyWindow?.addSubview(clickableView)
             inited = true
         }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        //Saving nav controller of main screen
         navController = navcontroller
-        mascotImage.addGestureRecognizer(tapGestureRecognizer)
-        mascotImage.isUserInteractionEnabled = true
+        clickableView.addGestureRecognizer(tapGestureRecognizer)
+        clickableView.isUserInteractionEnabled = true
+        //mascotImage.isUserInteractionEnabled = true
         let image = chosenCompanion.shared.companion.defaultImage
         mascotImage.image = image
     }
@@ -129,7 +136,7 @@ class AlertView: UIView {
     }
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let tappedImage = tapGestureRecognizer.view!
         coverScreen.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         UIApplication.shared.keyWindow?.addSubview(coverScreen)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(coverTapped(tapGestureRecognizer:)))
