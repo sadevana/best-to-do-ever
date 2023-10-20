@@ -90,10 +90,7 @@ class TaskViewCell: UITableViewCell {
                     dateFormatter.dateFormat = "EEE dd.MM"
                 }
             }
-            //Setting up colors
-            goldLabel.textColor = chosenCompanion.shared.companion.darkToneColor
-            taskNameLabel.textColor = chosenCompanion.shared.companion.darkToneColor
-            taskTimeLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            
             //taskDescriptionLabel.textColor = chosenCompanion.shared.companion.darkToneColor
         }
         id = withtask.dbId
@@ -118,10 +115,16 @@ class TaskViewCell: UITableViewCell {
             iconImage.image = UIImage(named: "bow_icon")
         case 2:
             iconImage.image = UIImage(named: "sword_icon")
+        case 3:
+            iconImage.image = UIImage(named: "gold_icon")
+        case 4:
+            iconImage.image = UIImage(named: "heart_icon")
+        case 5:
+            iconImage.image = UIImage(named: "road_sign")
         default:
             iconImage.image = UIImage(named: "book_icon")
         }
-        iconImage.tintColor = chosenCompanion.shared.companion.darkToneColor
+        
     }
     @IBAction func checkbox(_ sender: UIButton) {
         if checked == false {

@@ -17,6 +17,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var taskNameWarningLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var ickonBar: UISegmentedControl!
     @IBOutlet weak var completeButton: UIButton!
     
     var taskUI: TaskUI?
@@ -49,7 +50,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
         //Dynamic button title
         if taskUI?.done ?? false {
-            completeButton.setTitle("🛑 Mark as incomplete", for: .normal)
+            completeButton.setTitle("Undo Complete", for: .normal)
         }
         //Border for text area
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
@@ -108,6 +109,10 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         deleteButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         completeButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         updateButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        let labels = self.view.subviews.compactMap({$0 as? UILabel?})
+        for label in labels {
+            label?.textColor = chosenCompanion.shared.companion.darkToneColor
+        }
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
         let timeFormater = DateFormatter()
@@ -134,7 +139,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     @IBAction func updateTapped(_ sender: Any) {
         if taskNameField.text ?? "" != "" {
-            if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "") {
+            if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: ickonBar.selectedSegmentIndex) {
                 
                 self.navigationController?.popToRootViewController(animated: true)
                 AlertView.instance.showAlert(title: "✅ Task successfuly updated")
@@ -196,9 +201,9 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func completeButtonTapped(_ sender: Any) {
         //Change title and add or substract gold
         if editTaskModel.toggleCompletion(task: taskUI!) {
-            completeButton.setTitle("✅ Mark as complete", for: .normal)
+            completeButton.setTitle("Complete", for: .normal)
         } else {
-            completeButton.setTitle("🛑 Mark as incomplete", for: .normal)
+            completeButton.setTitle("Undo Complete", for: .normal)
         }
         let wasDone = !(taskUI?.done ?? false)
         taskUI?.done = wasDone

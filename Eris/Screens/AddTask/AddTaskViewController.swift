@@ -90,6 +90,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
         //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
         addTaskButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        let labels = self.view.subviews.compactMap({$0 as? UILabel?})
+        for label in labels {
+            label?.textColor = chosenCompanion.shared.companion.darkToneColor
+        }
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
@@ -121,7 +125,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     func AddTask() {
         //Adding new task
         if taskNameField.text ?? "" != "" {
-            if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text, imageName: iconPicker.selectedSegmentIndex) {
+            if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text, imageNum: iconPicker.selectedSegmentIndex) {
                 self.navigationController?.popViewController(animated: false)
                 AlertView.instance.showAlert(title: "✅ Successfully added task")
             }

@@ -110,7 +110,7 @@ class HomeParentViewController: UIViewController {
                 self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: 45))!
                 searchBar.isTranslucent = false
                 searchBar.backgroundImage = UIImage()
-                searchBar.barTintColor = chosenCompanion.shared.companion.primaryColor
+                searchBar.barTintColor = .white//chosenCompanion.shared.companion.primaryColor
                 searchBar.searchTextField.tintColor = .white
                 searchBar.delegate = self
                 searchBar.searchTextField.delegate = self

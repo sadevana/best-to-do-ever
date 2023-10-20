@@ -114,7 +114,7 @@ class AlertView: UIView {
             self.mascotImage.image = chosenCompanion.shared.companion.talkingImage
             self.containerView.isHidden = false
             startTime = DispatchTime.now()
-            alertLabel.setTyping(text: title, characterDelay: 7)
+            alertLabel.setTyping(text: title, characterDelay: 5)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
                 //In russian it's called 'kostyl'

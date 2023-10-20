@@ -29,7 +29,7 @@ class EditTaskViewModel {
         }
     }
     
-    func updateTask(task: TaskUI, name: String, description: String, gold: String, date: String, time: String) -> Bool {
+    func updateTask(task: TaskUI, name: String, description: String, gold: String, date: String, time: String, imageNum: Int) -> Bool {
         //Task editing
         let request : NSFetchRequest<Task> = Task.fetchRequest()
         //request.returnsObjectsAsFaults = false
@@ -39,6 +39,7 @@ class EditTaskViewModel {
         if (tasksDB != nil) {
             tasksDB!.title = name
             tasksDB!.task_description = description
+            tasksDB!.image_number = Int64(imageNum)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy"
             if time == "" {

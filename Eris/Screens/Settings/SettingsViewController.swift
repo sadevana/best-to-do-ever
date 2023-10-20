@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
     func setupShopView(companion: CompanionModel) {
         self.view.addSubview(companionPickView)
         companionPickView.backgroundColor = companion.primaryColor
-        companionPickView.frame = CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height/2 - 250, width: 300, height: 440)
+        companionPickView.frame = CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height/2 - 280, width: 300, height: 440)
         let imageCompanion = companion.defaultImage
         let imageView = UIImageView(frame: CGRect(x: 75, y: 20, width: 150, height: 300))
         imageView.image = imageCompanion

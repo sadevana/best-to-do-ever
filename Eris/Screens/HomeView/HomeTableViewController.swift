@@ -176,5 +176,14 @@ class HomeTableViewController: UITableViewController {
         }
         
     }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //Setting up solors of cell elements
+        if let myCell = cell as? TaskViewCell {
+            myCell.iconImage.tintColor = chosenCompanion.shared.companion.darkToneColor
+            myCell.goldLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            myCell.taskNameLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+            myCell.taskTimeLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+        }
+    }
 }
 

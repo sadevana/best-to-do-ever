@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "navsman_forest_background_light_green_anime_3.png",
+      "filename" : "target-icon.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }
