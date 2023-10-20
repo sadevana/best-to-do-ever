@@ -142,10 +142,10 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: ickonBar.selectedSegmentIndex) {
                 
                 self.navigationController?.popToRootViewController(animated: true)
-                AlertView.instance.showAlert(title: "✅ Task successfuly updated")
+                AlertView.instance.showAlert(title: "✅ Task successfuly updated", isSticky: false)
             }
         } else {
-            AlertView.instance.showAlert(title: "❌ Please enter task title")
+            AlertView.instance.showAlert(title: "❌ Please enter task title", isSticky: false)
             taskNameField.becomeFirstResponder()
         }
     }
@@ -153,7 +153,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func deleteTapped(_ sender: Any) {
         if editTaskModel.deleteTask(task: taskUI!){
             self.navigationController?.popViewController(animated: true)
-            AlertView.instance.showAlert(title: "❌ Task deleted successfuly")
+            AlertView.instance.showAlert(title: "❌ Task deleted successfuly", isSticky: false)
         }
     }
     @objc func goldValidation(_ textField: UITextField) {

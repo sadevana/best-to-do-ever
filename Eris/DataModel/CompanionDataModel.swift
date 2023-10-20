@@ -18,6 +18,7 @@ struct CompanionModel {
     var darkToneColor: UIColor
     var name: String
     var bgImage: UIImage
+    var randomChatter: [String: String]?
 
     init(name: String, defaultImage: UIImage, talkingImage: UIImage, altImage: UIImage, primaryColor: UIColor, darkerColor: UIColor, darkToneColor: UIColor, portrait: UIImage, bgImage: UIImage) {
         self.defaultImage = defaultImage
@@ -37,6 +38,18 @@ struct CompanionModel {
         }
         return 0
     }
+    func getRandomChatter() -> [String] {
+        var res = [String]()
+        if randomChatter != nil {
+            let randomKey = randomChatter?.randomElement()?.key
+            res.append(randomKey ?? "")
+            res.append(randomChatter![randomKey!] ?? "")
+        } else {
+            res.append("What food do you like the most?")
+            res.append("I like sweet rolls!")
+        }
+        return res
+    }
 }
 enum enumCompanions: String {
     case Clara = "Clara"
@@ -45,7 +58,7 @@ enum enumCompanions: String {
     func getModel() -> CompanionModel {
         switch self {
         case .Clara:
-            return CompanionModel(name: "Clara", defaultImage: UIImage(named: "mascot_default_clara")!, talkingImage: UIImage(named: "mascot_default_clara")!, altImage: UIImage(named: "mascot_default_clara")!, primaryColor: #colorLiteral(red: 0.7137254902, green: 1, blue: 0.9803921569, alpha: 1), darkerColor: #colorLiteral(red: 0.5019607843, green: 0.7019607843, blue: 1, alpha: 1), darkToneColor: #colorLiteral(red: 0.2019917342, green: 0.2213776135, blue: 0.5725490196, alpha: 1), portrait: UIImage(named: "clara_portrait")!, bgImage: UIImage(named: "background_clara")!)
+            return CompanionModel(name: "Clara", defaultImage: UIImage(named: "mascot_default_clara")!, talkingImage: UIImage(named: "mascot_default_clara")!, altImage: UIImage(named: "mascot_default_clara")!, primaryColor: #colorLiteral(red: 0.7843137255, green: 0.862745098, blue: 1, alpha: 1), darkerColor: #colorLiteral(red: 0.5019607843, green: 0.7019607843, blue: 1, alpha: 1), darkToneColor: #colorLiteral(red: 0.2019917342, green: 0.2213776135, blue: 0.5725490196, alpha: 1), portrait: UIImage(named: "clara_portrait")!, bgImage: UIImage(named: "background_clara")!)
         case .Luna:
             return CompanionModel(name: "Luna", defaultImage: UIImage(named: "mascot_default")!, talkingImage: UIImage(named: "mascot_smile")!, altImage: UIImage(named: "mascot_eyes_closed")!, primaryColor: #colorLiteral(red: 0.8156862745, green: 0.9058823529, blue: 0.8235294118, alpha: 1), darkerColor: #colorLiteral(red: 0.4745098039, green: 0.6745098039, blue: 0.4705882353, alpha: 1), darkToneColor: #colorLiteral(red: 0.02059417517, green: 0.2698388731, blue: 0.09074254698, alpha: 1), portrait: UIImage(named: "luna_portrait")!, bgImage: UIImage(named: "background_luna")!)
         case .Aiko:
@@ -54,7 +67,7 @@ enum enumCompanions: String {
     }
 }
 let luna = CompanionModel(name: "Luna", defaultImage: UIImage(named: "mascot_default")!, talkingImage: UIImage(named: "mascot_smile")!, altImage: UIImage(named: "mascot_eyes_closed")!, primaryColor: #colorLiteral(red: 0.8156862745, green: 0.9058823529, blue: 0.8235294118, alpha: 1), darkerColor: #colorLiteral(red: 0.4745098039, green: 0.6745098039, blue: 0.4705882353, alpha: 1), darkToneColor: #colorLiteral(red: 0.02059417517, green: 0.2698388731, blue: 0.09074254698, alpha: 1), portrait: UIImage(named: "luna_portrait")!, bgImage: UIImage(named: "background_luna")!)
-let clara = CompanionModel(name: "Clara", defaultImage: UIImage(named: "mascot_default_clara")!, talkingImage: UIImage(named: "mascot_default_clara")!, altImage: UIImage(named: "mascot_default_clara")!, primaryColor: #colorLiteral(red: 0.7137254902, green: 1, blue: 0.9803921569, alpha: 1), darkerColor: #colorLiteral(red: 0.5019607843, green: 0.7019607843, blue: 1, alpha: 1), darkToneColor: #colorLiteral(red: 0.2019917342, green: 0.2213776135, blue: 0.5725490196, alpha: 1), portrait: UIImage(named: "clara_portrait")!, bgImage: UIImage(named: "background_clara")!)
+let clara = CompanionModel(name: "Clara", defaultImage: UIImage(named: "mascot_default_clara")!, talkingImage: UIImage(named: "mascot_default_clara")!, altImage: UIImage(named: "mascot_default_clara")!, primaryColor: #colorLiteral(red: 0.7843137255, green: 0.862745098, blue: 1, alpha: 1), darkerColor: #colorLiteral(red: 0.5019607843, green: 0.7019607843, blue: 1, alpha: 1), darkToneColor: #colorLiteral(red: 0.2019917342, green: 0.2213776135, blue: 0.5725490196, alpha: 1), portrait: UIImage(named: "clara_portrait")!, bgImage: UIImage(named: "background_clara")!)
 let aiko = CompanionModel(name: "Aiko", defaultImage: UIImage(named: "mascot_deafault_aiko")!, talkingImage: UIImage(named: "mascot_deafault_aiko")!, altImage: UIImage(named: "mascot_deafault_aiko")!, primaryColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), darkerColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), darkToneColor: #colorLiteral(red: 0.817442602, green: 0.1755420918, blue: 0.5321269133, alpha: 1), portrait: UIImage(named: "aiko_portrait")!, bgImage: UIImage(named: "background_aiko")!)
 class chosenCompanion {
     var companion: CompanionModel

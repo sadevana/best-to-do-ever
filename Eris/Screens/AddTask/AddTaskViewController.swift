@@ -127,10 +127,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if taskNameField.text ?? "" != "" {
             if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text, imageNum: iconPicker.selectedSegmentIndex) {
                 self.navigationController?.popViewController(animated: false)
-                AlertView.instance.showAlert(title: "✅ Successfully added task")
+                AlertView.instance.showAlert(title: "✅ Successfully added task", isSticky: false)
             }
         } else {
-            AlertView.instance.showAlert(title: "❌ Please enter task title")
+            AlertView.instance.showAlert(title: "❌ Please enter task title", isSticky: false)
             taskNameField.becomeFirstResponder()
         }
     }

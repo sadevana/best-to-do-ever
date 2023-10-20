@@ -164,13 +164,13 @@ class TaskViewCell: UITableViewCell {
             if (userInfo.first != nil) {
                 //Alerts about task completion & update total gold
                 if tasksDB!.is_done == true {
-                    AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold")
+                    AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold", isSticky: false)
                     userInfo.first?.total_gold += tasksDB?.gold ?? 0
                     do {
                         try context.save()
                     }
                 } else {
-                    AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back")
+                    AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back", isSticky: false)
                     userInfo.first?.total_gold -= tasksDB?.gold ?? 0
                     do {
                         try context.save()

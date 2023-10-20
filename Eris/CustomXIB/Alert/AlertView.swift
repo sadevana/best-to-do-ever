@@ -27,6 +27,7 @@ class AlertView: UIView {
     }()
     private var clickableView = UIView()
     private var navController: UINavigationController?
+    private var randomChatter = chosenCompanion.shared.companion.getRandomChatter()
     private let addQuestActionButton: UIButton = {
         //Creating a floating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -52,6 +53,20 @@ class AlertView: UIView {
         button.setTitle("I want to change settings", for: .normal)
         button.setTitleColor(#colorLiteral(red: 0.0862745098, green: 0.0215686275, blue: 0.0705882353, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
+        button.layer.zPosition = 2.0
+        return button
+    }()
+    private let randomChatterButton: UIButton = {
+        //Creating a floating button
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        button.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.layer.cornerRadius = 20
+        button.tintColor = .black
+        //button.setTitle(randomChatter[0], for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.0862745098, green: 0.0215686275, blue: 0.0705882353, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(randomChatterAnswer), for: .touchUpInside)
         button.layer.zPosition = 2.0
         return button
     }()
@@ -96,6 +111,8 @@ class AlertView: UIView {
             inited = true
         }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        
+        containerView.backgroundColor = chosenCompanion.shared.companion.primaryColor
         //Saving nav controller of main screen
         navController = navcontroller
         clickableView.addGestureRecognizer(tapGestureRecognizer)
@@ -104,11 +121,11 @@ class AlertView: UIView {
         let image = chosenCompanion.shared.companion.defaultImage
         mascotImage.image = image
     }
-    func showAlert(title: String) {
+    func showAlert(title: String, isSticky: Bool) {
         //Only showing new alert if previous one is over otherwise check if it's needed later on
         containerView.isUserInteractionEnabled = false
         let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
-        if dif > 3000000000 {
+        if dif > 2000000000 {
             //Show alert and change picture
             //self.mainView.alpha = 1.0
             self.mascotImage.image = chosenCompanion.shared.companion.talkingImage
@@ -119,20 +136,23 @@ class AlertView: UIView {
                 let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
                 //In russian it's called 'kostyl'
                 if dif > 3000000000 {
-                    self.containerView.isHidden = true
+                    if !isSticky {
+                        self.containerView.isHidden = true
+                    }
                     self.mascotImage.image = chosenCompanion.shared.companion.defaultImage
                 }
             }
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.showAlert(title: title)
+                self.showAlert(title: title, isSticky: isSticky)
             }
         }
     }
     func refreshAvatar() {
+        containerView.backgroundColor = chosenCompanion.shared.companion.primaryColor
         let image = chosenCompanion.shared.companion.defaultImage
         mascotImage.image = image
-        showAlert(title: "Yay, let's go!")
+        showAlert(title: "Yay, let's go!", isSticky: false)
     }
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
@@ -144,26 +164,39 @@ class AlertView: UIView {
         coverScreen.isUserInteractionEnabled = true
         addQuestActionButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 180, width: 220, height: 40)
         goToSettingsButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 130, width: 220, height: 40)
+        randomChatterButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 80, width: 220, height: 60)
+        randomChatterButton.setTitle(randomChatter[0], for: .normal)
+        randomChatterButton.titleLabel!.lineBreakMode = .byWordWrapping
+        randomChatterButton.titleLabel?.sizeToFit()
+        coverScreen.addSubview(randomChatterButton)
         coverScreen.addSubview(addQuestActionButton)
         coverScreen.addSubview(goToSettingsButton)
         addQuestActionButton.addTarget(self, action: #selector(goToCreateNew), for: .touchUpInside)
         goToSettingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
-        showAlert(title: "Hey there!")
+        randomChatterButton.addTarget(self, action: #selector(randomChatterAnswer), for: .touchUpInside)
+        showAlert(title: "Hey there!", isSticky: true)
     }
     @objc func coverTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         coverScreen.removeFromSuperview()
+        self.containerView.isHidden = true
     }
     @objc func goToCreateNew(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")
         navController?.pushViewController(nextViewController, animated: true)
         coverScreen.removeFromSuperview()
+        showAlert(title: "Yay, I like making new quests!", isSticky: false)
     }
     @objc func goToSettings(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController")
         navController?.pushViewController(nextViewController, animated: true)
         coverScreen.removeFromSuperview()
+        showAlert(title: "Sure!", isSticky: false)
+    }
+    @objc func randomChatterAnswer(sender: UIButton!) {
+        coverScreen.removeFromSuperview()
+        showAlert(title: randomChatter[1], isSticky: false)
     }
 }
