@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "CD308AE3-A246-431B-80A2-B3E8994991EC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eris/CustomXIB/Alert/AlertView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "AlertView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - 11c28e1bab1bfa42"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.mascotImage.getter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - 540e5932e86785fe"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.mascotImage.setter : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - 3ac307416be38767"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.mascotImage.modify : Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - c42f9c473bb1e4ac"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.mascotImage.modify : Swift.Optional&lt;__C.UIImageView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - 629bbca0d8851bc0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.init(frame: __C.CGRect) -&gt; Eris.AlertView"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  uuid = "D51FE794-91DC-4DD8-B034-87E984180AF5 - ec97b01da1660f44"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eris.AlertView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Eris.AlertView&gt;"
+                  moduleName = "Eris"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitrychicherin/Desktop/Eris/Eris/CustomXIB/Alert/AlertView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
