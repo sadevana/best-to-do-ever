@@ -106,7 +106,12 @@ class HomeParentViewController: UIViewController {
                 //childVC.activateSearch()
                 searchBar.searchBarStyle = UISearchBar.Style.default
                 searchBar.placeholder = " Search..."
-                searchBar.frame = CGRect(x: 0, y: 115, width: view.frame.size.width, height: 45)
+                searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45)
+                searchBar.translatesAutoresizingMaskIntoConstraints = false
+                //searchBar.widthAnchor.constraint(equalToConstant: 150).isActive = true
+                //searchBar.heightAnchor.constraint(equalToConstant: 150).isActive = true
+                //searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                
                 self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: 45))!
                 searchBar.isTranslucent = false
                 searchBar.backgroundImage = UIImage()
@@ -117,6 +122,10 @@ class HomeParentViewController: UIViewController {
                 searchBar.searchTextField.shouldResignOnTouchOutsideMode = .enabled
                 
                 self.view.addSubview(searchBar)
+                searchBar.bottomAnchor.constraint(equalTo: (self.children.first?.view.topAnchor)!, constant: 0).isActive = true
+                searchBar.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+                searchBar.heightAnchor.constraint(equalToConstant: 45).isActive = true
+                searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 searchBar.searchTextField.clearButtonMode = .never
                 searchBar.searchTextField.rightViewMode = .always
                 searchBar.searchTextField.rightView = clearButton
