@@ -29,7 +29,6 @@ class AlertView: UIView {
     private var navController: UINavigationController?
     private var randomChatter = chosenCompanion.shared.companion.getRandomChatter()
     private let addQuestActionButton: UIButton = {
-        //Creating a floating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         button.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
         button.layer.borderWidth = 1
@@ -43,7 +42,6 @@ class AlertView: UIView {
         return button
     }()
     private let goToSettingsButton: UIButton = {
-        //Creating a floating button
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         button.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
         button.layer.borderWidth = 1
@@ -57,7 +55,7 @@ class AlertView: UIView {
         return button
     }()
     private let randomChatterButton: UIButton = {
-        //Creating a floating button
+        //Button for randon conversation topics
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         button.backgroundColor = #colorLiteral(red: 0.9627156854, green: 0.9567889571, blue: 0.968844831, alpha: 1)
         button.layer.borderWidth = 1

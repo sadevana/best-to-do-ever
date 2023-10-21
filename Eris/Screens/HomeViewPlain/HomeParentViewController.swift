@@ -34,10 +34,9 @@ class HomeParentViewController: UIViewController {
             LoginView.instance.showAlert(viewToUpdate: self)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        //let imageView = UIImageView(image: chosenCompanion.shared.companion.bgImage)
-        //imageView.contentMode = .scaleAspectFill
-        //self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
-        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goToSettings(tapGestureRecognizer:)))
+        userIcon.isUserInteractionEnabled = true
+        userIcon.addGestureRecognizer(tapGestureRecognizer)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -122,6 +121,7 @@ class HomeParentViewController: UIViewController {
                 searchBar.searchTextField.shouldResignOnTouchOutsideMode = .enabled
                 
                 self.view.addSubview(searchBar)
+                //Attaching a searchbar to the top of a table view
                 searchBar.bottomAnchor.constraint(equalTo: (self.children.first?.view.topAnchor)!, constant: 0).isActive = true
                 searchBar.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
                 searchBar.heightAnchor.constraint(equalToConstant: 45).isActive = true
@@ -143,6 +143,11 @@ class HomeParentViewController: UIViewController {
             childVC.filterData(searchText: "")
         }
         self.children.first?.view.frame = (self.children.first?.view.frame.insetBy(dx: 0, dy: -45))!
+    }
+    @objc func goToSettings(tapGestureRecognizer: UIGestureRecognizer!) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController")
+        self.navigationController!.pushViewController(nextViewController, animated: true)
     }
 }
 extension HomeParentViewController: UISearchBarDelegate, UITextFieldDelegate {

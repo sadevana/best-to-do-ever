@@ -25,12 +25,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-Pm-AeI">
-                                            <rect key="frame" x="221" y="11" width="114" height="21"/>
+                                            <rect key="frame" x="235" y="35" width="100" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="I1I-29-Crd"/>
-                                                <constraint firstAttribute="width" constant="114" id="fUK-ar-tCR"/>
+                                                <constraint firstAttribute="width" constant="100" id="fUK-ar-tCR"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -43,19 +43,19 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-Qc-ZlR">
-                                            <rect key="frame" x="60" y="13" width="159" height="21"/>
+                                            <rect key="frame" x="60" y="13" width="275" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Dh3-m9-RUb"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="hrZ-BU-uA1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPL-ql-k1W">
                                             <rect key="frame" x="60" y="36" width="163" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -75,10 +75,10 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="rGm-7y-vLr" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="16" id="5QR-pZ-sht"/>
-                                        <constraint firstItem="VNv-Pm-AeI" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="11" id="BcE-El-DjH"/>
+                                        <constraint firstItem="rGm-7y-vLr" firstAttribute="leading" secondItem="ADd-Qc-ZlR" secondAttribute="trailing" constant="15" id="5qa-eb-q2Y"/>
+                                        <constraint firstItem="VNv-Pm-AeI" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="35" id="BcE-El-DjH"/>
                                         <constraint firstItem="ADd-Qc-ZlR" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="13" id="DQO-9l-Q7d"/>
                                         <constraint firstAttribute="trailing" secondItem="rGm-7y-vLr" secondAttribute="trailing" constant="8" id="E9X-fm-pW3"/>
-                                        <constraint firstItem="VNv-Pm-AeI" firstAttribute="leading" secondItem="ADd-Qc-ZlR" secondAttribute="trailing" constant="2" id="FTC-8m-Uwg"/>
                                         <constraint firstItem="yH3-zw-eMH" firstAttribute="leading" secondItem="487-13-1my" secondAttribute="leading" constant="11" id="Vwz-G5-JBI"/>
                                         <constraint firstItem="ADd-Qc-ZlR" firstAttribute="leading" secondItem="yH3-zw-eMH" secondAttribute="trailing" constant="8" id="fHw-b7-bmB"/>
                                         <constraint firstItem="yH3-zw-eMH" firstAttribute="top" secondItem="487-13-1my" secondAttribute="top" constant="13" id="oNH-vO-DNp"/>
