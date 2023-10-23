@@ -39,6 +39,7 @@ final class StoreManager: NSObject, SKProductsRequestDelegate, SKPaymentTransact
         transactions.forEach({
             switch $0.transactionState {
             case .purchasing:
+                print("Purchasing")
                 break
             case .purchased:
                 if let product = Product(rawValue: $0.payment.productIdentifier){

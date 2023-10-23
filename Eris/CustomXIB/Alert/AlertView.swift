@@ -84,7 +84,7 @@ class AlertView: UIView {
     }
     private func commonInit() {
         self.containerView.layer.cornerRadius = 20.0
-        mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 280, width: 300, height: 60)
+        mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 295, width: 300, height: 60)
         mascotImage.frame = CGRect(x: UIScreen.main.bounds.width - 180 - 20, y: UIScreen.main.bounds.height - 230 - 20, width: 250, height: 500)
         clickableView.frame = CGRect(x: UIScreen.main.bounds.width - 145, y: UIScreen.main.bounds.height - 220, width: 130, height: 500)
         //clickableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5013451987)
@@ -116,8 +116,8 @@ class AlertView: UIView {
     }
     func showAlert(title: String, isSticky: Bool) {
         //Adding time if string is long
-        var timeShowing = 3.0
-        if title.count > 40 {
+        var timeShowing = 2.0
+        if title.count > 35 {
             let addTime = (Double(title.count)/10.0) * 0.75
             timeShowing = addTime
         }
@@ -131,7 +131,7 @@ class AlertView: UIView {
             self.mascotImage.image = chosenCompanion.shared.companion.talkingImage
             self.containerView.isHidden = false
             startTime = DispatchTime.now()
-            alertLabel.setTyping(text: title, characterDelay: 5)
+            alertLabel.setTyping(text: title, characterDelay: 4)
             DispatchQueue.main.asyncAfter(deadline: .now() + timeShowing) {
                 let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
                 //In russian it's called 'kostyl'
@@ -165,6 +165,8 @@ class AlertView: UIView {
         addQuestActionButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 180, width: 220, height: 40)
         goToSettingsButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 130, width: 220, height: 40)
         randomChatterButton.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 80, width: 220, height: 60)
+        //Getting new random chatter
+        randomChatter = chosenCompanion.shared.companion.getRandomChatter()
         randomChatterButton.setTitle(randomChatter[0], for: .normal)
         randomChatterButton.titleLabel!.lineBreakMode = .byWordWrapping
         randomChatterButton.titleLabel?.sizeToFit()

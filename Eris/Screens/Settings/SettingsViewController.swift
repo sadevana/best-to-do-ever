@@ -123,13 +123,20 @@ class SettingsViewController: UIViewController {
     }
     @objc func purchaseCompanion(sender: UIButton!) {
         //sus code
+        
         StoreManager.shared.purchase(product: StoreManager.Product(rawValue: watchedCompanion!.name) ?? .Aiko) { [self] model in
             UserDefaults.standard.set(true, forKey: "Aiko")
-            self.companionPickView.subviews.map({ $0.removeFromSuperview() })
-            self.companionPickView.removeFromSuperview()
-            self.setupShopView(companion: watchedCompanion!)
-        }
+            companionPickView.subviews.map({ $0.removeFromSuperview() })
+            companionPickView.removeFromSuperview()
+            setupShopView(companion: watchedCompanion!)
+            
+        }/*
+        var spinnerView = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 30, y: self.view.frame.size.height/2 - 30, width: 60, height: 60))
         
+        self.view.addSubview(spinnerView)
+        spinnerView.startAnimating()
+        spinnerView.layer.zPosition = 1.0
+        spinnerView.stopAnimating()*/
     }
     /*@IBAction func lunaChosen(_ sender: Any) {
         chosenCompanion.shared.companion = enumCompanions.Luna.getModel()
