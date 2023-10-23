@@ -25,6 +25,8 @@ class AlertView: UIView {
     private var coverScreen: UIView = {
         return UIView()
     }()
+    //Default time for how long to show dialogue
+    var timeNanoShowing = Int64(3 * 1000000000)
     private var clickableView = UIView()
     private var navController: UINavigationController?
     private var randomChatter = chosenCompanion.shared.companion.getRandomChatter()
@@ -84,7 +86,7 @@ class AlertView: UIView {
     }
     private func commonInit() {
         self.containerView.layer.cornerRadius = 20.0
-        mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 295, width: 300, height: 60)
+        mainView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 150, y: UIScreen.main.bounds.height - 300, width: 300, height: 60)
         mascotImage.frame = CGRect(x: UIScreen.main.bounds.width - 180 - 20, y: UIScreen.main.bounds.height - 230 - 20, width: 250, height: 500)
         clickableView.frame = CGRect(x: UIScreen.main.bounds.width - 145, y: UIScreen.main.bounds.height - 220, width: 130, height: 500)
         //clickableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5013451987)
@@ -115,17 +117,18 @@ class AlertView: UIView {
         mascotImage.image = image
     }
     func showAlert(title: String, isSticky: Bool) {
-        //Adding time if string is long
-        var timeShowing = 2.0
-        if title.count > 35 {
-            let addTime = (Double(title.count)/10.0) * 0.75
-            timeShowing = addTime
-        }
-        let timeNanoShowing = Int64(timeShowing * 1000000000)
+        
         //Only showing new alert if previous one is over otherwise check if it's needed later on
         containerView.isUserInteractionEnabled = false
         let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
         if dif > timeNanoShowing {
+            //Adding time if string is long
+            var timeShowing = 1.0
+            if title.count > 25 {
+                let addTime = (Double(title.count)/10.0) * 0.75
+                timeShowing = addTime
+            }
+            timeNanoShowing = Int64(timeShowing * 1000000000)
             //Show alert and change picture
             //self.mainView.alpha = 1.0
             self.mascotImage.image = chosenCompanion.shared.companion.talkingImage
@@ -135,7 +138,7 @@ class AlertView: UIView {
             DispatchQueue.main.asyncAfter(deadline: .now() + timeShowing) {
                 let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
                 //In russian it's called 'kostyl'
-                if dif > timeNanoShowing  {
+                if dif > self.timeNanoShowing  {
                     if !isSticky {
                         self.containerView.isHidden = true
                     }
