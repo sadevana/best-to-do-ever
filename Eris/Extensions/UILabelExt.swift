@@ -18,6 +18,7 @@ extension UILabel {
         text.forEach { char in
           DispatchQueue.main.async {
             self?.text?.append(char)
+              
           }
           Thread.sleep(forTimeInterval: characterDelay/100)
         }

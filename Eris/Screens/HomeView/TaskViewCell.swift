@@ -17,13 +17,9 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var goldLabel: UILabel!
     var checked = false
     var id: String?
+    var indexPath: IndexPath?
     weak var parentController: HomeTableViewController?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-
-    }
     override var frame: CGRect {
         //Setting up cells spacing
         get {
@@ -39,6 +35,9 @@ class TaskViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func setIndexPath(index: IndexPath) {
+        indexPath = index
     }
     func setup(withtask: TaskUI, parentController : HomeTableViewController) {
         self.layer.cornerRadius = 5
@@ -158,29 +157,26 @@ class TaskViewCell: UITableViewCell {
             try context.save()
             
             //Adding and taking gold
-            let requestUD = NSFetchRequest<UserData>(entityName: "UserData")
-            request.returnsObjectsAsFaults = false
-            let userInfo = try! context.fetch(requestUD)
-            if (userInfo.first != nil) {
-                //Alerts about task completion & update total gold
-                if tasksDB!.is_done == true {
-                    AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold", isSticky: false)
-                    userInfo.first?.total_gold += tasksDB?.gold ?? 0
-                    do {
-                        try context.save()
-                    }
-                } else {
-                    AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back", isSticky: false)
-                    userInfo.first?.total_gold -= tasksDB?.gold ?? 0
-                    do {
-                        try context.save()
-                    }
-                }
+            var totalGold = UserDefaults.standard.integer(forKey: "totalGold")
+            
+            //Alerts about task completion & update total gold
+            if tasksDB!.is_done == true {
+                AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold", isSticky: false)
+                totalGold += Int(tasksDB?.gold ?? 0)
+                
+            } else {
+                AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back", isSticky: false)
+                totalGold -= Int(tasksDB?.gold ?? 0)
             }
+            UserDefaults.standard.set(totalGold, forKey: "totalGold")
             //Update data in parent controller
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if self.indexPath != nil {
+                    //self.parentController?.tableView.deleteRows(at: [self.indexPath!], with: .fade)
+                }
                 self.parentController?.updateDataInCells()
             }
+            
         }
         catch {
             print("error happend")

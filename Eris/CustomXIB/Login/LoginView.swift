@@ -62,19 +62,8 @@ class LoginView: UIView {
         if loginTextField.text == "" {
             emptyWarningLabel.text = "Please enter at least one symbol"
         } else {
-            let request = NSFetchRequest<UserData>(entityName: "UserData")
-            request.returnsObjectsAsFaults = false
-            let context = CoreDataService().context()
-            let userInfo = try! context.fetch(request)
-            userInfo.first?.user_name = loginTextField.text
-            self.mainView.removeFromSuperview()
-            print(self.mainView.parentContainerViewController())
-            do {
-                try context.save()
-                parentScreen?.updateTopBarInfo()
-            } catch {
-                print(error)
-            }
+            UserDefaults.standard.set(loginTextField.text!, forKey: "Nickname")
+            parentScreen?.updateTopBarInfo()
         }
         
     }

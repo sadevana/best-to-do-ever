@@ -127,7 +127,13 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if taskNameField.text ?? "" != "" {
             if addTaskViewModel.addTask(taskName: taskNameField.text ?? "", taskDescription: descriptionView.text, timeText: timeField.text, dateText: dateField.text, goldAmount: goldField.text, imageNum: iconPicker.selectedSegmentIndex) {
                 self.navigationController?.popViewController(animated: false)
-                AlertView.instance.showAlert(title: "✅ Successfully added task", isSticky: false)
+                let firstQuestPending = UserDefaults.standard.bool(forKey: "First quest pending")
+                if firstQuestPending {
+                    AlertView.instance.showAlert(title: "Great! Now you can mark my quest as completed by tapping on a circle!", isSticky: false)
+                    UserDefaults.standard.set(false, forKey: "First quest pending")
+                } else {
+                    AlertView.instance.showAlert(title: "✅ Successfully added task", isSticky: false)
+                }
             }
         } else {
             AlertView.instance.showAlert(title: "❌ Please enter task title", isSticky: false)

@@ -41,6 +41,7 @@ class HomeTableViewController: UITableViewController {
         self.tableView.backgroundColor = .black
         //self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 0.8666666667, alpha: 1)
         self.tableView.separatorColor = .clear
+        tableView.contentInset.bottom = 240
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +112,7 @@ class HomeTableViewController: UITableViewController {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "TaskViewCell")
         if let tableCell = tableCell as? TaskViewCell {
             tableCell.setup(withtask: sectionedTasks[indexPath.section].tasks[indexPath.row], parentController: self)
+            tableCell.setIndexPath(index: indexPath)
         }
         tableCell?.layer.shadowColor = UIColor.black.cgColor
         tableCell?.layer.shadowOpacity = 0.5

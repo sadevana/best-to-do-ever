@@ -93,13 +93,8 @@ class AlertView: UIView {
         mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         containerView.isHidden = true
         mainView.isUserInteractionEnabled = false
-        //alertLabel.isHidden = true
-        //containerView.isUserInteractionEnabled = false
-        //alertLabel.isUserInteractionEnabled = false
-        
-        //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        //mascotImage.addGestureRecognizer(tapGestureRecognizer)
-        //mascotImage.isUserInteractionEnabled = true
+        alertLabel.lineBreakMode = .byWordWrapping
+        //alertLabel.sizeToFit()
     }
     func initAlertView(navcontroller: UINavigationController){
         if !inited {
@@ -120,20 +115,27 @@ class AlertView: UIView {
         mascotImage.image = image
     }
     func showAlert(title: String, isSticky: Bool) {
+        //Adding time if string is long
+        var timeShowing = 3.0
+        if title.count > 40 {
+            let addTime = (Double(title.count)/10.0) * 0.75
+            timeShowing = addTime
+        }
+        let timeNanoShowing = Int64(timeShowing * 1000000000)
         //Only showing new alert if previous one is over otherwise check if it's needed later on
         containerView.isUserInteractionEnabled = false
         let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
-        if dif > 2000000000 {
+        if dif > timeNanoShowing {
             //Show alert and change picture
             //self.mainView.alpha = 1.0
             self.mascotImage.image = chosenCompanion.shared.companion.talkingImage
             self.containerView.isHidden = false
             startTime = DispatchTime.now()
             alertLabel.setTyping(text: title, characterDelay: 5)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeShowing) {
                 let dif = DispatchTime.now().uptimeNanoseconds - self.startTime.uptimeNanoseconds
                 //In russian it's called 'kostyl'
-                if dif > 3000000000 {
+                if dif > timeNanoShowing  {
                     if !isSticky {
                         self.containerView.isHidden = true
                     }

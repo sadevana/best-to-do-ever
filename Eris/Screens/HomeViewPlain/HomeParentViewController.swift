@@ -29,11 +29,7 @@ class HomeParentViewController: UIViewController {
         //self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
         userNameButton.contentHorizontalAlignment = .left
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if !launchedBefore {
-            LoginView.instance.showAlert(viewToUpdate: self)
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goToSettings(tapGestureRecognizer:)))
         userIcon.isUserInteractionEnabled = true
         userIcon.addGestureRecognizer(tapGestureRecognizer)
@@ -56,45 +52,38 @@ class HomeParentViewController: UIViewController {
         searchButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         userNameButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
+        //on first launch show intro screen
+        //UserDefaults.standard.set(false, forKey: "launchedBefore")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore {
+            //Go to first launch screen
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FirstLaunchViewController")
+            self.navigationController!.pushViewController(nextViewController, animated: true)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        let firstQuestPending = UserDefaults.standard.bool(forKey: "First quest pending")
+        if firstQuestPending {
+            AlertView.instance.showAlert(title: "Talk to me to create your first quest!", isSticky: false)
+        }
     }
     
     func updateTopBarInfo() {
         //TBD move to model
-        let request = NSFetchRequest<UserData>(entityName: "UserData")
-        request.returnsObjectsAsFaults = false
-        let context = CoreDataService().context()
-        let userInfo = try! context.fetch(request)
-        
-        if (userInfo.first != nil) {
-            goldLabel.text = "Current total gold: " + String(userInfo.first!.total_gold)
-            if userInfo.first!.user_name == "" || userInfo.first!.user_name == nil {
-                userNameButton.setTitle("Click here to set a nickname", for: .normal)
-            } else {
-                userNameButton.setTitle(userInfo.first!.user_name, for: .normal)
-            }
-        } else {
-            //setting it up if it doesn't exist yet
-            let userData = UserData(context: context)
-            userData.total_gold = 0
-            goldLabel.text = "Current total gold: 0"
+        let nickName = UserDefaults.standard.string(forKey: "Nickname")
+        let totalGold = UserDefaults.standard.integer(forKey: "totalGold")
+        if nickName == "" || nickName == nil {
             userNameButton.setTitle("Click here to set a nickname", for: .normal)
-            do {
-                try context.save()
-            } catch {
-                print(error)
-            }
+        } else {
+            userNameButton.setTitle(nickName, for: .normal)
         }
+        goldLabel.text = "Current total gold: " + String(totalGold)
+
     }
     @IBAction func setupUserNameClicked(_ sender: Any) {
         //If user clicks on button while no username is set, open nickname setup
-        let request = NSFetchRequest<UserData>(entityName: "UserData")
-        request.returnsObjectsAsFaults = false
-        let context = CoreDataService().context()
-        let userInfo = try! context.fetch(request)
-        if (userInfo.first != nil) {
-            if userInfo.first!.user_name == "" || userInfo.first!.user_name == nil {
-                LoginView.instance.showAlert(viewToUpdate: self)
-            }
+        if UserDefaults.standard.string(forKey: "Nickname") == ""{
+            LoginView.instance.showAlert(viewToUpdate: self)
         }
         
     }
