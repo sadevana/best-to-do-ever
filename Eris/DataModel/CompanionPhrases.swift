@@ -22,3 +22,19 @@ let lunaChatter = [
     "Do you like cats or dogs more?": "I'm a dog person! Dogs are much more fun to play with",
     "When is your birthday?": "It's on July the second!"
 ]
+let claraChatter = [
+    "What is your favourite food?" : "I enjoy desserts, escpecially Mont Blanc",
+    "What do you like doing in your free time?" : "I like reading and taking care of my pets!",
+    "What is your favourite season?" : "I really enjoy spring. I feel really refreshed when nature starts waking up",
+    "Do you have any productivity tips?" : "When I feel down I just do things by putting minimum effort in. It helps me to stay consistent!",
+    "What kind of books do you like?": "I like fantasy and non-fiction books!",
+    "What kind of quests do you like?": "I like things that are slower paced and relaxed, even if others may consider them boring",
+    "Do you have a dream?": "I want to write a book of my own someday!",
+    "Do you have any pets?": "I have two cats and a pet turtle!",
+    "When is your birthday?": "It's on 12 of February!",
+    "Tell me some random fact": "Sea otters are only marine animals capable of lifting and turning over rocks",
+    "Tell me a random fact": "Even though nothing can escape black holes, we think that they still slowly evaporate",
+    "Tell me a random fact ": "English language used to have grammatical gender back in the days",
+    "Tell me a random fact  ": "Name of cocktail \"Blue Hawaii\" is related to the film of the same name",
+    "Do you prefer tea or coffee?": "I like tea with milk! Coffee makes it hard for me to fall asleep"
+]
