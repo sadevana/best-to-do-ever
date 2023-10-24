@@ -124,7 +124,7 @@ class AlertView: UIView {
         if dif > timeNanoShowing {
             //Adding time if string is long
             var timeShowing = 1.0
-            if title.count > 25 {
+            if title.count > 12 {
                 let addTime = (Double(title.count)/10.0) * 0.75
                 timeShowing = addTime
             }

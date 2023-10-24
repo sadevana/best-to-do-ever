@@ -64,6 +64,7 @@ class LoginView: UIView {
         } else {
             UserDefaults.standard.set(loginTextField.text!, forKey: "Nickname")
             parentScreen?.updateTopBarInfo()
+            self.mainView.removeFromSuperview()
         }
         
     }

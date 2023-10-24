@@ -16,7 +16,6 @@
 		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
 		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
 		A66C53A82AD87E93006D5943 /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C53A72AD87E93006D5943 /* UILabelExt.swift */; };
-		A6898AB32ADFE49400FB4AB1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */; };
 		A6898AB72ADFE77000FB4AB1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */; };
 		A692D56E2AA28E8B008EE6DD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */; };
 		A6A0134F2ADEFFC8008D4D3F /* CompanionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0134E2ADEFFC8008D4D3F /* CompanionButton.swift */; };
@@ -51,7 +50,6 @@
 		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
 		A66C53A72AD87E93006D5943 /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
-		A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A6898AB52ADFE50600FB4AB1 /* StoreConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreConfig.storekit; sourceTree = "<group>"; };
 		A6898AB62ADFE77000FB4AB1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		A692D56D2AA28E8B008EE6DD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DF8F5E2AB2E0910016B701 /* IQKeyboardManagerSwift in Frameworks */,
-				A6898AB32ADFE49400FB4AB1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +124,6 @@
 		A6898AB12ADFE49400FB4AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6898AB22ADFE49400FB4AB1 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -515,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XAX84T33B6;
@@ -523,8 +520,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,6 +530,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dimchich.Eris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -543,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XAX84T33B6;
@@ -551,8 +554,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,6 +564,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dimchich.Eris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

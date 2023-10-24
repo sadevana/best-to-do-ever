@@ -82,7 +82,7 @@ class HomeParentViewController: UIViewController {
     }
     @IBAction func setupUserNameClicked(_ sender: Any) {
         //If user clicks on button while no username is set, open nickname setup
-        if UserDefaults.standard.string(forKey: "Nickname") == ""{
+        if UserDefaults.standard.string(forKey: "Nickname") == "" || UserDefaults.standard.string(forKey: "Nickname") == nil{
             LoginView.instance.showAlert(viewToUpdate: self)
         }
         
