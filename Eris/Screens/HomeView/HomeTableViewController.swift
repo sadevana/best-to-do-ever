@@ -169,7 +169,8 @@ class HomeTableViewController: UITableViewController {
     
     func filterData(searchText: String) {
         if searchText != "" {
-            var filteredData = tasksToShow.filter({$0.name?.uppercased().contains(searchText.uppercased()) ?? false})
+            //Filter results that contain matching description or name
+            var filteredData = tasksToShow.filter({$0.name?.uppercased().contains(searchText.uppercased()) ?? false || $0.description?.uppercased().contains(searchText.uppercased()) ?? false})
             self.sectionedTasks = homeViewModel.sortTasks(tasks: filteredData)
             self.tableView.reloadData()
         } else {

@@ -46,7 +46,7 @@ class TaskViewCell: UITableViewCell {
         self.parentController = parentController
         taskNameLabel.text = withtask.name
         //taskDescriptionLabel.text = withtask.description
-        goldLabel.text = "Gold reward: " + String(withtask.gold ?? 0)
+        goldLabel.text = "Gold: " + String(withtask.gold ?? 0)
         //Setting up different date formats for different dates
         let dateFormatter = DateFormatter()
         let thirtyDays = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
@@ -55,7 +55,7 @@ class TaskViewCell: UITableViewCell {
             let calendar = Calendar.current
             let dayStartTime = calendar.startOfDay(for: date)
             let endDayTime = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
-            if withtask.datetime! >= thirtyDays {
+            if withtask.datetime! >= thirtyDays  || withtask.datetime! < Date(){
                 //Later task  can display current year
                 let date = Date()
                 let calendar = Calendar.current
@@ -99,7 +99,6 @@ class TaskViewCell: UITableViewCell {
             taskTimeLabel.text = dateFormatter.string(from: withtask.datetime!)
         }
         //Setting up checkbox
-        checkboxButton.layer.cornerRadius = 18.0
         checked = withtask.done
         if(withtask.done != true) {
             showUndone()

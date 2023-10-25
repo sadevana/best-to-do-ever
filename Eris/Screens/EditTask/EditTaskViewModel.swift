@@ -61,6 +61,8 @@ class EditTaskViewModel {
                     dateDate = dateDate! + Double(toAdd)
                 }
                 tasksDB!.due_date = dateDate
+            } else {
+                tasksDB!.due_date = nil
             }
         }
         do {

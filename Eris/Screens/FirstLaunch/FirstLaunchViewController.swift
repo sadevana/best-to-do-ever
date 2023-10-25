@@ -26,6 +26,9 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var nicknameText: UITextField!
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var warningLabel: UILabel!
+    var nickText = ""
+    
     private var currentStage = 0
     private var screenLocked = false
     
@@ -52,6 +55,11 @@ class FirstLaunchViewController: UIViewController {
         acceptButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         skipButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         nicknameLabel.textColor = chosenCompanion.shared.companion.darkToneColor
+        
+        //Setup for validation
+        nicknameText.addTarget(self,
+                            action: #selector(nameValidation),
+                            for: UIControl.Event.editingChanged)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,6 +135,7 @@ class FirstLaunchViewController: UIViewController {
             nicknameLabel.isHidden = true
             nicknameText.isHidden = true
             skipButton.isHidden = true
+            warningLabel.text = ""
             currentStage = 3
         case 3:
             showAlert(title: "Now, let's get right on to creating some quests for you!")
@@ -177,6 +186,18 @@ class FirstLaunchViewController: UIViewController {
             try context.save()
         } catch {
             print(error)
+        }
+    }
+    @objc func nameValidation(_ textField: UITextField) {
+        if textField.text?.count ?? 0 > 100 {
+            textField.text = nickText
+            warningLabel.text = "Please enter up to 100 symbols"
+            
+            return
+        } else {
+            nickText = textField.text ?? ""
+            warningLabel.text = ""
+            
         }
     }
 }

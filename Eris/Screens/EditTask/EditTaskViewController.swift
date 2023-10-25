@@ -17,8 +17,21 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var taskNameWarningLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var ickonBar: UISegmentedControl!
+    @IBOutlet weak var iconBar: UISegmentedControl!
     @IBOutlet weak var completeButton: UIButton!
+    
+    private lazy var conformationAlert: UIAlertController =  {
+        let refreshAlert = UIAlertController(title: "Deleting quest", message: "Are you sure?", preferredStyle: UIAlertController.Style.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.deleteTask()
+        }))
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        
+
+        
+        return refreshAlert
+    }()
     
     var taskUI: TaskUI?
     var nameText = ""
@@ -48,6 +61,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             dateFormater.dateFormat = "dd.MM.yyyy"
             dateTextField.text = dateFormater.string(from: date!)
         }
+        iconBar.selectedSegmentIndex = Int(taskUI?.imageNum ?? 0)
         //Dynamic button title
         if taskUI?.done ?? false {
             completeButton.setTitle("Undo Complete", for: .normal)
@@ -139,7 +153,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     @IBAction func updateTapped(_ sender: Any) {
         if taskNameField.text ?? "" != "" {
-            if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: ickonBar.selectedSegmentIndex) {
+            if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: iconBar.selectedSegmentIndex) {
                 
                 self.navigationController?.popToRootViewController(animated: true)
                 AlertView.instance.showAlert(title: "✅ Task successfuly updated", isSticky: false)
@@ -151,6 +165,9 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        present(conformationAlert, animated: true)
+    }
+    func deleteTask() {
         if editTaskModel.deleteTask(task: taskUI!){
             self.navigationController?.popViewController(animated: true)
             AlertView.instance.showAlert(title: "❌ Task deleted successfuly", isSticky: false)
@@ -167,7 +184,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             goldValue = textField.text!
             return
         }
-        if Int64(textField.text ?? "0")! > 10000000000 {
+        if Int64(textField.text ?? "0")! >= 100000000 {
             textField.text = goldValue
             return
         }
@@ -181,6 +198,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         if textField.text?.count ?? 0 > 500 {
             textField.text = nameText
             taskNameWarningLabel.text = "❌ Too long! Please enter less than 500 symbols"
+            descriptionWarningLabel.text = ""
             return
         } else {
             nameText = textField.text ?? ""
@@ -193,6 +211,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         if textView.text.count > 8000 {
             textView.text = descriptionText
             descriptionWarningLabel.text = "❌Too long! Please enter less than 8000 symbols"
+            taskNameWarningLabel.text = ""
         } else {
             descriptionText = textView.text
             descriptionWarningLabel.text = ""

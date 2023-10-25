@@ -162,7 +162,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             goldValue = textField.text!
             return
         }
-        if Int64(textField.text!)! > 10000000000 {
+        if Int64(textField.text!)! >= 100000000 {
             textField.text = goldValue
             return
         }

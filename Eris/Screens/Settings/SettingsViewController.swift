@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
     var claraChooseButton = CompanionPickButton(companion: enumCompanions.Clara.getModel(), frame: CGRect(x: 80, y: 0, width: 70, height: 85))
     var aikoChooseButton = CompanionPickButton(companion: enumCompanions.Aiko.getModel(), frame: CGRect(x: 160, y: 0, width: 70, height: 85))
     var watchedCompanion: CompanionModel?
+    var nickText = ""
     var companionPickView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 300, height: 400)
@@ -53,6 +54,11 @@ class SettingsViewController: UIViewController {
         lunaChooseButton.addTarget(self, action: #selector(updateChoice), for: .touchUpInside)
         claraChooseButton.addTarget(self, action: #selector(updateChoice), for: .touchUpInside)
         aikoChooseButton.addTarget(self, action: #selector(updateChoice), for: .touchUpInside)
+        //Adding saving nickname
+        userNameText.text = UserDefaults.standard.string(forKey: "Nickname")
+        userNameText.addTarget(self,
+                                action: #selector(nameUpdates),
+                                for: UIControl.Event.editingChanged)
     }
     @objc func updateChoice(sender: CompanionPickButton!) {
         setupShopView(companion: sender.companion)
@@ -160,5 +166,13 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @objc func nameUpdates(_ textField: UITextField) {
+        if textField.text?.count ?? 0 > 100 {
+            textField.text = nickText
+            return
+        } else {
+            nickText = textField.text ?? ""
+            UserDefaults.standard.set(textField.text, forKey: "Nickname")
+        }
+    }
 }
