@@ -37,6 +37,7 @@ class FirstLaunchViewController: UIViewController {
 
         //Setup the scene
         mascotImage.frame = CGRect(x: self.view.frame.size.width - 180 - 20, y: self.view.frame.size.height - 230 - 20, width: 250, height: 500)
+        containerView.frame = CGRect(x: self.view.frame.size.width/2 - 150, y: self.view.frame.size.width - 300, width: 300, height: 60)
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.containerView.layer.cornerRadius = 20.0
