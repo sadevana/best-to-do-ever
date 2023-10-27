@@ -156,10 +156,10 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
             if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: iconBar.selectedSegmentIndex) {
                 
                 self.navigationController?.popToRootViewController(animated: true)
-                AlertView.instance.showAlert(title: "✅ Task successfuly updated", isSticky: false)
+                AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questUpdated.rawValue), isSticky: false)
             }
         } else {
-            AlertView.instance.showAlert(title: "❌ Please enter task title", isSticky: false)
+            AlertView.instance.showAlert(title: "Please enter quest title", isSticky: false)
             taskNameField.becomeFirstResponder()
         }
     }
@@ -170,7 +170,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     func deleteTask() {
         if editTaskModel.deleteTask(task: taskUI!){
             self.navigationController?.popViewController(animated: true)
-            AlertView.instance.showAlert(title: "❌ Task deleted successfuly", isSticky: false)
+            AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questDeleted.rawValue), isSticky: false)
         }
     }
     @objc func goldValidation(_ textField: UITextField) {

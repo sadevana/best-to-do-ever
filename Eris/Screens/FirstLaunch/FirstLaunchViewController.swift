@@ -27,6 +27,9 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var genderChooseLabel: UILabel!
+    @IBOutlet weak var genderPicker: UISegmentedControl!
+    
     var nickText = ""
     
     private var currentStage = 0
@@ -53,6 +56,8 @@ class FirstLaunchViewController: UIViewController {
         nicknameLabel.isHidden = true
         nicknameText.isHidden = true
         skipButton.isHidden = true
+        genderChooseLabel.isHidden = true
+        genderPicker.isHidden = true
         acceptButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         skipButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         nicknameLabel.textColor = chosenCompanion.shared.companion.darkToneColor
@@ -122,9 +127,12 @@ class FirstLaunchViewController: UIViewController {
             nicknameLabel.isHidden = false
             nicknameText.isHidden = false
             skipButton.isHidden = false
+            genderChooseLabel.isHidden = false
+            genderPicker.isHidden = false
             currentStage = 2
             break
         case 2:
+            UserDefaults.standard.set(genderPicker.selectedSegmentIndex, forKey: "GenderIndex")
             if(nicknameText.text != ""){
                 showAlert(title: "Nice to meet you, \(nicknameText.text!)!")
                 UserDefaults.standard.set(nicknameText.text!, forKey: "Nickname")
@@ -136,6 +144,8 @@ class FirstLaunchViewController: UIViewController {
             nicknameLabel.isHidden = true
             nicknameText.isHidden = true
             skipButton.isHidden = true
+            genderChooseLabel.isHidden = true
+            genderPicker.isHidden = true
             warningLabel.text = ""
             currentStage = 3
         case 3:

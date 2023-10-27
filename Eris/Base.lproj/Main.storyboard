@@ -342,36 +342,58 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a companion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cm3-mp-prf">
-                                <rect key="frame" x="36" y="107" width="134" height="21"/>
+                                <rect key="frame" x="36" y="189" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amh-CI-H4b">
-                                <rect key="frame" x="36" y="150" width="341" height="192"/>
+                                <rect key="frame" x="36" y="232" width="341" height="192"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="abP-4R-jd0"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HcV-hX-nog">
+                                <rect key="frame" x="36" y="136" width="191" height="32"/>
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                    <segment title="Other"/>
+                                </segments>
+                                <connections>
+                                    <action selector="genderPicked:" destination="Lq5-Ze-zBz" eventType="valueChanged" id="vwA-GL-dg8"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8en-Jk-v7S">
+                                <rect key="frame" x="36" y="107" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vSM-G2-geH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vSM-G2-geH" firstAttribute="trailing" secondItem="Amh-CI-H4b" secondAttribute="trailing" constant="16" id="9ad-ku-O8D"/>
-                            <constraint firstItem="Cm3-mp-prf" firstAttribute="top" secondItem="RwE-Af-MH2" secondAttribute="bottom" constant="22" id="I4v-HM-AHQ"/>
+                            <constraint firstItem="Cm3-mp-prf" firstAttribute="top" secondItem="HcV-hX-nog" secondAttribute="bottom" constant="22" id="ASf-Ai-Xuv"/>
                             <constraint firstItem="Cm3-mp-prf" firstAttribute="leading" secondItem="vSM-G2-geH" secondAttribute="leading" constant="36" id="NNh-TH-Fg5"/>
+                            <constraint firstItem="HcV-hX-nog" firstAttribute="top" secondItem="8en-Jk-v7S" secondAttribute="bottom" constant="8" symbolic="YES" id="UtR-Ow-Yoj"/>
+                            <constraint firstItem="8en-Jk-v7S" firstAttribute="top" secondItem="RwE-Af-MH2" secondAttribute="bottom" constant="22" id="aGw-IO-9eQ"/>
                             <constraint firstItem="Amh-CI-H4b" firstAttribute="top" secondItem="Cm3-mp-prf" secondAttribute="bottom" constant="22" id="bek-99-Rvb"/>
                             <constraint firstItem="RwE-Af-MH2" firstAttribute="top" secondItem="vSM-G2-geH" secondAttribute="top" constant="5" id="cIM-YS-16h"/>
                             <constraint firstItem="vSM-G2-geH" firstAttribute="trailing" secondItem="TOM-fd-HOq" secondAttribute="trailing" constant="16" id="ciG-3f-ahT"/>
+                            <constraint firstItem="8en-Jk-v7S" firstAttribute="leading" secondItem="vSM-G2-geH" secondAttribute="leading" constant="36" id="lzZ-rn-Y4S"/>
                             <constraint firstItem="TOM-fd-HOq" firstAttribute="leading" secondItem="RwE-Af-MH2" secondAttribute="trailing" constant="29" id="q3A-my-oYY"/>
                             <constraint firstItem="RwE-Af-MH2" firstAttribute="leading" secondItem="vSM-G2-geH" secondAttribute="leading" constant="36" id="rWm-i1-AoB"/>
                             <constraint firstItem="Amh-CI-H4b" firstAttribute="leading" secondItem="vSM-G2-geH" secondAttribute="leading" constant="36" id="sPj-x0-17U"/>
+                            <constraint firstItem="HcV-hX-nog" firstAttribute="leading" secondItem="vSM-G2-geH" secondAttribute="leading" constant="36" id="vBN-DE-JPE"/>
                             <constraint firstItem="TOM-fd-HOq" firstAttribute="top" secondItem="vSM-G2-geH" secondAttribute="top" constant="5" id="vVD-c7-avH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="choiceView" destination="Amh-CI-H4b" id="AJA-6v-3al"/>
+                        <outlet property="genderPicker" destination="HcV-hX-nog" id="ZjN-Ls-r3N"/>
                         <outlet property="userNameText" destination="TOM-fd-HOq" id="9bk-5o-Aqj"/>
                     </connections>
                 </viewController>
@@ -509,16 +531,8 @@
                                     <action selector="skipButtonTapped:" destination="z7C-OQ-nDK" eventType="touchUpInside" id="d1L-tH-W3U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdw-aU-sur">
-                                <rect key="frame" x="57" y="350" width="78" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Accept"/>
-                                <connections>
-                                    <action selector="acceptButtonTapped:" destination="z7C-OQ-nDK" eventType="touchUpInside" id="VES-TN-Pjr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBB-ZD-qZI">
-                                <rect key="frame" x="56" y="325" width="280" height="21"/>
+                                <rect key="frame" x="56" y="332" width="280" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ZdB-7S-dOI"/>
                                 </constraints>
@@ -526,32 +540,60 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-n5-coF">
+                                <rect key="frame" x="56" y="361" width="191" height="32"/>
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                    <segment title="Other"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d57-XI-gFX">
+                                <rect key="frame" x="57" y="332" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdw-aU-sur">
+                                <rect key="frame" x="258" y="358" width="78" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Accept"/>
+                                <connections>
+                                    <action selector="acceptButtonTapped:" destination="z7C-OQ-nDK" eventType="touchUpInside" id="VES-TN-Pjr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vt9-ya-GPt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tB9-XT-Xnm" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="56" id="445-ww-kuT"/>
                             <constraint firstItem="pBB-ZD-qZI" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="56" id="5be-Ec-XbB"/>
+                            <constraint firstItem="vt9-ya-GPt" firstAttribute="trailing" secondItem="Xdw-aU-sur" secondAttribute="trailing" constant="57" id="5pF-IY-x7E"/>
                             <constraint firstItem="vt9-ya-GPt" firstAttribute="trailing" secondItem="cO0-Ac-n8s" secondAttribute="trailing" constant="57" id="EFu-DC-zkr"/>
-                            <constraint firstItem="Xdw-aU-sur" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="57" id="Jjb-zH-SeE"/>
                             <constraint firstItem="vt9-ya-GPt" firstAttribute="trailing" secondItem="pBB-ZD-qZI" secondAttribute="trailing" constant="57" id="K8k-PD-Lng"/>
-                            <constraint firstItem="pBB-ZD-qZI" firstAttribute="top" secondItem="cO0-Ac-n8s" secondAttribute="bottom" constant="1" id="KNc-8M-Wux"/>
+                            <constraint firstItem="pBB-ZD-qZI" firstAttribute="top" secondItem="cO0-Ac-n8s" secondAttribute="bottom" constant="8" id="KNc-8M-Wux"/>
                             <constraint firstItem="cO0-Ac-n8s" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="57" id="KOO-k0-NoK"/>
                             <constraint firstItem="vt9-ya-GPt" firstAttribute="trailing" secondItem="i7z-eZ-T3e" secondAttribute="trailing" constant="57" id="RJf-ww-T4F"/>
                             <constraint firstItem="vt9-ya-GPt" firstAttribute="bottom" secondItem="2pm-UD-xWa" secondAttribute="bottom" constant="230" id="Rxi-vH-uI4"/>
                             <constraint firstItem="2pm-UD-xWa" firstAttribute="centerX" secondItem="1oE-Gk-o6B" secondAttribute="centerX" id="T5s-MM-jQQ"/>
                             <constraint firstItem="tB9-XT-Xnm" firstAttribute="top" secondItem="vt9-ya-GPt" secondAttribute="top" constant="195" id="UtW-lG-zAi"/>
+                            <constraint firstItem="d57-XI-gFX" firstAttribute="top" secondItem="cO0-Ac-n8s" secondAttribute="bottom" constant="8" symbolic="YES" id="ZZu-JJ-HgJ"/>
                             <constraint firstItem="2pm-UD-xWa" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="56" id="e7b-VV-pn7"/>
                             <constraint firstItem="cO0-Ac-n8s" firstAttribute="top" secondItem="tB9-XT-Xnm" secondAttribute="bottom" constant="15" id="eTS-jg-TiP"/>
+                            <constraint firstItem="Mgc-n5-coF" firstAttribute="top" secondItem="d57-XI-gFX" secondAttribute="bottom" constant="8" symbolic="YES" id="iTh-T9-u17"/>
+                            <constraint firstItem="d57-XI-gFX" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="57" id="kqT-if-5hG"/>
                             <constraint firstItem="i7z-eZ-T3e" firstAttribute="top" secondItem="vt9-ya-GPt" secondAttribute="top" constant="32" id="oxt-I1-hOE"/>
+                            <constraint firstItem="Mgc-n5-coF" firstAttribute="leading" secondItem="vt9-ya-GPt" secondAttribute="leading" constant="56" id="ueG-T7-Dxm"/>
                             <constraint firstItem="vt9-ya-GPt" firstAttribute="trailing" secondItem="2pm-UD-xWa" secondAttribute="trailing" constant="56" id="xfS-oi-V9A"/>
-                            <constraint firstItem="Xdw-aU-sur" firstAttribute="top" secondItem="cO0-Ac-n8s" secondAttribute="bottom" constant="26" id="yGk-4X-Vto"/>
+                            <constraint firstItem="Xdw-aU-sur" firstAttribute="top" secondItem="cO0-Ac-n8s" secondAttribute="bottom" constant="34" id="yGk-4X-Vto"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="acceptButton" destination="Xdw-aU-sur" id="bKb-4u-Z8R"/>
                         <outlet property="alertLabel" destination="ccI-uG-7ct" id="CNf-SF-0P7"/>
                         <outlet property="containerView" destination="2pm-UD-xWa" id="bIC-0x-hup"/>
+                        <outlet property="genderChooseLabel" destination="d57-XI-gFX" id="o84-Qo-NRH"/>
+                        <outlet property="genderPicker" destination="Mgc-n5-coF" id="Wt4-BD-4YO"/>
                         <outlet property="nicknameLabel" destination="tB9-XT-Xnm" id="aGl-gO-2nJ"/>
                         <outlet property="nicknameText" destination="cO0-Ac-n8s" id="Ggq-S9-Rtg"/>
                         <outlet property="skipButton" destination="i7z-eZ-T3e" id="uLs-rR-Rxd"/>

@@ -132,7 +132,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                     AlertView.instance.showAlert(title: "Great! Now you can mark my quest as completed by tapping on a circle!", isSticky: false)
                     UserDefaults.standard.set(false, forKey: "First quest pending")
                 } else {
-                    AlertView.instance.showAlert(title: "✅ Successfully added task", isSticky: false)
+                    AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questCreated.rawValue), isSticky: false)
                 }
             }
         } else {

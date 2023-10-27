@@ -12,6 +12,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var choiceView: UIView!
     @IBOutlet weak var userNameText: UITextField!
     
+    @IBOutlet weak var genderPicker: UISegmentedControl!
+    
 
     var lunaChooseButton = CompanionPickButton(companion: enumCompanions.Luna.getModel(), frame: CGRect(x: 0, y: 0, width: 70, height: 85))
     var claraChooseButton = CompanionPickButton(companion: enumCompanions.Clara.getModel(), frame: CGRect(x: 80, y: 0, width: 70, height: 85))
@@ -59,6 +61,7 @@ class SettingsViewController: UIViewController {
         userNameText.addTarget(self,
                                 action: #selector(nameUpdates),
                                 for: UIControl.Event.editingChanged)
+        genderPicker.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "GenderIndex")
     }
     @objc func updateChoice(sender: CompanionPickButton!) {
         setupShopView(companion: sender.companion)
@@ -175,4 +178,9 @@ class SettingsViewController: UIViewController {
             UserDefaults.standard.set(textField.text, forKey: "Nickname")
         }
     }
+    @IBAction func genderPicked(_ sender: Any) {
+        UserDefaults.standard.set(genderPicker.selectedSegmentIndex, forKey: "GenderIndex")
+        //UserDefaults.standard.integer(forKey: "GenderIndex")
+    }
+    
 }

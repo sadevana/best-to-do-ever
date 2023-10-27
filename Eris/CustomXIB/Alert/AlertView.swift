@@ -155,7 +155,7 @@ class AlertView: UIView {
         containerView.backgroundColor = chosenCompanion.shared.companion.primaryColor
         let image = chosenCompanion.shared.companion.defaultImage
         mascotImage.image = image
-        showAlert(title: "Yay, let's go!", isSticky: false)
+        showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.picked.rawValue), isSticky: false)
     }
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {

@@ -88,11 +88,11 @@ class EditTaskViewModel {
             
             //Alerts about task completion & update total gold
             if tasksDB!.is_done == true {
-                AlertView.instance.showAlert(title: "🎉 Hooray! Here's " + String(tasksDB?.gold ?? 0) + " gold", isSticky: false)
+                AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questCompleted.rawValue), isSticky: false)
                 totalGold += Int(tasksDB?.gold ?? 0)
                 
             } else {
-                AlertView.instance.showAlert(title: "😭 Buuu! I take " + String(tasksDB?.gold ?? 0) + " gold back", isSticky: false)
+                AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questUndone.rawValue), isSticky: false)
                 totalGold -= Int(tasksDB?.gold ?? 0)
             }
             UserDefaults.standard.set(totalGold, forKey: "totalGold")

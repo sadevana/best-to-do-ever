@@ -7,6 +7,23 @@
 
 import Foundation
 
+enum situations: String {
+    case questCreated = "questCreated"
+    case questUpdated = "questUpdated"
+    case questCompleted = "questCompleted"
+    case questUndone = "questUndone"
+    case questDeleted = "questDeleted"
+    case picked = "picked"
+}
+
+let lunaPhrases = [
+    situations.questCreated.rawValue: ["Quest Accepted!", "Horray, new quest!", "Wrote it down for you"],
+    situations.questUpdated.rawValue: ["Saved your changes!", "I'll remeber that"],
+    situations.questCompleted.rawValue: ["Yay, you did it!", "Great job on that one!", "You are doing great!", "Oof, don't have to worry about this one anymore", "Yay, go you!"],
+    situations.questUndone.rawValue: ["Got it back for you!", "Back to undone!"],
+    situations.questDeleted.rawValue: ["Got rid of it!", "Almost as good as completing it!"],
+    situations.picked.rawValue: ["Yay, let's go!", "Adventure awaits!", "It's my favourite to be your companion!"]
+]
 
 let lunaChatter = [
     "What is your favorite food?" : "I kinda like steaks, he-he",
@@ -34,6 +51,14 @@ let lunaChatter = [
     "How do you relax after a long day?" : "Listening to the sounds of nature and daydreaming about the next big adventure",
     "Do you have a motto you live by?" : "Adventure awaits around every corner!"
 ]
+let claraPhrases = [
+    situations.questCreated.rawValue: ["Quest accepted", "I belive that you got this", "Wrote it down for you"],
+    situations.questUpdated.rawValue: ["Saved your changes", "Updated. It's important to keep everything tidy!"],
+    situations.questCompleted.rawValue: ["Nicely done!", "I admire your diligence", "You are doing great!", "Well done", "Hey, that's great work"],
+    situations.questUndone.rawValue: ["Returned it to undone quests!", "Undone it for you!"],
+    situations.questDeleted.rawValue: ["Got rid of it!", "Almost as good as completing it!"],
+    situations.picked.rawValue: ["I'm glad to be of assistance!", "Hey, I'm looking forward to whatever awaits us!"]
+]
 let claraChatter = [
     "What is your favorite food?" : "I enjoy desserts, especially Mont Blanc",
     "What do you like doing in your free time?" : "I like reading and taking care of my pets",
@@ -48,7 +73,7 @@ let claraChatter = [
     "Tell me a random fact " : "Though nothing can escape black holes, we believe they still slowly evaporate",
     "Tell me a random fact  " : "The English language used to have grammatical gender long ago",
     "Tell me a random fact   " : "The cocktail name 'Blue Hawaii' is tied to the film of the same name",
-    "Do you prefer tea or coffee?" : "I prefer tea with milk! Coffee makes it hard for me to fall asleep",
+    "Do you prefer tea or coffee?" : "I prefer tea with milk! I can't sleep if I drink coffee.",
     "What's your favorite time of day?" : "I love the early morning, just before sunrise. The world feels so calm and peaceful",
     "What's a hobby you'd like to try?" : "I've always been curious about pottery. Shaping clay seems so therapeutic",
     "How do you relax after a long day?" : "I enjoy listening to soft music while sipping on chamomile tea",
@@ -62,4 +87,23 @@ let claraChatter = [
     "Do you enjoy puzzles or riddles?" : "Yes, especially the ones that make me think for days",
     "What's your favorite scent?" : "I love the scent of fresh linen and lavender. They're so calming",
     "How do you feel about technology?" : "It has its pros and cons. I appreciate the convenience, but sometimes, I miss the simplicity of the past"
+]
+let aikoPhrases = [
+    situations.questCreated.rawValue: ["Hey, that means another journey with my $pronouns$!", "Added a quest for you ❤️", "Added it!"],
+    situations.questUpdated.rawValue: ["I remember all of the changes you make , $pronouns$ ❤️", "Updated your quest!"],
+    situations.questCompleted.rawValue: ["Well done! So proud of you", "Congratulations, $pronouns$ ❤️", "You are doing great!",  "You are doing such a good job, $pronouns$"],
+    situations.questUndone.rawValue: ["Back to work on this one", "Undone it for you, $pronouns$!"],
+    situations.questDeleted.rawValue: ["Got rid of it!", "This will never bother you again, $pronouns$"],
+    situations.picked.rawValue: ["Heyyyyy, $pronouns$! ❤️", "Hey, I'm so glad you picked me!"]
+]
+let aikoChatter = [
+    "What is your favorite food?" : "I like whatever we get to eat together $pronouns$! And chocolate.",
+    "What do you like doing in your free time?" : "I like cooking and cheering you up, $pronouns$!",
+    "Do you have any productivity tips?" : "Nope",
+    "What kind of quests do you like?" : "I kind of like chores! It's predictable and nice!",
+    "Do you have a dream?" : "Don't tell anyone but I sometimes dream of becoming an idol.",
+    "Do you have any pets?" : "I a dog Sharpie, $pronouns$.",
+    "When is your birthday?" : "It's on February 14th, what, are you planning a surprise for me?",
+    "What was your favourite subject in school?" : "I was really intrested in chemistry",
+    "If you could travel anywhere, where would you go?" : "I'm actually a stay at home type! But with right companions I'm ready to go anywhere."
 ]
