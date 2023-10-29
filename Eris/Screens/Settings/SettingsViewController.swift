@@ -87,10 +87,10 @@ class SettingsViewController: UIViewController {
             shopLabel.text = "Your faithful default companion!"
         }
         if companion.name == "Clara" {
-            shopLabel.text = "Things are very blue!"
+            shopLabel.text = "Clara is knowlegable and reliable companion!"
         }
         if companion.name == "Aiko" {
-            shopLabel.text = "Your new younger sister! Pay us money and she might get full body"
+            shopLabel.text = "She just insists that she is your younger sister for whatever reason!"
         }
         shopLabel.numberOfLines = 0
         shopLabel.lineBreakMode = .byWordWrapping
