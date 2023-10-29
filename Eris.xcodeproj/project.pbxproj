@@ -12,6 +12,7 @@
 		A61555042ADB5747009F240E /* CompanionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61555032ADB5747009F240E /* CompanionDataModel.swift */; };
 		A61555072ADB75BD009F240E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61555062ADB75BD009F240E /* SettingsViewController.swift */; };
 		A61AC67A2AD97F7D00D7D664 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */; };
+		A62A529D2AEECDF300407512 /* RepeatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62A529C2AEECDF300407512 /* RepeatSettings.swift */; };
 		A64E50A12AC35A49003D410E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64E50A02AC35A49003D410E /* LoginView.xib */; };
 		A64E50A32AC360CC003D410E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E50A22AC360CC003D410E /* LoginView.swift */; };
 		A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */; };
@@ -46,6 +47,7 @@
 		A61555032ADB5747009F240E /* CompanionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDataModel.swift; sourceTree = "<group>"; };
 		A61555062ADB75BD009F240E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A61AC6792AD97F7D00D7D664 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		A62A529C2AEECDF300407512 /* RepeatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatSettings.swift; sourceTree = "<group>"; };
 		A64E50A02AC35A49003D410E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		A64E50A22AC360CC003D410E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A65D618A2AC1945300E1EB54 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				A6F11AFC2AB207790016EB08 /* TaskModel.swift */,
 				A61555032ADB5747009F240E /* CompanionDataModel.swift */,
 				A6A283502AE6FA0600C021F2 /* CompanionPhrases.swift */,
+				A62A529C2AEECDF300407512 /* RepeatSettings.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				A6E3356D2A9FB8D2001A0D10 /* HomeTableViewController.swift in Sources */,
 				A65D618B2AC1945300E1EB54 /* HomeParentViewController.swift in Sources */,
 				A6F11AFD2AB207790016EB08 /* TaskModel.swift in Sources */,
+				A62A529D2AEECDF300407512 /* RepeatSettings.swift in Sources */,
 				A64E50A32AC360CC003D410E /* LoginView.swift in Sources */,
 				A66C53A82AD87E93006D5943 /* UILabelExt.swift in Sources */,
 				A61555042ADB5747009F240E /* CompanionDataModel.swift in Sources */,
