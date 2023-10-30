@@ -20,6 +20,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var descriptionWarningLabel: UILabel!
     @IBOutlet weak var iconPicker: UISegmentedControl!
     @IBOutlet weak var descriptionView: UITextView!
+    @IBOutlet weak var repeatSwitch: UISwitch!
+    @IBOutlet weak var repeatOnField: UITextField!
+    @IBOutlet weak var repeatOnLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
     
     //Default value for gold
     var goldValue: String = "5"
@@ -222,5 +227,19 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             }
         }
         return true
+    }
+    
+    @IBAction func repeatSwitchChanged(_ sender: Any) {
+        if repeatSwitch.isOn {
+            repeatOnField.isHidden = false
+            repeatOnLabel.isHidden = false
+            dateField.isHidden = true
+            dateLabel.isHidden = true
+        } else {
+            repeatOnField.isHidden = true
+            repeatOnLabel.isHidden = true
+            dateField.isHidden = false
+            dateLabel.isHidden = false
+        }
     }
 }
