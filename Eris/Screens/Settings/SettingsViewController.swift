@@ -72,17 +72,18 @@ class SettingsViewController: UIViewController {
     func setupShopView(companion: CompanionModel) {
         self.view.addSubview(companionPickView)
         companionPickView.backgroundColor = companion.primaryColor
-        companionPickView.frame = CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height/2 - 280, width: 300, height: 440)
-        let imageCompanion = companion.defaultImage
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 20, width: 150, height: 300))
+        companionPickView.frame = CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height/2 - 280, width: 300, height: 380)
+        let imageCompanion = companion.altImage
+        let imageView = UIImageView(frame: CGRect(x: 75, y: -30, width: 150, height: 235))
         imageView.image = imageCompanion
+        imageView.contentMode = .scaleAspectFill
         companionPickView.addSubview(imageView)
         let crossButton = UIButton(frame: CGRect(x: 260, y: 20, width: 30, height: 30))
         crossButton.setImage(UIImage(systemName: "xmark"), for: .normal)
         crossButton.tintColor = .black
         crossButton.addTarget(self, action: #selector(closeChoise), for: .touchUpInside)
         companionPickView.addSubview(crossButton)
-        var shopLabel = UILabel(frame: CGRect(x: 20, y: 330, width: 260, height: 38))
+        var shopLabel = UILabel(frame: CGRect(x: 20, y: 240, width: 260, height: 38))
         if companion.name == "Luna" {
             shopLabel.text = "Your faithful default companion!"
         }
@@ -93,11 +94,12 @@ class SettingsViewController: UIViewController {
             shopLabel.text = "She just insists that she is your younger sister for whatever reason!"
         }
         shopLabel.numberOfLines = 0
+        shopLabel.sizeToFit()
         shopLabel.lineBreakMode = .byWordWrapping
         shopLabel.textAlignment = .center
-        shopLabel.sizeToFit()
+        //
         companionPickView.addSubview(shopLabel)
-        var chooseButton = UIButton(frame: CGRect(x: 75, y: 395, width: 150, height: 35))
+        var chooseButton = UIButton(frame: CGRect(x: 75, y: 325, width: 150, height: 35))
         chooseButton.backgroundColor = companion.darkToneColor
         chooseButton.layer.cornerRadius = 10
         if companion.getPrice() == 0 {
@@ -114,6 +116,7 @@ class SettingsViewController: UIViewController {
     func refreshButtons() {
         lunaChooseButton.initialSetup()
         claraChooseButton.initialSetup()
+        aikoChooseButton.initialSetup()
     }
     @objc func closeChoise(sender: UIButton!) {
         companionPickView.subviews.map({ $0.removeFromSuperview() })
