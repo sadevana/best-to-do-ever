@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var goldTextField: UITextField!

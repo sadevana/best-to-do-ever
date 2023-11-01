@@ -187,18 +187,26 @@ class AlertView: UIView {
         self.containerView.isHidden = true
     }
     @objc func goToCreateNew(sender: UIButton!) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")
-        navController?.pushViewController(nextViewController, animated: true)
-        coverScreen.removeFromSuperview()
-        showAlert(title: "Yay, I like making new quests!", isSticky: false)
+        if navController?.topViewController is AddTaskViewController {
+            showAlert(title: "We are alredy there!", isSticky: false)
+        } else {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")
+            navController?.pushViewController(nextViewController, animated: true)
+            coverScreen.removeFromSuperview()
+            showAlert(title: "Yay, I like making new quests!", isSticky: false)
+        }
     }
     @objc func goToSettings(sender: UIButton!) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController")
-        navController?.pushViewController(nextViewController, animated: true)
-        coverScreen.removeFromSuperview()
-        showAlert(title: "Sure!", isSticky: false)
+        if navController?.topViewController is SettingsViewController {
+            showAlert(title: "We are alredy there!", isSticky: false)
+        } else {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController")
+            navController?.pushViewController(nextViewController, animated: true)
+            coverScreen.removeFromSuperview()
+            showAlert(title: "Sure!", isSticky: false)
+        }
     }
     @objc func randomChatterAnswer(sender: UIButton!) {
         coverScreen.removeFromSuperview()

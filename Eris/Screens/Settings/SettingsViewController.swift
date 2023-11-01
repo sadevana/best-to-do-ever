@@ -83,7 +83,7 @@ class SettingsViewController: UIViewController {
         crossButton.tintColor = .black
         crossButton.addTarget(self, action: #selector(closeChoise), for: .touchUpInside)
         companionPickView.addSubview(crossButton)
-        var shopLabel = UILabel(frame: CGRect(x: 20, y: 240, width: 260, height: 38))
+        var shopLabel = UILabel(frame: CGRect(x: 20, y: 240, width: 260, height: 69))
         if companion.name == "Luna" {
             shopLabel.text = "Your faithful default companion!"
         }
@@ -94,9 +94,10 @@ class SettingsViewController: UIViewController {
             shopLabel.text = "She just insists that she is your younger sister for whatever reason!"
         }
         shopLabel.numberOfLines = 0
-        shopLabel.sizeToFit()
+        //shopLabel.sizeToFit()
         shopLabel.lineBreakMode = .byWordWrapping
         shopLabel.textAlignment = .center
+        //shopLabel.center = self.view.center
         //
         companionPickView.addSubview(shopLabel)
         var chooseButton = UIButton(frame: CGRect(x: 75, y: 325, width: 150, height: 35))
