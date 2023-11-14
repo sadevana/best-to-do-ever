@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar  = false
-        StoreManager.shared.fetchProducts()
+        //StoreManager.shared.fetchProducts()
+        //Set for greetings
+        UserDefaults.standard.set(true, forKey: "TimeForGreetings")
         return true
     }
 

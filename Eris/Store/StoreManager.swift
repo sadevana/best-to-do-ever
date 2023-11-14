@@ -33,7 +33,6 @@ final class StoreManager: NSObject, SKProductsRequestDelegate, SKPaymentTransact
     }
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         self.products = response.products
-        print("Products recieved \(response.products.first?.productIdentifier)")
     }
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         transactions.forEach({

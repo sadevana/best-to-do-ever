@@ -94,6 +94,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         for label in labels {
             label?.textColor = chosenCompanion.shared.companion.darkToneColor
         }
+        //Dynamic placeholder for title
+        taskNameField.placeholder = chosenCompanion.shared.companion.getSutuationalPhrase(situations.titlePlaceHolder.rawValue)
     }
     
     @objc func timePickerValueChange(sender: UIDatePicker) {
