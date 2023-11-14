@@ -125,7 +125,10 @@ class HomeParentViewController: UIViewController {
                 searchBar.backgroundColor = UIColor.clear
                 searchBar.isTranslucent = true
                 searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-                
+                //Uncollapsing all data for search mode
+                if let childVC = self.children.first as? HomeTableViewController {
+                    childVC.uncollapseAll()
+                }
                 searchBar.becomeFirstResponder()
             }
         }

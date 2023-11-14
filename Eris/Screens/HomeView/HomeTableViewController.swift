@@ -9,8 +9,12 @@ import UIKit
 import CoreData
 
 class HomeTableViewController: UITableViewController {
+    //All tasks
     var tasksToShow = [TaskUI]()
+    //Tasks divided into sections
     var sectionedTasks = [TaskSections]()
+    //Indexes of collapsed secctions
+    var hiddenSections = Set<Int>()
     let homeViewModel = HomeViewModel()
     
     private lazy var noTasksView: UIImageView = {
@@ -76,6 +80,8 @@ class HomeTableViewController: UITableViewController {
         //self.tableView.backgroundView = imageView
     }
     override func viewWillAppear(_ animated: Bool) {
+        //Clearing Hidden sections
+        hiddenSections.removeAll()
         super.viewWillAppear(animated)
         tasksToShow = []
         //Getting data from db
@@ -83,8 +89,6 @@ class HomeTableViewController: UITableViewController {
         //Putting tasks into sections
         sectionedTasks = homeViewModel.sortTasks(tasks: tasksToShow)
         self.tableView.reloadData()
-        //navigationController?.setNavigationBarHidden(true, animated: animated)
-        //self.tableView.backgroundColor = chosenCompanion.shared.companion.primaryColor
     }
     func updateDataInCells() {
         self.tasksToShow = []
@@ -121,13 +125,12 @@ class HomeTableViewController: UITableViewController {
         tableCell?.layer.shadowRadius = 2
         return tableCell!
     }
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //Making scroll button stay in place
-        let offset = scrollView.contentOffset.y
-        //mascotImage.frame = CGRect(x: self.view.frame.size.width - 180 - 20, y: self.view.frame.size.height - 230 - 20 + offset, width: 200, height: 400)
-    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        //If section is collapsed
+        if self.hiddenSections.contains(section) {
+            return 0
+        }
+        //Returns number of tasks in section
         return sectionedTasks[section].tasks.count
     }
     //Section style
@@ -139,15 +142,28 @@ class HomeTableViewController: UITableViewController {
         let sectionLabel = UILabel(frame: CGRect(x: 10, y: 7, width:
         tableView.bounds.size.width/2, height: tableView.bounds.size.height))
         sectionLabel.textColor = chosenCompanion.shared.companion.darkToneColor
-        //headerView.backgroundColor = chosenCompanion.shared.companion.darkToneColor
         sectionLabel.text = sectionedTasks[section].sectionName
         sectionLabel.font = .boldSystemFont(ofSize: 18.0)
         sectionLabel.sizeToFit()
         headerView.layer.zPosition = 1.0
         headerView.layer.cornerRadius = 16
         headerView.addSubview(sectionLabel)
-        headerView.isUserInteractionEnabled = false
+        headerView.isUserInteractionEnabled = true
         headerParent.addSubview(headerView)
+        //Button to collapse things
+        let sectionButton = UIButton()
+        let chackmarkImage = UIImage(systemName: "chevron.down", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22, weight: .medium))
+        sectionButton.setImage(chackmarkImage, for: .normal)
+        sectionButton.frame = CGRect(x: tableView.bounds.size.width - 50, y: 0, width:
+                                        35, height: 35)
+        sectionButton.tintColor = chosenCompanion.shared.companion.darkToneColor
+        if self.hiddenSections.contains(section) {
+            sectionButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.9999)
+        }
+        sectionButton.tag = section
+        sectionButton.addTarget(self, action: #selector(self.hideSection(sender:)),
+                                for: .touchUpInside)
+        headerParent.addSubview(sectionButton)
         return headerParent
     }
 
@@ -160,7 +176,37 @@ class HomeTableViewController: UITableViewController {
         nextViewController.taskUI = sectionedTasks[indexPath.section].tasks[indexPath.row]
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
+    @objc func hideSection(sender: UIButton!) {
+        //Function for collapse/uncollapse functionality
+        let section = sender.tag
+        func indexPathsForSection() -> [IndexPath] {
+            var indexPaths = [IndexPath]()
+            
+            for row in 0..<self.sectionedTasks[section].tasks.count {
+                indexPaths.append(IndexPath(row: row, section: section))
+            }
+            
+            return indexPaths
+        }
+        //Rotating button and collapsing sections
+        if self.hiddenSections.contains(section) {
+            self.hiddenSections.remove(section)
+            self.tableView.insertRows(at: indexPathsForSection(), with: .fade)
+            UIView.animate(withDuration: 0.35, animations: {
+                sender.transform = CGAffineTransform(rotationAngle: 0)
+            })
+        } else {
+            self.hiddenSections.insert(section)
+            self.tableView.deleteRows(at: indexPathsForSection(), with: .fade)
+            UIView.animate(withDuration: 0.35, animations: {
+                sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.9999)
+            })
+        }
+    }
+    func uncollapseAll() {
+        hiddenSections.removeAll()
+        self.tableView.reloadData()
+    }
     @objc func buttonAction(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddTaskViewController")
