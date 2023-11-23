@@ -14,7 +14,11 @@ class HomeParentViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var goldLabel: UILabel!
+    
     var searchMode = false
+    
+    let viewModel = HomeParentViewModel()
+    
     lazy var clearButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         let image = UIImage(systemName: "xmark")
@@ -69,7 +73,7 @@ class HomeParentViewController: UIViewController {
     }
     
     func updateTopBarInfo() {
-        //TBD move to model
+        //Getting username and total gold and displaying it
         let nickName = UserDefaults.standard.string(forKey: "Nickname")
         let totalGold = UserDefaults.standard.integer(forKey: "totalGold")
         if nickName == "" || nickName == nil {

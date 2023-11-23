@@ -151,28 +151,7 @@ class SettingsViewController: UIViewController {
         spinnerView.layer.zPosition = 1.0
         spinnerView.stopAnimating()*/
     }
-    /*@IBAction func lunaChosen(_ sender: Any) {
-        chosenCompanion.shared.companion = enumCompanions.Luna.getModel()
-        UserDefaults.standard.set("Luna", forKey: "Companion")
-        AlertView.instance.refreshAvatar()
-        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
-    }
-    
-    @IBAction func claraChosen(_ sender: Any) {
-        chosenCompanion.shared.companion = enumCompanions.Clara.getModel()
-        UserDefaults.standard.set("Clara", forKey: "Companion")
-        AlertView.instance.refreshAvatar()
-        self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
-    }*/
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @objc func nameUpdates(_ textField: UITextField) {
         if textField.text?.count ?? 0 > 100 {
             textField.text = nickText
