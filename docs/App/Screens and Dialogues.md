@@ -18,13 +18,13 @@ Understanding the architecture of our application's UI is crucial for both devel
 
 - **Home**: Main screen from which users can navigate to various functionalities.
 - **Add Quest**: This screen allows users to create a new quest. Upon entering this screen, users are presented with a form that prompts them to input the quest title, set a deadline, gold reward, and add a brief description. Upon filling in the necessary details, users can preview their quest and, once satisfied, can save it to their quest list. A confirmation dialogue appears once the quest is successfully added, and users then return to the Home screen where they can proceed to add another quest
-- **Edit Quest**: The "Edit Quest" screen is designed for users who need to modify details of an existing quest. Upon accessing this screen, the system fetches and displays the current details of the selected quest. Users can then make adjustments to fields such as the quest name, duration, description, type, priority level, and assigned members or groups. As changes are made, a real-time preview reflects the modifications. An "Update" button is prominently placed for users to confirm their edits, while a "Discard Changes" option allows users to revert to the original quest details. Upon successfully updating the quest, a confirmation message appears, informing users of the applied changes and giving them the option to either edit another quest or navigate back to the Home screen.
+- **Edit Quest**: The "Edit Quest" screen is designed for users who need to modify the details of an existing quest. Upon accessing this screen, the system fetches and displays the current details of the selected quest. Users can then make adjustments to fields such as the quest name, duration, description, type, priority level, and assigned members or groups. As changes are made, a real-time preview reflects the modifications. An "Update" button is prominently placed for users to confirm their edits, while a "Discard Changes" option allows users to revert to the original quest details. Upon successfully updating the quest, a confirmation message appears, informing users of the applied changes and giving them the option to either edit another quest or navigate back to the Home screen.
 
 ### Home Screen
 Conceived in https://github.com/sadevana/best-to-do-ever/issues/6, https://github.com/sadevana/best-to-do-ever/issues/7
 
 #### Basic task card
-#### Basic task card: Appearence & Logic
+#### Basic task card: Appearance & Logic
 
 
 The "tick" button should change its appearance based on task completion ([Task: done])
@@ -35,8 +35,11 @@ time is HH:mm format
 date is in DD.MM format
 More on it in #
 
-
-More on it in #7
+Add gold to ([Loot: total_gold]) for completing a task.
+Gold awarded based on ([Task:Reward:Gold]) field
+Deduct gold from ([Loot: total_gold]) for uncompleting a task
+Total gold ([Loot: total_gold]) amount displayed on the home screen should be updated accordingly
+NB: I am aware that in the future users can go negative with deductions. We will think about it in time
 
 If the user taps the card, the Edit task screen opens.
 
