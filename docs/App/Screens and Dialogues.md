@@ -22,6 +22,8 @@ Understanding the architecture of our application's UI is crucial for both devel
 
 ### Home Screen
 Conceived in https://github.com/sadevana/best-to-do-ever/issues/6, https://github.com/sadevana/best-to-do-ever/issues/7
+A space should be added at the end of the quest list to allow for additional scrolling.
+The space should be sufficient to ensure that the character (girl) does not obstruct the view of the last quest item when scrolling to the bottom.
 
 #### Basic task card
 #### Basic task card: Appearance & Logic
@@ -43,8 +45,7 @@ NB: I am aware that in the future users can go negative with deductions. We will
 
 If the user taps the card, the Edit task screen opens.
 
-An empty space should be added at the end of the quest list to allow for additional scrolling.
-The empty space should be sufficient to ensure that the character (girl) does not obstruct the view of the last quest item when scrolling to the bottom.
+When creating a task without a specified time, the task should : Not displaying any time, indicating that it doesn't have a specific due time.
 
 #### Basic task card: How user enters
 The user sees task cards on the Home screen
