@@ -27,8 +27,6 @@ The space should be sufficient to ensure that the character (girl) does not obst
 
 #### Basic task card
 #### Basic task card: Appearance & Logic
-
-
 The "tick" button should change its appearance based on task completion ([Task: done])
 When the "tick" button is pressed task should change its done status to the opposite: done-> undone; undone -> done.
 
@@ -43,9 +41,11 @@ Deduct gold from ([Loot: total_gold]) for uncompleting a task
 Total gold ([Loot: total_gold]) amount displayed on the home screen should be updated accordingly
 NB: I am aware that in the future users can go negative with deductions. We will think about it in time
 
+Max Gold: 9 999 999 999 https://github.com/sadevana/best-to-do-ever/issues/16
+
 If the user taps the card, the Edit task screen opens.
 
-When creating a task without a specified time, the task should : Not displaying any time, indicating that it doesn't have a specific due time.
+When creating a task without a specified time, the task should: Not display any time, indicating that it doesn't have a specific due time.
 
 #### Basic task card: How user enters
 The user sees task cards on the Home screen
