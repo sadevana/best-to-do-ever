@@ -43,6 +43,9 @@ NB: I am aware that in the future users can go negative with deductions. We will
 
 If the user taps the card, the Edit task screen opens.
 
+An empty space should be added at the end of the quest list to allow for additional scrolling.
+The empty space should be sufficient to ensure that the character (girl) does not obstruct the view of the last quest item when scrolling to the bottom.
+
 #### Basic task card: How user enters
 The user sees task cards on the Home screen
 
