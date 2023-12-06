@@ -21,9 +21,38 @@ Understanding the architecture of our application's UI is crucial for both devel
 - **Edit Quest**: The "Edit Quest" screen is designed for users who need to modify the details of an existing quest. Upon accessing this screen, the system fetches and displays the current details of the selected quest. Users can then make adjustments to fields such as the quest name, duration, description, type, priority level, and assigned members or groups. As changes are made, a real-time preview reflects the modifications. An "Update" button is prominently placed for users to confirm their edits, while a "Discard Changes" option allows users to revert to the original quest details. Upon successfully updating the quest, a confirmation message appears, informing users of the applied changes and giving them the option to either edit another quest or navigate back to the Home screen.
 
 ### Home Screen
-Conceived in https://github.com/sadevana/best-to-do-ever/issues/6, https://github.com/sadevana/best-to-do-ever/issues/7
+Conceived in https://github.com/sadevana/best-to-do-ever/issues/6, https://github.com/sadevana/best-to-do-ever/issues/7, https://github.com/sadevana/best-to-do-ever/issues/5
 A space should be added at the end of the quest list to allow for additional scrolling.
 The space should be sufficient to ensure that the character (girl) does not obstruct the view of the last quest item when scrolling to the bottom.
+
+#### Interface logic
+Home screen consists of three big parts:
+
+- user information
+- to-do list
+- girl
+
+##### In user information display:
+Username ([User: name ])
+Total number of gold [Loot: Gold]
+Reason: Keep these elements on the home screen as [50%+ of poll respondents](https://docs.google.com/forms/d/1l4sprV8_q2sV81gQAS7dqr3IcwKGncUN08uGSqbApcU/edit#responses) suggested
+
+##### To-do list
+consists of 3 sections:
+
+- Today
+- This week
+- No date
+
+in each section, task cards are displayed.
+More on cards: #6 
+cards are sorted by date-time starting from nearest to furthest 
+
+##### The Girl
+Option to Add quest opens 'Add Quest' Screen
+
+#### How user enters
+It's the main application screen
 
 #### Basic task card
 #### Basic task card: Appearance & Logic
