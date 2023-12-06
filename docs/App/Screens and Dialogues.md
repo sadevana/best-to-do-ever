@@ -6,9 +6,21 @@ This document provides a comprehensive overview of the various screens and dialo
 
 1. [Introduction](#introduction)
 2. [Screens](#screens)
+   - [Home Screen](#home-screen)
+     - [Interface Logic](#interface-logic)
+       - [User Information Display](#user-information-display)
+       - [To-Do List](#to-do-list)
+       - [The Girl](#the-girl)
+     - [Basic Task Card](#basic-task-card)
+       - [Appearance & Logic](#appearance--logic)
+       - [How User Enters](#how-user-enters)
+   - [Add Quest](#add-quest)
+     - [Interface Behavior](#interface-behavior)
+     - [How User Enters](#how-user-enters-1)
 3. [Dialogues](#dialogues)
 4. [Flowchart](#flowchart)
-5. [Updates & Revisions](#updates-revisions)
+5. [Updates & Revisions](#updates--revisions)
+
 
 ## Introduction
 
@@ -55,9 +67,9 @@ in each section, task cards are displayed.
 More on cards: #6 
 cards are sorted by date-time starting from nearest to furthest 
 
+A task should move to the 'Overdue' section after its due_date is past.
 Now "end of the day" = 23:59, now it's constant. 
 But it’s better to add the “end_of_the_day” variable into the logic now so you can quickly complete the creative end of the day later.
-
 
 - **Today** ends at the end of the day.
 - **Overdue** can be checked every minute, and when time.now > deadline, it is overdue
