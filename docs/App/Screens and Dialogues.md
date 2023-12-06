@@ -18,8 +18,9 @@ This document provides a comprehensive overview of the various screens and dialo
      - [Interface Behavior](#interface-behavior)
      - [How User Enters](#how-user-enters-1)
 3. [Dialogues](#dialogues)
-4. [Flowchart](#flowchart)
-5. [Updates & Revisions](#updates--revisions)
+4. [Alerts](#alerts)
+5. [Flowchart](#flowchart)
+6. [Updates & Revisions](#updates--revisions)
 
 
 ## Introduction
@@ -134,6 +135,12 @@ A user enters the screen by choosing option in dialogue with a girl
 - **Add Name_Welcome**: This dialogue appears when a user opens the application for the first time. It prompts the user to optionally provide a nickname.
 - **Add Name**: The "Add Name" dialogue emerges when a user intends to add a new nickname to the system (they shouldn't provide a nickname beforehand). After providing the necessary details, a simple "Add" button confirms the entry, while a "Cancel" option lets users exit without saving. Upon successful addition, a brief confirmation message is displayed.
 - **Edit Name**: The "Edit Name" dialogue is activated when users wish to modify an existing name entry in the system. Within this dialogue, the current name details are pre-populated, allowing users to easily spot and make amendments. Fields for the first name, last name, and if applicable, middle name or initial, are present, along with any previously recorded nickname or title (e.g., Mr., Mrs., Dr.). Users can seamlessly make their desired changes and then confirm with an "Update" button. Should they change their mind or make an error, a "Reset" option reverts the fields to their original state. Additionally, a "Cancel" button allows exit without applying any changes. Upon successful modification, a notification confirms the name update.
+- 
+## Alerts
+All alerts appear on the screen 3 seconds
+An alert when adding a new task: `'✅ Successfully added quest'` | `'❌ Failed to add quest'`
+An alert when completing \ incompleting the quest (will be changed next release): `'🎉 Hooray! Here's {task_gold_amount} gold'` | `'😭 Buuu! I take {task_gold_amount} gold back'` | `'❌ Failed to complete quest'` | `'❌ Failed to undo quest completion'`
+![Image](https://github.com/sadevana/best-to-do-ever/assets/10058916/559917ab-fb72-428e-8a0b-5eca68c9f54f)
 
 ## Flowchart
 
