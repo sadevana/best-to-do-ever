@@ -37,6 +37,9 @@ Username ([User: name ])
 Total number of gold [Loot: Gold]
 Reason: Keep these elements on the home screen as [50%+ of poll respondents](https://docs.google.com/forms/d/1l4sprV8_q2sV81gQAS7dqr3IcwKGncUN08uGSqbApcU/edit#responses) suggested
 
+After updating the nickname, the new nickname should be displayed immediately without any lag or refresh. https://github.com/sadevana/best-to-do-ever/issues/32
+After completing a task that rewards gold, the gold count should immediately update to reflect the earned amount. https://github.com/sadevana/best-to-do-ever/issues/32
+
 ##### To-do list
 consists of 3 sections:
 
