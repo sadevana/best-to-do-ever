@@ -41,15 +41,31 @@ After updating the nickname, the new nickname should be displayed immediately wi
 After completing a task that rewards gold, the gold count should immediately update to reflect the earned amount. https://github.com/sadevana/best-to-do-ever/issues/32
 
 ##### To-do list
-consists of 3 sections:
+the To-do list consists of 7 sections:
 
+- Overdue
 - Today
 - This week
+- Next 30 days
+- Later
 - No date
+- Done
 
 in each section, task cards are displayed.
 More on cards: #6 
 cards are sorted by date-time starting from nearest to furthest 
+
+Now "end of the day" = 23:59, now it's constant. 
+But it’s better to add the “end_of_the_day” variable into the logic now so you can quickly complete the creative end of the day later.
+
+
+- **Today** ends at the end of the day.
+- **Overdue** can be checked every minute, and when time.now > deadline, it is overdue
+- **This week** ends at the end of the following Sunday.
+- **Next 30 days** is earlier than time.now + 30 days
+- **Later** is later than time.now + 30 days
+- **No date** is an empty deadline field AND not Done
+- **Done** is Done. 
 
 ##### The Girl
 Option to Add quest opens 'Add Quest' Screen
