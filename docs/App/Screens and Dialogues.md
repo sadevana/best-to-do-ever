@@ -41,6 +41,10 @@ Deduct gold from ([Loot: total_gold]) for uncompleting a task
 Total gold ([Loot: total_gold]) amount displayed on the home screen should be updated accordingly
 NB: I am aware that in the future users can go negative with deductions. We will think about it in time
 
+
+The Date field should only accept valid date formats and not allow letter characters.
+The Time field should only accept valid time formats and reject letter characters.
+The Gold field should only accept numeric values, it should not accept letter characters.
 Max Gold: 9 999 999 999 https://github.com/sadevana/best-to-do-ever/issues/16
 
 If the user taps the card, the Edit task screen opens.
