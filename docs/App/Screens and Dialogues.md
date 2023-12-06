@@ -41,18 +41,34 @@ Deduct gold from ([Loot: total_gold]) for uncompleting a task
 Total gold ([Loot: total_gold]) amount displayed on the home screen should be updated accordingly
 NB: I am aware that in the future users can go negative with deductions. We will think about it in time
 
-Title field is obligatory and can't be empty https://github.com/sadevana/best-to-do-ever/issues/19
-The Date field should only accept valid date formats and not allow letter characters.
-The Time field should only accept valid time formats and reject letter characters.
-The Gold field should only accept numeric values, it should not accept letter characters.
-Max Gold: 9 999 999 999 https://github.com/sadevana/best-to-do-ever/issues/16
-
 If the user taps the card, the Edit task screen opens.
 
 When creating a task without a specified time, the task should: Not display any time, indicating that it doesn't have a specific due time.
 
 #### Basic task card: How user enters
 The user sees task cards on the Home screen
+
+### Add Quest
+Conceived in https://github.com/sadevana/best-to-do-ever/issues/4
+#### Interface behavior
+Only the task name is not nullable
+The date is nullable, but if a user opens the date picker, the default is today.
+The date is DD.MM.YY format
+Time is nullable, but if a user opens the time picker, the default is 23:59.
+Time is HH:mm format
+Gold default is 5
+Gold accepts int from 0 to 9 999 999 999
+OK button saves tasks (adds new or saves changes)
+The Cancel button closes the screen without saving changes
+Users can cancel adding tasks by using the standard iOS button "Back"
+Title field is obligatory and can't be empty https://github.com/sadevana/best-to-do-ever/issues/19
+The Date field should only accept valid date formats and not allow letter characters.
+The Time field should only accept valid time formats and reject letter characters.
+The Gold field should only accept numeric values, it should not accept letter characters.
+Max Gold: 9 999 999 999 https://github.com/sadevana/best-to-do-ever/issues/16
+
+#### How user enters
+A user enters the screen by choosing option in dialogue with a girl
 
 ## Dialogues
 - **Add Name_Welcome**: This dialogue appears when a user opens the application for the first time. It prompts the user to optionally provide a nickname.
