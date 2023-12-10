@@ -72,6 +72,7 @@ class HomeParentViewController: UIViewController {
         }
         if UserDefaults.standard.bool(forKey: "Skip used"){
             AlertView.instance.showAlert(title: "Talk to me get started with the app!", isSticky: true)
+            UserDefaults.standard.set(false, forKey: "Skip used")
         }
     }
     
