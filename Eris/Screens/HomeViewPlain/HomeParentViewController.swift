@@ -70,6 +70,9 @@ class HomeParentViewController: UIViewController {
         if firstQuestPending {
             AlertView.instance.showAlert(title: "Talk to me to create your first quest!", isSticky: false)
         }
+        if UserDefaults.standard.bool(forKey: "Skip used"){
+            AlertView.instance.showAlert(title: "Talk to me get started with the app!", isSticky: true)
+        }
     }
     
     func updateTopBarInfo() {

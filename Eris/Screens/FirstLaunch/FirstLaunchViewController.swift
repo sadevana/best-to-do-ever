@@ -49,9 +49,7 @@ class FirstLaunchViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
         
-        showAlert(title: "Hey and welcome to ENTER APP NAME")
-        //showAlert(title: "I'm Luna and I'm gonna be your companion and guide here")
-        //showAlert(title: "What is your name?")
+        showAlert(title: "Hey and welcome to ToDoQuest!")
         acceptButton.isHidden = true
         nicknameLabel.isHidden = true
         nicknameText.isHidden = true
@@ -170,7 +168,7 @@ class FirstLaunchViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeParentViewController")
         self.navigationController!.pushViewController(nextViewController, animated: true)
-        //UserDefaults.standard.set(true, forKey: "First quest pending")
+        UserDefaults.standard.set(true, forKey: "Skip used")
     }
     func getTasksDB() -> [TaskUI] {
         //Getting all tasks fro initial setup

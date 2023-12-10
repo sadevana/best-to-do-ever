@@ -37,7 +37,7 @@ class AlertView: UIView {
         button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         button.layer.cornerRadius = 20
         button.tintColor = .black
-        button.setTitle("Let's create a new task", for: .normal)
+        button.setTitle("Let's create a new quest", for: .normal)
         button.setTitleColor(#colorLiteral(red: 0.0862745098, green: 0.0215686275, blue: 0.0705882353, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(goToCreateNew), for: .touchUpInside)
         button.layer.zPosition = 2.0
@@ -100,9 +100,14 @@ class AlertView: UIView {
     }
     func initAlertView(navcontroller: UINavigationController){
         if !inited {
-            UIApplication.shared.keyWindow?.addSubview(mainView)
-            UIApplication.shared.keyWindow?.addSubview(mascotImage)
-            UIApplication.shared.keyWindow?.addSubview(clickableView)
+            let keyWindow = UIApplication
+                .shared
+                .connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .last { $0.isKeyWindow }
+            keyWindow?.addSubview(mainView)
+            keyWindow?.addSubview(mascotImage)
+            keyWindow?.addSubview(clickableView)
             inited = true
         }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
