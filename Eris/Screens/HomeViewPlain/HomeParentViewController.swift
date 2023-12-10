@@ -56,8 +56,9 @@ class HomeParentViewController: UIViewController {
         searchButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         userNameButton.tintColor = chosenCompanion.shared.companion.darkToneColor
         self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
+        
+        //Handling special flags
         //on first launch show intro screen
-        //UserDefaults.standard.set(false, forKey: "launchedBefore")
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore {
             //Go to first launch screen
@@ -70,9 +71,16 @@ class HomeParentViewController: UIViewController {
         if firstQuestPending {
             AlertView.instance.showAlert(title: "Talk to me to create your first quest!", isSticky: false)
         }
-        if UserDefaults.standard.bool(forKey: "Skip used"){
+        //On skip show smaller dialogue
+        let skipUsed = UserDefaults.standard.bool(forKey: "Skip used")
+        if skipUsed{
             AlertView.instance.showAlert(title: "Talk to me get started with the app!", isSticky: true)
             UserDefaults.standard.set(false, forKey: "Skip used")
+        }
+        //Greetings if launched an app
+        if UserDefaults.standard.bool(forKey: "TimeForGreetings") && !firstQuestPending && !skipUsed{
+            AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.greetings.rawValue), isSticky: false)
+            UserDefaults.standard.set(false, forKey: "TimeForGreetings")
         }
     }
     

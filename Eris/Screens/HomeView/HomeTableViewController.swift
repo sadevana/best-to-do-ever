@@ -46,11 +46,7 @@ class HomeTableViewController: UITableViewController {
         //self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 0.8666666667, alpha: 1)
         self.tableView.separatorColor = .clear
         tableView.contentInset.bottom = 240
-        //Greetings if launched an app
-        if UserDefaults.standard.bool(forKey: "TimeForGreetings"){
-            AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.greetings.rawValue), isSticky: false)
-            UserDefaults.standard.set(false, forKey: "TimeForGreetings")
-        }
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {

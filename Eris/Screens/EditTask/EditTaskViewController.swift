@@ -48,6 +48,8 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskNameField.text = taskUI?.name
         descriptionView.text = taskUI?.description
         goldTextField.text = String(taskUI?.gold ?? 0)
+        
+        
         //Setting up datetime
         if taskUI?.datetime != nil {
             let date = taskUI?.datetime
@@ -72,6 +74,8 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         descriptionView!.layer.borderColor = borderColor.cgColor
         descriptionView!.layer.borderWidth = 0.3
         descriptionView!.layer.cornerRadius = 5.0
+        
+        
         //Setting up date and time fields
         let timeFormater = DateFormatter()
         timeFormater.dateFormat = "hh:mm:ss"
@@ -86,6 +90,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         timePicker.preferredDatePickerStyle = .wheels
         timeTextField.inputView = timePicker
         timeTextField.clearButtonMode = .whileEditing
+        
         //Date field
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd MMMM YYYY"
@@ -98,11 +103,11 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         datePicker.preferredDatePickerStyle = .wheels
         dateTextField.inputView = datePicker
         dateTextField.clearButtonMode = .whileEditing
+        
         //Other fields
         taskNameField.returnKeyType = .continue
         goldTextField.keyboardType = .numberPad
         goldTextField.returnKeyType = .done
-        
         
         
         //Validation
@@ -112,12 +117,16 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskNameField.addTarget(self,
                             action: #selector(nameValidation),
                             for: UIControl.Event.editingChanged)
+        
+        
         //for setting up keyboard actions
         descriptionView.delegate = self
         timeTextField.delegate = self
         dateTextField.delegate = self
         taskNameField.delegate =  self
         goldTextField.delegate = self
+        
+        
         //Setting up colors
         self.view.backgroundColor = UIColor(patternImage: chosenCompanion.shared.companion.bgImage)
         //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
@@ -130,22 +139,26 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
     }
     @objc func timePickerValueChange(sender: UIDatePicker) {
+        //Setting time from picker
         let timeFormater = DateFormatter()
         timeFormater.dateFormat = "HH:mm"
         timeFormater.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timeTextField.text = timeFormater.string(from: sender.date)
     }
     @objc func timePickerSetDefault(sender: UITextField) {
+        //Default value of time
         if sender.text == "" {
             timeTextField.text = "12:00"
         }
     }
     @objc func datePickerValueChange(sender: UIDatePicker) {
+        //Setting date from picker
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         dateTextField.text = dateFormater.string(from: sender.date)
     }
     @objc func datePickerSetDefault(sender: UITextField) {
+        //Default date is today
         if sender.text == "" {
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "dd.MM.yyyy"
@@ -153,6 +166,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
     }
     @IBAction func updateTapped(_ sender: Any) {
+        //Saving info
         if taskNameField.text ?? "" != "" {
             if editTaskModel.updateTask(task: taskUI!, name: taskNameField.text ?? "", description: descriptionView.text, gold: goldTextField.text ?? "", date: dateTextField.text ?? "", time: timeTextField.text ?? "", imageNum: iconBar.selectedSegmentIndex) {
                 
@@ -166,15 +180,18 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        //Ask for confirm on delete
         present(conformationAlert, animated: true)
     }
     func deleteTask() {
+        //Deleting task and going back
         if editTaskModel.deleteTask(task: taskUI!){
             self.navigationController?.popViewController(animated: true)
             AlertView.instance.showAlert(title: chosenCompanion.shared.companion.getSutuationalPhrase(situations.questDeleted.rawValue), isSticky: false)
         }
     }
     @objc func goldValidation(_ textField: UITextField) {
+        //Gold can only be numbers, less than 100000000
         if textField.text == "" {
             textField.text = "0"
             goldValue = "0"
@@ -209,6 +226,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     func textViewDidChange(_ textView: UITextView) {
+        //Description max lenght validation
         if textView.text.count > 8000 {
             textView.text = descriptionText
             descriptionWarningLabel.text = "❌Too long! Please enter less than 8000 symbols"
@@ -229,6 +247,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
         taskUI?.done = wasDone
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //Preventing bad input in time field
         if textField == timeTextField {
             //Checking if valid time is inputed
             do {
@@ -243,6 +262,7 @@ class EditTaskViewController: UIViewController, UITextFieldDelegate, UITextViewD
                 print("Regex error")
             }
         }
+        //And in date field
         if textField == dateTextField {
             //Checking if valid date is inputed
             do {
