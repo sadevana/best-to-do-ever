@@ -29,7 +29,7 @@ class HomeTableViewController: UITableViewController {
         label.lineBreakMode = .byWordWrapping
         label.text = "You have no quests! Let's create some\n using that plus button!"
         label.sizeToFit()
-    
+        //navigationController?.navigationBar.tintColor = chosenCompanion.shared.companion.darkToneColor
         view.addSubview(label)
         return view
     }()
@@ -66,8 +66,6 @@ class HomeTableViewController: UITableViewController {
         } else {
             //adding picture if there's no tasks
             noTasksView.frame = CGRect(x: view.frame.size.width/2 - view.frame.size.width/2.6, y: -20, width: view.frame.size.width/1.3, height: view.frame.size.height)
-            print(view.frame.size.width)
-            print(view.frame.size.height)
             self.view.addSubview(noTasksView)
         }
         //Loading common alert view
@@ -217,8 +215,9 @@ class HomeTableViewController: UITableViewController {
     func filterData(searchText: String) {
         if searchText != "" {
             //Filter results that contain matching description or name
-            var filteredData = tasksToShow.filter({$0.name?.uppercased().contains(searchText.uppercased()) ?? false || $0.description?.uppercased().contains(searchText.uppercased()) ?? false})
+            let filteredData = tasksToShow.filter({$0.name?.uppercased().contains(searchText.uppercased()) ?? false || $0.description?.uppercased().contains(searchText.uppercased()) ?? false})
             self.sectionedTasks = homeViewModel.sortTasks(tasks: filteredData)
+            
             self.tableView.reloadData()
         } else {
             self.sectionedTasks = homeViewModel.sortTasks(tasks: self.tasksToShow)

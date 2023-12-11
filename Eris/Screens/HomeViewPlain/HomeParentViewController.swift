@@ -40,6 +40,7 @@ class HomeParentViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //TODO move code that can be moved to didload
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
@@ -47,6 +48,7 @@ class HomeParentViewController: UIViewController {
         updateTopBarInfo()
         
         //Updating colors
+        //TODO make this universal for all screens somehow
         //self.view.backgroundColor = chosenCompanion.shared.companion.primaryColor
         userIcon.tintColor = chosenCompanion.shared.companion.darkToneColor
         let labels = self.view.subviews.compactMap({$0 as? UILabel?})
